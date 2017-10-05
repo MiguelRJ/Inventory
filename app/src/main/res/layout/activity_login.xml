@@ -11,36 +11,33 @@
         android:id="@+id/txvSignIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:text="Sing in" />
+        android:text="@string/txvSignIn" />
 
     <TextView
         android:id="@+id/txvUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="@string/txvUser" />
 
     <EditText
         android:id="@+id/edtUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:inputType="textPersonName"/>
 
     <TextView
         android:id="@+id/txvPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="@string/txvPassword" />
 
     <EditText
         android:id="@+id/edtPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:inputType="textPassword"/>
 
     <LinearLayout
         android:id="@+id/llySignOptions"
@@ -53,14 +50,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="CheckBox" />
+            android:text="@string/chkRemember" />
 
         <TextView
             android:id="@+id/txvSignUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="@string/txvSingUp" />
 
     </LinearLayout>
 
@@ -68,17 +65,17 @@
         android:id="@+id/btnSignIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="@string/btnSignIn" />
 
     <Button
         android:id="@+id/btnGoogleSign"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="@string/btnGoogleSign" />
 
     <Button
         android:id="@+id/btnFacebookSign"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="@string/btnFacebookSign" />
 </LinearLayout>
