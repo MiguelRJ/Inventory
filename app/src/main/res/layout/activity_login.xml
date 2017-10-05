@@ -5,59 +5,72 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.loginlinearlayout.loginlinearlayout.LoginActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="@dimen/lly_login_padding"
+    android:background="@color/colorPrimary">
 
     <TextView
         android:id="@+id/txvSignIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/txvSignIn" />
+        android:layout_marginBottom="@dimen/txvSignIn_margin"
+        android:text="@string/txvSignIn"
+        android:textAppearance="@android:style/TextAppearance.Holo.Large.Inverse" />
 
     <TextView
         android:id="@+id/txvUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/txvUser" />
+        android:labelFor="@+id/edtUser"
+        android:text="@string/txvUser"
+        android:textAppearance="@android:style/TextAppearance.Holo.Light.Inverse" />
+    <!-- android:labelFor="@id/edtUser" solo sirve para vincular el txv con el edt -->
 
     <EditText
         android:id="@+id/edtUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"/>
+        android:inputType="textPersonName"
+        android:layout_marginBottom="@dimen/edtUser_margin"/>
 
     <TextView
         android:id="@+id/txvPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/txvPassword" />
+        android:labelFor="@+id/edtPassword"
+        android:text="@string/txvPassword"
+        android:textAppearance="@android:style/TextAppearance.Holo.Light.Inverse" />
 
     <EditText
         android:id="@+id/edtPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPassword"/>
+        android:inputType="textPassword" />
 
     <LinearLayout
         android:id="@+id/llySignOptions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/llySingOptions_margin">
 
         <CheckBox
             android:id="@+id/chkRemember"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/chkRemember" />
+            android:text="@string/chkRemember"
+            android:textAppearance="@android:style/TextAppearance.Holo.Light.Inverse" />
 
         <TextView
             android:id="@+id/txvSignUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/txvSingUp" />
+            android:text="@string/txvSingUp"
+            android:textAppearance="@android:style/TextAppearance.Holo.Light.Inverse" />
 
     </LinearLayout>
 
@@ -65,7 +78,10 @@
         android:id="@+id/btnSignIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btnSignIn" />
+        android:text="@string/btnSignIn"
+        android:layout_marginLeft="@dimen/btnSignIn_margin"
+        android:layout_marginRight="@dimen/btnSignIn_margin"
+        android:layout_marginBottom="@dimen/btnSignIn_margin"/>
 
     <Button
         android:id="@+id/btnGoogleSign"

@@ -8,4 +8,5 @@
     <string name="btnSignIn">Acceder</string>
     <string name="btnGoogleSign">Conectar con google</string>
     <string name="btnFacebookSign">Conectar con facebook</string>
+    <string name="edtUser">Usuario</string>
 </resources>
