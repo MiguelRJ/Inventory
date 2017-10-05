@@ -15,15 +15,14 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/txvSignIn_margin"
         android:text="@string/txvSignIn"
-        android:textAppearance="@android:style/TextAppearance.Holo.Large.Inverse" />
+        android:textAppearance="@android:style/TextAppearance.Large" />
 
     <TextView
         android:id="@+id/txvUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:labelFor="@+id/edtUser"
-        android:text="@string/txvUser"
-        android:textAppearance="@android:style/TextAppearance.Holo.Light.Inverse" />
+        android:text="@string/txvUser" />
     <!-- android:labelFor="@id/edtUser" solo sirve para vincular el txv con el edt -->
 
     <EditText
@@ -39,8 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:labelFor="@+id/edtPassword"
-        android:text="@string/txvPassword"
-        android:textAppearance="@android:style/TextAppearance.Holo.Light.Inverse" />
+        android:text="@string/txvPassword" />
 
     <EditText
         android:id="@+id/edtPassword"
@@ -61,16 +59,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/chkRemember"
-            android:textAppearance="@android:style/TextAppearance.Holo.Light.Inverse" />
+            android:text="@string/chkRemember"/>
 
         <TextView
             android:id="@+id/txvSignUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/txvSingUp"
-            android:textAppearance="@android:style/TextAppearance.Holo.Light.Inverse" />
+            android:text="@string/txvSingUp" />
 
     </LinearLayout>
 
@@ -85,13 +81,21 @@
 
     <Button
         android:id="@+id/btnGoogleSign"
+        style="@android:style/Widget.Material.Light.Button.Borderless"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btnGoogleSign" />
+        android:background="@color/colorGoogle"
+        android:drawableStart="@drawable/ic_google"
+        android:text="@string/btnGoogleSign"
+        android:layout_marginBottom="@dimen/btnGoogleSign_margin"/>
+    <!-- imagenes http://romannurik.github.io/AndroidAssetStudio/icons-generic.html -->
 
     <Button
         android:id="@+id/btnFacebookSign"
+        style="@android:style/Widget.Material.Light.Button.Borderless"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorFacebook"
+        android:drawableStart="@drawable/ic_facebook"
         android:text="@string/btnFacebookSign" />
 </LinearLayout>
