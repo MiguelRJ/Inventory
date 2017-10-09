@@ -9,4 +9,8 @@
     <string name="btnGoogleSign">Conectar con google</string>
     <string name="btnFacebookSign">Conectar con facebook</string>
     <string name="edtUser">Usuario</string>
+    <string name="txvName">Nombre</string>
+    <string name="txvDescription">Descripcion</string>
+    <string name="txvCreationDate">Fecha creacion</string>
+    <string name="btnChange">Cambiar</string>
 </resources>

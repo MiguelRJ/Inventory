@@ -1,4 +1,4 @@
-package com.example.loginlinearlayout.loginlinearlayout;
+package com.example.inventory;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

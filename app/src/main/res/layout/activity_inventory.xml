@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.inventory.InventoryActivity"
+    android:stretchColumns="1">
+    <!-- android:stretchColumns="1" sirve para que una columna obtenga el mayor tamaño poisible, adaptando las otras a su contenido -->
+
+    <TableRow>
+        <TextView
+            android:id="@+id/txvName"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:text="@string/txvName"/>
+        <EditText
+            android:id="@+id/edtName"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:text="Text"
+            tools:ignore="LabelFor"
+            android:inputType="text" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/txvDescription"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:text="@string/txvDescription"/>
+        <EditText
+            android:id="@+id/edtDescription"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:inputType="textMultiLine"
+            android:text="Text"
+            tools:ignore="LabelFor" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/txvCreationDate"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:text="@string/txvCreationDate"/>
+        <EditText
+            android:id="@+id/edtCreationDate"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:text="Text"
+            tools:ignore="LabelFor"
+            android:inputType="text" />
+    </TableRow>
+
+    <TableRow>
+        <Button
+            android:id="@+id/btnChange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btnChange"
+            android:layout_gravity="center"
+            android:layout_span="2"/>
+    </TableRow>
+
+</TableLayout>

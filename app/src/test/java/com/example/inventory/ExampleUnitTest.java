@@ -1,4 +1,4 @@
-package com.example.loginlinearlayout.loginlinearlayout;
+package com.example.inventory;
 
 import org.junit.Test;
 

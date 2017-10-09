@@ -4,7 +4,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.3"
     defaultConfig {
-        applicationId "com.example.loginlinearlayout.loginlinearlayout"
+        applicationId "com.example.inventory"
         minSdkVersion 18
         targetSdkVersion 22
         versionCode 1
