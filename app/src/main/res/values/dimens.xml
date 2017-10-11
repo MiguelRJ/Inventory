@@ -6,7 +6,6 @@
     <dimen name="llySingOptions_margin">20dp</dimen>
     <dimen name="btnSignIn_margin">60dp</dimen>
     <dimen name="btnGoogleSign_margin">5dp</dimen>
-    <dimen name="imgDashboardWidth">90dp</dimen>
-    <dimen name="imgDashboardHeight">100dp</dimen>
-    <dimen name="spaceWidth">30dp</dimen>
+    <dimen name="imgDashboardWidth">0dp</dimen>
+    <dimen name="imgDashboardHeight">0dp</dimen>
 </resources>
