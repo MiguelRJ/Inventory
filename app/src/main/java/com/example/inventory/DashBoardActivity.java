@@ -28,19 +28,22 @@ public class DashBoardActivity extends AppCompatActivity {
         // ImageView[] imageViews = new ImageView[images.length]; los arrays de objeto no son eficientes
         // No utilizamos la clase vector porque no trabajamos con hilos y n ose requiere sincronizacion
         // Vector<ImageView> vectorImageViews = new Vector<ImageView>();
+        // ArrayList<ImageView> arrayImageViews = new ArrayList<ImageView>();
+        ImageView imageView;
         int width=(int)getResources().getDimension(R.dimen.imgDashboardWidth);
         int height=(int)getResources().getDimension(R.dimen.imgDashboardHeight);
-        ArrayList<ImageView> arrayImageViews = new ArrayList<ImageView>();
+
+
         for (int i=0; i<images.length; i++){
-            arrayImageViews.add(new ImageView(this));
-            arrayImageViews.get(i).setImageResource(images[i]);
+            imageView = new ImageView(this);
+            imageView.setImageResource(images[i]);
             GridLayout.LayoutParams params = new GridLayout.LayoutParams();
             params.width=width;
             params.height=height;
             params.rowSpec=GridLayout.spec(GridLayout.UNDEFINED,GridLayout.FILL,1f);
             params.columnSpec=GridLayout.spec(GridLayout.UNDEFINED,GridLayout.FILL,1f);
-            arrayImageViews.get(i).setLayoutParams(params);
-            gridDashboard.addView(arrayImageViews.get(i));
+            imageView.setLayoutParams(params);
+            gridDashboard.addView(imageView);
         }
     }
 }
