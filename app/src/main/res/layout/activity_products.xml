@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.inventory.ProductsActivity">
+
+    <TabHost
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/informacion"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imgInformacion"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:srcCompat="@drawable/monitor" />
+
+                    <TextView
+                        android:id="@+id/txvNombre"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/txvNameProducts"
+                        android:textSize="@dimen/txvSizeProducts"
+                        app:layout_constraintEnd_toEndOf="@+id/barrera"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imgInformacion" />
+
+                    <EditText
+                        android:id="@+id/edtNombre"
+                        android:layout_width="@dimen/edtWidth"
+                        android:layout_height="@dimen/edtHeight"
+                        android:layout_marginStart="8dp"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        app:layout_constraintBaseline_toBaselineOf="@+id/txvNombre"
+                        app:layout_constraintStart_toEndOf="@+id/barrera" />
+
+                    <TextView
+                        android:id="@+id/txvSerial"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/txvSerial"
+                        android:textSize="@dimen/txvSizeProducts"
+                        app:layout_constraintEnd_toEndOf="@+id/barrera"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txvNombre" />
+
+                    <EditText
+                        android:id="@+id/edtSerial"
+                        android:layout_width="@dimen/edtWidth"
+                        android:layout_height="@dimen/edtHeight"
+                        android:layout_marginStart="8dp"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        app:layout_constraintBaseline_toBaselineOf="@+id/txvSerial"
+                        app:layout_constraintStart_toEndOf="@+id/barrera" />
+
+                    <TextView
+                        android:id="@+id/txvVendedor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/txvVendedor"
+                        android:textSize="@dimen/txvSizeProducts"
+                        app:layout_constraintEnd_toStartOf="@+id/barrera"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txvSerial" />
+
+                    <EditText
+                        android:id="@+id/edtVendedor"
+                        android:layout_width="@dimen/edtWidth"
+                        android:layout_height="@dimen/edtHeight"
+                        android:layout_marginStart="8dp"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        app:layout_constraintBaseline_toBaselineOf="@+id/txvVendedor"
+                        app:layout_constraintStart_toEndOf="@+id/barrera" />
+
+                    <TextView
+                        android:id="@+id/txvModelo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/txvModelo"
+                        android:textSize="@dimen/txvSizeProducts"
+                        app:layout_constraintEnd_toStartOf="@+id/barrera"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txvVendedor" />
+
+                    <EditText
+                        android:id="@+id/edtModelo"
+                        android:layout_width="@dimen/edtWidth"
+                        android:layout_height="@dimen/edtHeight"
+                        android:layout_marginStart="8dp"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        app:layout_constraintBaseline_toBaselineOf="@+id/txvModelo"
+                        app:layout_constraintStart_toEndOf="@+id/barrera" />
+
+                    <TextView
+                        android:id="@+id/txvCategoria"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="60dp"
+                        android:text="@string/txvCategoria"
+                        android:textSize="@dimen/txvSizeProducts"
+                        app:layout_constraintTop_toBottomOf="@+id/txvModelo"
+                        tools:layout_editor_absoluteX="8dp" />
+
+                    <android.support.constraint.Barrier
+                        android:id="@+id/barrera"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:barrierDirection="left"
+                        app:constraint_referenced_ids="edtNombre,edtSerial,edtVendedor,edtModelo"
+                        tools:layout_editor_absoluteX="114dp" />
+
+                </android.support.constraint.ConstraintLayout>
+
+                <LinearLayout
+                    android:id="@+id/localizacion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/historial"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+
+</android.support.constraint.ConstraintLayout>

@@ -8,4 +8,7 @@
     <dimen name="btnGoogleSign_margin">5dp</dimen>
     <dimen name="imgDashboardWidth">0dp</dimen>
     <dimen name="imgDashboardHeight">0dp</dimen>
+    <dimen name="edtHeight">40dp</dimen>
+    <dimen name="edtWidth">120dp</dimen>
+    <dimen name="txvSizeProducts">25dp</dimen>
 </resources>

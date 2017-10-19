@@ -3,6 +3,7 @@ package com.example.inventory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
@@ -29,21 +30,21 @@ public class DashBoardActivity extends AppCompatActivity {
         // No utilizamos la clase vector porque no trabajamos con hilos y n ose requiere sincronizacion
         // Vector<ImageView> vectorImageViews = new Vector<ImageView>();
         // ArrayList<ImageView> arrayImageViews = new ArrayList<ImageView>();
-        ImageView imageView;
+        ImageButton imageButton;
         int width=(int)getResources().getDimension(R.dimen.imgDashboardWidth);
         int height=(int)getResources().getDimension(R.dimen.imgDashboardHeight);
 
 
         for (int i=0; i<images.length; i++){
-            imageView = new ImageView(this);
-            imageView.setImageResource(images[i]);
+            imageButton = new ImageButton(this);
+            imageButton.setImageResource(images[i]);
             GridLayout.LayoutParams params = new GridLayout.LayoutParams();
             params.width=width;
             params.height=height;
             params.rowSpec=GridLayout.spec(GridLayout.UNDEFINED,GridLayout.FILL,1f);
             params.columnSpec=GridLayout.spec(GridLayout.UNDEFINED,GridLayout.FILL,1f);
-            imageView.setLayoutParams(params);
-            gridDashboard.addView(imageView);
+            imageButton.setLayoutParams(params);
+            gridDashboard.addView(imageButton);
         }
     }
 }

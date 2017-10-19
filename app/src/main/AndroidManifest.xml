@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".InventoryActivity" />
-        <activity android:name=".DashBoardActivity"></activity>
+        <activity android:name=".DashBoardActivity" />
+        <activity android:name=".ProductsActivity" android:theme="@style/AppThemeActionBar"/>
     </application>
 
 </manifest>

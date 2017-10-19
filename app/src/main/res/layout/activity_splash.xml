@@ -8,10 +8,11 @@
     android:background="@color/colorPrimary">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imgSplash"
         android:layout_width="320dp"
         android:layout_height="320dp"
+        android:layout_gravity="center"
         app:srcCompat="@drawable/logo_fondo"
-        android:layout_gravity="center"/>
+        android:contentDescription="@string/contentImgDashboard"/>
     <!-- android:layout_gravity="center_horizontal|center_vertical" con el "|" se pueden poner varios atributos -->
 </FrameLayout>

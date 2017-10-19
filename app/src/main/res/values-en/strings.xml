@@ -14,4 +14,10 @@
     <string name="txvDescription">Description</string>
     <string name="txvName">Name</string>
     <string name="btnChange">Change state</string>
+    <string name="contentImgDashboard">Image Dashboard</string>
+    <string name="txvNameProducts">Name:</string>
+    <string name="txvSerial">Serial:</string>
+    <string name="txvVendedor">SellerSellerSeller:</string>
+    <string name="txvModelo">Model:</string>
+    <string name="txvCategoria">Categorie:</string>
 </resources>
