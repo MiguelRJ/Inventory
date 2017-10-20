@@ -3,15 +3,10 @@ package com.example.inventory;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayout;
-import android.util.Log;
+import android.support.v7.widget.GridLayout;g
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Vector;
 
 public class DashBoardActivity extends AppCompatActivity {
 
@@ -24,11 +19,9 @@ public class DashBoardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dash_board);
         gridDashboard=(GridLayout)findViewById(R.id.gridDashboard);
 
-        // Definir un array de int, que contendra el id de las imagenes Inventory, Product, Dependencias, Secciones, Preferencias.
-        int[] images ={R.drawable.chair,R.drawable.closet,R.drawable.cpu,
-                R.drawable.inventory,R.drawable.keyboard,R.drawable.monitor,
-                R.drawable.mouse,R.drawable.printer,R.drawable.proyector,
-                R.drawable.table,R.drawable.whiteboard};
+        // Definir un array de int, que contendra el id de las imagenes
+        // Inventory, Product, Dependencias, Secciones, Preferencias.
+        int[] images ={R.drawable.inventory,R.drawable.closet, R.drawable.whiteboard, R.drawable.table, R.drawable.cpu};
 
         // En Java/Android no se utilizan arrays de objetos, se utilizan vector o colecciones
         // ImageView[] imageViews = new ImageView[images.length]; los arrays de objeto no son eficientes
@@ -42,7 +35,7 @@ public class DashBoardActivity extends AppCompatActivity {
 
 
         for (int i=0; i<images.length; i++){
-            imageView = new ImageButton(this);
+            imageView = new ImageView(this);
             imageView.setId(images[i]);
             imageView.setImageResource(images[i]);
             GridLayout.LayoutParams params = new GridLayout.LayoutParams();
@@ -69,7 +62,7 @@ public class DashBoardActivity extends AppCompatActivity {
                     intent = new Intent(DashBoardActivity.this, InventoryActivity.class);
                     startActivity(intent);
                     break;
-                case R.drawable.printer:
+                case R.drawable.closet:
                     //Log.d("Switch", String.valueOf(view.getId()));
                     intent = new Intent(DashBoardActivity.this, ProductsActivity.class);
                     startActivity(intent);
