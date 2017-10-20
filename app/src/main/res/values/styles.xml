@@ -53,6 +53,7 @@
         <item name="android:background">@drawable/shape_edittext</item>
         <item name="android:ems">10</item>
         <item name="android:inputType">textPersonName</item>
+        <item name="android:padding">@dimen/edtProductsPadding</item>
     </style>
 
 

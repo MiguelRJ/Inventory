@@ -144,12 +144,13 @@
             android:text="@string/txvPrecio"
             app:layout_constraintStart_toStartOf="@id/guideline"
             app:layout_constraintTop_toBottomOf="@+id/edtDescripcion" />
+
         <EditText
             android:id="@+id/edtPrecio"
             style="@style/edtProductsActivyty"
             android:inputType="numberDecimal"
             app:layout_constraintStart_toEndOf="@+id/barrera"
-            app:layout_constraintTop_toTopOf="@+id/txvPrecio"/>
+            app:layout_constraintTop_toTopOf="@+id/txvPrecio" />
 
 
         <TextView
@@ -169,6 +170,7 @@
         <TextView
             android:id="@+id/txvUrl"
             style="@style/txvProductsActivity"
+            android:layout_marginTop="40dp"
             android:text="@string/txvUrl"
             app:layout_constraintStart_toStartOf="@id/guideline"
             app:layout_constraintTop_toBottomOf="@+id/txvFechaCompra" />

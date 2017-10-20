@@ -3,10 +3,14 @@ package com.example.inventory;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayout;g
+import android.support.v7.widget.GridLayout;
 import android.view.View;
 import android.widget.ImageView;
 
+/**
+ * @author Miguel Rodriguez Jimenez
+ * @version 17.10.20
+ */
 
 public class DashBoardActivity extends AppCompatActivity {
 
@@ -21,7 +25,7 @@ public class DashBoardActivity extends AppCompatActivity {
 
         // Definir un array de int, que contendra el id de las imagenes
         // Inventory, Product, Dependencias, Secciones, Preferencias.
-        int[] images ={R.drawable.inventory,R.drawable.closet, R.drawable.whiteboard, R.drawable.table, R.drawable.cpu};
+        int[] images ={R.drawable.inventory,R.drawable.monitor, R.drawable.closet, R.drawable.table, R.drawable.cpu};
 
         // En Java/Android no se utilizan arrays de objetos, se utilizan vector o colecciones
         // ImageView[] imageViews = new ImageView[images.length]; los arrays de objeto no son eficientes
@@ -46,7 +50,6 @@ public class DashBoardActivity extends AppCompatActivity {
             imageView.setLayoutParams(params);
             imageView.setOnClickListener(listenerDashboard);
             gridDashboard.addView(imageView);
-            //Log.d("id", String.valueOf(imageView.getId()));
         }
     }
 
@@ -54,16 +57,13 @@ public class DashBoardActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View view) {
-            //Log.d("Switch", String.valueOf(view.getId()) + view.toString());
             Intent intent = null;
             switch (view.getId()){
                 case R.drawable.inventory:
-                    //Log.d("Switch", String.valueOf(view.getId()));
                     intent = new Intent(DashBoardActivity.this, InventoryActivity.class);
                     startActivity(intent);
                     break;
-                case R.drawable.closet:
-                    //Log.d("Switch", String.valueOf(view.getId()));
+                case R.drawable.monitor:
                     intent = new Intent(DashBoardActivity.this, ProductsActivity.class);
                     startActivity(intent);
                     break;

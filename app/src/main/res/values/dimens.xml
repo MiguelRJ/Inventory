@@ -12,4 +12,5 @@
     <dimen name="edtWidth">180dp</dimen>
     <dimen name="txvSizeProducts">25dp</dimen>
     <dimen name="txvMarginTop">24dp</dimen>
+    <dimen name="edtProductsPadding">10dp</dimen>
 </resources>
