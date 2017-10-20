@@ -30,8 +30,30 @@
     </style>
 
     <style name="styleSpinner" parent="android:Widget.Spinner">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/edtHeight</item>
         <item name="android:background">@color/colorPrimaryLogin</item>
         <item name="android:strokeColor">@color/colorPrimaryDark</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:spinnerMode">dialog</item>
     </style>
+
+    <style name="txvProductsActivity" parent="android:Widget.TextView">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+        <item name="android:layout_marginTop">@dimen/txvMarginTop</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="edtProductsActivyty" parent="android:Widget.EditText">
+        <item name="android:layout_width">@dimen/edtWidth</item>
+        <item name="android:layout_height">@dimen/edtHeight</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:background">@drawable/shape_edittext</item>
+        <item name="android:ems">10</item>
+        <item name="android:inputType">textPersonName</item>
+    </style>
+
 
 </resources>
