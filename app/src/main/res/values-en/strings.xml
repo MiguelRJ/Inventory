@@ -20,4 +20,11 @@
     <string name="txvVendedor">Seller:</string>
     <string name="txvModelo">Model:</string>
     <string name="txvCategoria">Categorie:</string>
+    <string name="txvSubcategoria">Subcategorie:</string>
+    <string name="txvTipo">Type:</string>
+    <string name="txvDescripcion">Description:</string>
+    <string name="txvPrecio">Price:</string>
+    <string name="txvFechaCompra">Buy date:</string>
+    <string name="txvUrl">Url:</string>
+    <string name="txvNotas">Notes:</string>
 </resources>
