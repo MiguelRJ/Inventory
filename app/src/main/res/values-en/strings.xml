@@ -17,7 +17,7 @@
     <string name="contentImgDashboard">Image Dashboard</string>
     <string name="txvNameProducts">Name:</string>
     <string name="txvSerial">Serial:</string>
-    <string name="txvVendedor">SellerSellerSeller:</string>
+    <string name="txvVendedor">Seller:</string>
     <string name="txvModelo">Model:</string>
     <string name="txvCategoria">Categorie:</string>
 </resources>

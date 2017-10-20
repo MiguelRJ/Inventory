@@ -1,17 +1,22 @@
 package com.example.inventory;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayout;
+import android.util.Log;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 
 public class DashBoardActivity extends AppCompatActivity {
 
     private GridLayout gridDashboard;
+    private ClickListenerDashboard listenerDashboard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +24,7 @@ public class DashBoardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dash_board);
         gridDashboard=(GridLayout)findViewById(R.id.gridDashboard);
 
-        // Definir un array de int, que contendra el id de las imagenes
+        // Definir un array de int, que contendra el id de las imagenes Inventory, Product, Dependencias, Secciones, Preferencias.
         int[] images ={R.drawable.chair,R.drawable.closet,R.drawable.cpu,
                 R.drawable.inventory,R.drawable.keyboard,R.drawable.monitor,
                 R.drawable.mouse,R.drawable.printer,R.drawable.proyector,
@@ -30,21 +35,47 @@ public class DashBoardActivity extends AppCompatActivity {
         // No utilizamos la clase vector porque no trabajamos con hilos y n ose requiere sincronizacion
         // Vector<ImageView> vectorImageViews = new Vector<ImageView>();
         // ArrayList<ImageView> arrayImageViews = new ArrayList<ImageView>();
-        ImageButton imageButton;
-        int width=(int)getResources().getDimension(R.dimen.imgDashboardWidth);
-        int height=(int)getResources().getDimension(R.dimen.imgDashboardHeight);
+        listenerDashboard = new ClickListenerDashboard();
+        ImageView imageView;
+        float width = getResources().getDimension(R.dimen.imgDashboardWidth);
+        float height = getResources().getDimension(R.dimen.imgDashboardHeight);
 
 
         for (int i=0; i<images.length; i++){
-            imageButton = new ImageButton(this);
-            imageButton.setImageResource(images[i]);
+            imageView = new ImageButton(this);
+            imageView.setId(images[i]);
+            imageView.setImageResource(images[i]);
             GridLayout.LayoutParams params = new GridLayout.LayoutParams();
-            params.width=width;
-            params.height=height;
+            params.width=(int)width;
+            params.height=(int)height;
             params.rowSpec=GridLayout.spec(GridLayout.UNDEFINED,GridLayout.FILL,1f);
             params.columnSpec=GridLayout.spec(GridLayout.UNDEFINED,GridLayout.FILL,1f);
-            imageButton.setLayoutParams(params);
-            gridDashboard.addView(imageButton);
+            imageView.setLayoutParams(params);
+            imageView.setOnClickListener(listenerDashboard);
+            gridDashboard.addView(imageView);
+            //Log.d("id", String.valueOf(imageView.getId()));
+        }
+    }
+
+    class ClickListenerDashboard implements View.OnClickListener{
+
+        @Override
+        public void onClick(View view) {
+            //Log.d("Switch", String.valueOf(view.getId()) + view.toString());
+            Intent intent = null;
+            switch (view.getId()){
+                case R.drawable.inventory:
+                    //Log.d("Switch", String.valueOf(view.getId()));
+                    intent = new Intent(DashBoardActivity.this, InventoryActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.drawable.printer:
+                    //Log.d("Switch", String.valueOf(view.getId()));
+                    intent = new Intent(DashBoardActivity.this, ProductsActivity.class);
+                    startActivity(intent);
+                    break;
+            }
+            //startActivity(intent);
         }
     }
 }

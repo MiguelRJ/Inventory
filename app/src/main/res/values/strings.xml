@@ -14,9 +14,9 @@
     <string name="txvCreationDate">Fecha creacion</string>
     <string name="btnChange">Cambiar</string>
     <string name="contentImgDashboard">Imagen Dashboard</string>
-    <string name="txvNameProducts">Nombre:</string>
+    <string name="txvNameProducts">NombreNombre:</string>
     <string name="txvSerial">Serial:</string>
-    <string name="txvVendedor">Vendedor:</string>
+    <string name="txvVendedor">VendedorVendedor:</string>
     <string name="txvModelo">Modelo:</string>
     <string name="txvCategoria">Categoria:</string>
 </resources>

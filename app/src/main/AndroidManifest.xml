@@ -20,7 +20,7 @@
         </activity>
         <activity android:name=".InventoryActivity" />
         <activity android:name=".DashBoardActivity" />
-        <activity android:name=".ProductsActivity" android:theme="@style/AppThemeActionBar"/>
+        <activity android:name=".ProductsActivity" />
     </application>
 
 </manifest>
