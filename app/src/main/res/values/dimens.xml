@@ -9,6 +9,7 @@
     <dimen name="imgDashboardWidth">0dp</dimen>
     <dimen name="imgDashboardHeight">0dp</dimen>
     <dimen name="edtHeight">40dp</dimen>
-    <dimen name="edtWidth">120dp</dimen>
+    <dimen name="edtWidth">180dp</dimen>
     <dimen name="txvSizeProducts">25dp</dimen>
+    <dimen name="txvMarginTop">24dp</dimen>
 </resources>

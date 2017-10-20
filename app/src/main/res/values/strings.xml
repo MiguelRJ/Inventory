@@ -26,4 +26,29 @@
     <string name="txvFechaCompra">F. compra:</string>
     <string name="txvUrl">Url:</string>
     <string name="txvNotas">Notas:</string>
+    <string-array name="spnCategoria">
+        <item>Categoria1</item>
+        <item>Categoria2</item>
+        <item>Categoria3</item>
+    </string-array>
+    <string-array name="spnCategoria1">
+        <item>Subcategoria1.1</item>
+        <item>Subcategoria1.2</item>
+        <item>Subcategoria1.3</item>
+    </string-array>
+    <string-array name="spnCategoria2">
+        <item>Subcategoria2.1</item>
+        <item>Subcategoria2.2</item>
+        <item>Subcategoria2.3</item>
+    </string-array>
+    <string-array name="spnCategoria3">
+        <item>Subcategoria3.1</item>
+        <item>Subcategoria3.2</item>
+        <item>Subcategoria3.3</item>
+    </string-array>
+    <string-array name="spnTipo">
+        <item>Tipo1</item>
+        <item>Tipo2</item>
+        <item>Tipo3</item>
+    </string-array>
 </resources>

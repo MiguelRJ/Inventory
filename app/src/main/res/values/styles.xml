@@ -29,4 +29,9 @@
         <item name="android:textColorSecondary">@android:color/darker_gray</item>
     </style>
 
+    <style name="styleSpinner" parent="android:Widget.Spinner">
+        <item name="android:background">@color/colorPrimaryLogin</item>
+        <item name="android:strokeColor">@color/colorPrimaryDark</item>
+    </style>
+
 </resources>
