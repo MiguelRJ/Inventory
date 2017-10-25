@@ -24,7 +24,7 @@ public class DependencyActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dependency);
         // CASO 1: adapter no personalizado
-        dependencies = new ArrayAdapter(this,android.R.layout.simple_list_item_1);
+        dependencies = new ArrayAdapter(this,android.R.layout.simple_list_item_1,((InventoryApplication)getApplicationContext()).getDependencies());
         getListView().setAdapter(dependencies);
 
         // CASO 2: adapter personalizado
