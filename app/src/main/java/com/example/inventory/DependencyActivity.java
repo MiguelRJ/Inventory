@@ -3,10 +3,8 @@ package com.example.inventory;
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.widget.ArrayAdapter;
 
-import com.example.inventory.adapter.DependencyAdapter;
-import com.example.inventory.pojo.Dependency;
+import com.example.inventory.adapter.DependencyAdapterB;
 
 /**
  * Created by usuario on 25/10/17.
@@ -19,7 +17,8 @@ import com.example.inventory.pojo.Dependency;
 public class DependencyActivity extends ListActivity {
 
     //private ArrayAdapter<Dependency> adapter;
-    private DependencyAdapter adapter;
+    //private DependencyAdapterA adapter;
+    private DependencyAdapterB adapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -30,7 +29,8 @@ public class DependencyActivity extends ListActivity {
         //getListView().setAdapter(adapter);
 
         // CASO 2: adapter personalizado
-        adapter = new DependencyAdapter(this);
+        //adapter = new DependencyAdapterA(this);
+        adapter = new DependencyAdapterB(this);
         getListView().setAdapter(adapter);
     }
 }
