@@ -7,7 +7,10 @@ import com.example.inventory.pojo.Dependency;
 import java.util.ArrayList;
 
 /**
- * Created by usuario on 25/10/17.
+ * Created by
+ * @author Miguel Rodriguez Jimenez
+ * @version 1.0.0.0.0.0.0.0
+ * @date 25/10/17
  */
 
 public class InventoryApplication extends Application {
