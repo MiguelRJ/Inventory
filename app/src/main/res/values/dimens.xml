@@ -13,10 +13,14 @@
     <dimen name="txvSizeProducts">25dp</dimen>
     <dimen name="txvMarginTop">24dp</dimen>
     <dimen name="edtProductsPadding">10dp</dimen>
+    <dimen name="edtProductsMarginEnd">24dp</dimen>
+    <dimen name="spnProductsMarginEnd">24dp</dimen>
     <dimen name="letter_icon_size">48dp</dimen>
     <!-- <dimen name="letter_icon_padding_left">16dp</dimen> -->
     <!-- <dimen name="list_text_padding_left">72dp</dimen> -->
     <dimen name="list_top_padding">8dp</dimen>
     <dimen name="primary_text">16sp</dimen>
     <dimen name="secondary_text">14sp</dimen>
+    <dimen name="imgQrcodeWidth">32dp</dimen>
+    <dimen name="imgQrcodeHeight">32dp</dimen>
 </resources>

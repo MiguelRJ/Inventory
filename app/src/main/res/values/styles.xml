@@ -34,7 +34,7 @@
         <item name="android:layout_height">@dimen/edtHeight</item>
         <item name="android:background">@color/colorPrimaryLogin</item>
         <item name="android:strokeColor">@color/colorPrimaryDark</item>
-        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:layout_marginEnd">@dimen/spnProductsMarginEnd</item>
         <item name="android:layout_marginStart">8dp</item>
         <item name="android:spinnerMode">dialog</item>
     </style>
@@ -54,6 +54,7 @@
         <item name="android:ems">10</item>
         <item name="android:inputType">textPersonName</item>
         <item name="android:padding">@dimen/edtProductsPadding</item>
+        <item name="android:layout_marginEnd">@dimen/edtProductsMarginEnd</item>
     </style>
 
 </resources>
