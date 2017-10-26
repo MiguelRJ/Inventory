@@ -29,7 +29,7 @@ public class InventoryApplication extends Application {
     }
 
     /**
-     * MEtodo que aññade una dependencia
+     * Metodo que aññade una dependencia
      * @param dependency
      */
     public void addDependency(Dependency dependency){
