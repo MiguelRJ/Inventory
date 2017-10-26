@@ -191,6 +191,8 @@
                 android:layout_height="30dp"
                 android:layout_marginStart="24dp"
                 android:inputType="textUri"
+                android:textSize="14sp"
+                android:padding="5dp"
                 app:layout_constraintBaseline_toBaselineOf="@+id/txvUrl"
                 app:layout_constraintEnd_toEndOf="@id/edtFechaCompra"
                 app:layout_constraintStart_toEndOf="@id/txvUrl" />
