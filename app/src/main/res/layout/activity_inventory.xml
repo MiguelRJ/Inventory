@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.inventory.InventoryActivity"
     android:stretchColumns="1">
-    <!-- android:stretchColumns="1" sirve para que una columna obtenga el mayor tamaño poisible, adaptando las otras a su contenido -->
+    <!-- android:stretchColumns="1" sirve para que una columna obtenga el mayor tamaño posible, adaptando las otras a su contenido -->
 
     <TableRow>
         <TextView

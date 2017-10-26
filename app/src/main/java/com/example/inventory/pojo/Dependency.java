@@ -1,15 +1,35 @@
 package com.example.inventory.pojo;
 
 /**
- * Created by usuario on 25/10/17.
+ * Created by
+ *
+ * @author Miguel Rodriguez Jimenez
+ * @version 1
+ *          Dependency
+ *          El objeto dependencia creado por nosotros
+ *          Campos
+ *          Metodos get y set
+ *          Constructor
+ *          Override de ToString para devolver el valor
+ * @date 25/10/17
  */
 
 public class Dependency {
+    /*CAMPOS*/
     private int _ID;
     private String name;
     private String sortName;
     private String description;
 
+    /*CONSTRUCTOR*/
+    public Dependency(int _ID, String name, String shortame, String description) {
+        this._ID = _ID;
+        this.name = name;
+        this.sortName = shortame;
+        this.description = description;
+    }
+
+    /*METODOS*/
     public int get_ID() {
         return _ID;
     }
@@ -39,14 +59,6 @@ public class Dependency {
     }
 
     public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Dependency(int _ID, String name, String shortame, String description) {
-
-        this._ID = _ID;
-        this.name = name;
-        this.sortName = shortame;
         this.description = description;
     }
 

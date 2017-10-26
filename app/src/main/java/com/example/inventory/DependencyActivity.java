@@ -3,16 +3,21 @@ package com.example.inventory;
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+
 import com.example.inventory.adapter.DependencyAdapter;
 import com.example.inventory.adapter.DependencyAdapterB;
 import com.example.inventory.adapter.DependencyAdapterA;
 
 /**
- * Created by usuario on 25/10/17.
- * ListActivity tiene una lista interna por defecto
- * que en el layout tiene que tener nombre de android si o si (android:id="@android:id/list")
- * nos ahorramos el findbyid del ListView interno al tener el nombre de android
+ * Created by
  *
+ * @author Miguel Rodriguez Jimenez
+ * @version 1
+ *          DependencyActivity
+ *          ListActivity tiene una lista interna por defecto
+ *          que en el layout tiene que tener nombre de android si o si (android:id="@android:id/list")
+ *          nos ahorramos el findbyid del ListView interno al tener el nombre de android
+ * @date 25/10/17
  */
 
 public class DependencyActivity extends ListActivity {

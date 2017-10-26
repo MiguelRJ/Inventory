@@ -14,14 +14,32 @@ import com.example.inventory.pojo.Dependency;
 import com.example.inventory.repository.DependencyRepository;
 import com.github.ivbaranov.mli.MaterialLetterIcon;
 
-
 /**
  * Created by
  *
  * @author Miguel Rodriguez Jimenez
- * @version 1.0.0.0.0.0.0.0
+ * @version 1
+ *          DependencyAdapter adaptara la dependencia a una elemento view para mostrarlo en la interfaz.
+ *          Esta es la solucion buena (La buena, la mala y la fea)
+ *
+ *          DependencyHolder dependencyHolder Para que posea las variables de los view
+ *
+ *          view = convertView Para que no este creando en memoria mas vies de la cuenta
+ *
+ *          if(view==null) Si es null (No hay elementos view fuera de la vista de la app)
+ *              Obtengo el servicio inflater para crear elementos en la vista
+ *
+ *              Creo los elementos en memoria con el layout (item_layout) con el que ya especifico como se veran
+ *
+ *          else Si no es null (Hay elementos view fuera de la vistade la app)
+ *              El objeto DependencyHolder sera el que le asignamos con view.getTag sus variables
+ *
+ *
+ *          Los elementos view que se hayan creado se iran cambiando sus valores
+ *              Inicializo las variables de lo definido en el layout (item_layout)
+ *
+ *              Mostrar los datos del ArrayList mediante position
  * @date 26/10/17
- * ES LA PRIMERA SOLUCION NO OPTIMIZADA OpcionA
  */
 
 public class DependencyAdapter extends ArrayAdapter<Dependency> {
@@ -49,9 +67,9 @@ public class DependencyAdapter extends ArrayAdapter<Dependency> {
             dependencyHolder.icon = (MaterialLetterIcon) view.findViewById(R.id.icon);
             dependencyHolder.txvName = (TextView) view.findViewById(R.id.txvName);
             dependencyHolder.txvSortName = (TextView) view.findViewById(R.id.txvSortName);
-            view.setTag(dependencyHolder); // Se guarda en la vista como Tag
+            view.setTag(dependencyHolder);// Se guarda como Tag la clase DependencyHolder con el valor de sus variables
         } else {
-            dependencyHolder = (DependencyHolder) view.getTag();
+            dependencyHolder = (DependencyHolder) view.getTag();// El objeto dependencyHolder sera el que le asignamos al view
         }
 
         //4. Mostrar los datos del ArrayList mediante position
@@ -61,6 +79,9 @@ public class DependencyAdapter extends ArrayAdapter<Dependency> {
         return view;
     }
 
+    /**
+     * Esta clase se usa para tener las instancias de los View ya creadas y solo asignarlas mediante view.getTag()
+     */
     class DependencyHolder {
         MaterialLetterIcon icon;
         TextView txvName;

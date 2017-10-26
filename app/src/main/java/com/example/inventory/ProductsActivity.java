@@ -7,6 +7,14 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+/**
+ * @author Miguel Rodriguez Jimenez
+ * @version 17.10.20
+ *          ProductsActivity
+ *          Activity de alta/edicion de productos
+ * @date 17/10/2017
+ */
+
 public class ProductsActivity extends AppCompatActivity {
 
     @Override

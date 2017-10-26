@@ -1,6 +1,5 @@
 package com.example.inventory.adapter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,20 +8,31 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-
 import com.example.inventory.R;
 import com.example.inventory.pojo.Dependency;
 import com.example.inventory.repository.DependencyRepository;
 import com.github.ivbaranov.mli.MaterialLetterIcon;
 
-
 /**
  * Created by
  *
  * @author Miguel Rodriguez Jimenez
- * @version 1.0.0.0.0.0.0.0
+ * @version 1
+ *          DependencyAdapter adaptara la dependencia a una elemento view para mostrarlo en la interfaz.
+ *          Esta es la solucion fea (La buena, la mala y la fea)
+ *
+ *          view = convertView Para que no este creando en memoria mas vies de la cuenta
+ *
+ *          if(view==null) Si es null (no hay elementos view fuera de la vista de la app)
+ *              Obtengo el servicio inflater para crear elementos en la vista
+ *
+ *              Creo los elementos en memoria con el layout (item_layout) con el que ya especifico como se veran
+ *
+ *          Los elementos view que se hayan creado se iran cambiando sus valores
+ *              Inicializo las variables de lo definido en el layout (item_layout)
+ *
+ *              Mostrar los datos del ArrayList mediante position
  * @date 26/10/17
- * ES LA PRIMERA SOLUCION NO OPTIMIZADA OpcionA
  */
 
 public class DependencyAdapterB extends ArrayAdapter<Dependency> {

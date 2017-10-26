@@ -14,14 +14,22 @@ import com.example.inventory.pojo.Dependency;
 import com.example.inventory.repository.DependencyRepository;
 import com.github.ivbaranov.mli.MaterialLetterIcon;
 
-
 /**
  * Created by
  *
  * @author Miguel Rodriguez Jimenez
- * @version 1.0.0.0.0.0.0.0
+ * @version 1
+ *          DependencyAdapter adaptara la dependencia a una elemento view para mostrarlo en la interfaz.
+ *          Esta es la solucion mala (La buena, la mala y la fea)
+ *
+ *          Obtengo el servicio inflater para crear elementos en la vista
+ *
+ *          Creo los elementos en memoria con el layout (item_layout) con el que ya especifico como se veran
+ *
+ *          Inicializo las variables de lo definido en el layout (item_layout)
+ *
+ *          Mostrar los datos del ArrayList mediante position
  * @date 26/10/17
- * ES LA PRIMERA SOLUCION NO OPTIMIZADA OpcionA
  */
 
 public class DependencyAdapterA extends ArrayAdapter<Dependency> {
@@ -39,7 +47,7 @@ public class DependencyAdapterA extends ArrayAdapter<Dependency> {
 
         //1. Obtener el servicio del sistema Latout Inflate en el contexto.
         // Acceder al servicio de layout inflater de dos formas distintas
-        //LayoutInflater inflater = LayoutInflater.from(getContext());
+        // LayoutInflater inflater = LayoutInflater.from(getContext());
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         //2. Inflar la vista. Crea en memoria el objeto con todos los widget del xml item_dependency.xml

@@ -10,10 +10,12 @@ import android.widget.ImageView;
 /**
  * @author Miguel Rodriguez Jimenez
  * @version 17.10.20
- *     Pantalla login.
- *     Pantalla Dashboard de la aplicación con los siguientes iconos: inventario, producto, dependencias, secciones y preferencias
- *     Alta/Edición de un inventario
- *     Alta/Edición de un producto
+ *      DashBoardActivity
+ *      Una vez logeado nos encontramos con esta Activity
+ *      Donde estaran los iconos de las distintas funciones de la aplicacion
+ *      Dashboard contara con los siguientes iconos:
+ *      Inventario, Producto, Dependencias, Sectores, Preferencias
+ *      Inventory, Products, Dependencies, Sectors, Preferences
  */
 
 public class DashBoardActivity extends AppCompatActivity {
@@ -25,15 +27,15 @@ public class DashBoardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dash_board);
-        gridDashboard=(GridLayout)findViewById(R.id.gridDashboard);
+        gridDashboard = (GridLayout) findViewById(R.id.gridDashboard);
 
         // Definir un array de int, que contendra el id de las imagenes
-        // Inventory, Product, Dependencias, Secciones, Preferencias.
-        int[] images ={R.drawable.inventory,R.drawable.monitor, R.drawable.closet, R.drawable.table, R.drawable.cpu};
+        // Inventory, Products, Dependencies, Sectors, Preferences
+        int[] images = {R.drawable.inventory, R.drawable.monitor, R.drawable.closet, R.drawable.table, R.drawable.cpu};
 
         // En Java/Android no se utilizan arrays de objetos, se utilizan vector o colecciones
-        // ImageView[] imageViews = new ImageView[images.length]; los arrays de objeto no son eficientes
-        // No utilizamos la clase vector porque no trabajamos con hilos y n ose requiere sincronizacion
+        // ImageView[] imageViews = new ImageView[images.length]; los arrays de objetos no son eficientes
+        // No utilizamos la clase vector porque no trabajamos con hilos y no se requiere sincronizacion
         // Vector<ImageView> vectorImageViews = new Vector<ImageView>();
         // ArrayList<ImageView> arrayImageViews = new ArrayList<ImageView>();
         listenerDashboard = new ClickListenerDashboard();
@@ -41,28 +43,27 @@ public class DashBoardActivity extends AppCompatActivity {
         float width = getResources().getDimension(R.dimen.imgDashboardWidth);
         float height = getResources().getDimension(R.dimen.imgDashboardHeight);
 
-
-        for (int i=0; i<images.length; i++){
+        for (int i = 0; i < images.length; i++) {
             imageView = new ImageView(this);
-            imageView.setId(images[i]);
-            imageView.setImageResource(images[i]);
+            imageView.setId(images[i]);// Asignamos un ID que sera la referencia que designa el sistema
+            imageView.setImageResource(images[i]);// Asignamos una de las imagenes del array creado anteriormente
             GridLayout.LayoutParams params = new GridLayout.LayoutParams();
-            params.width=(int)width;
-            params.height=(int)height;
-            params.rowSpec=GridLayout.spec(GridLayout.UNDEFINED,GridLayout.FILL,1f);
-            params.columnSpec=GridLayout.spec(GridLayout.UNDEFINED,GridLayout.FILL,1f);
-            imageView.setLayoutParams(params);
-            imageView.setOnClickListener(listenerDashboard);
-            gridDashboard.addView(imageView);
+            params.width = (int) width;// Asignamos el width definido en dimens.xml
+            params.height = (int) height;// Asignamos el height definido en dimens.xml
+            params.rowSpec = GridLayout.spec(GridLayout.UNDEFINED, GridLayout.FILL, 1f);// Asignamos que ocupe el maximo posible en la fila
+            params.columnSpec = GridLayout.spec(GridLayout.UNDEFINED, GridLayout.FILL, 1f);// Asignamos que ocupe el maximo posible en la columna
+            imageView.setLayoutParams(params);// Establecemos los parametros asignados antes
+            imageView.setOnClickListener(listenerDashboard);// Asignamos el OnClickListener a la imagen
+            gridDashboard.addView(imageView);// Anadimos la imagen al grid
         }
     }
 
-    class ClickListenerDashboard implements View.OnClickListener{
+    class ClickListenerDashboard implements View.OnClickListener {
 
         @Override
         public void onClick(View view) {
             Intent intent = null;
-            switch (view.getId()){
+            switch (view.getId()) {
                 case R.drawable.inventory:
                     intent = new Intent(DashBoardActivity.this, InventoryActivity.class);
                     startActivity(intent);
@@ -72,7 +73,7 @@ public class DashBoardActivity extends AppCompatActivity {
                     startActivity(intent);
                     break;
                 case R.drawable.closet:
-                    intent = new Intent(DashBoardActivity.this,DependencyActivity.class);
+                    intent = new Intent(DashBoardActivity.this, DependencyActivity.class);
                     startActivity(intent);
                     break;
             }

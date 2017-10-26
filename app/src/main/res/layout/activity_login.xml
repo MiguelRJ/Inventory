@@ -67,7 +67,7 @@
             android:textColor="@android:color/white"
             android:theme="@style/chkBox"/>
 
-        <!-- Cuidado el indicar el margen en un stilo y en la etiqueta porque se dibuja el componente con lo cua -->
+        <!-- Cuidado el indicar el margen en un estilo y en la etiqueta porque se dibuja el componente con lo establecido en la etiqueta -->
         <TextView
             android:id="@+id/txvSignUp"
             android:layout_width="0dp"
