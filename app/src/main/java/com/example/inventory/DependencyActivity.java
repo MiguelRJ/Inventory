@@ -3,8 +3,9 @@ package com.example.inventory;
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-
+import com.example.inventory.adapter.DependencyAdapter;
 import com.example.inventory.adapter.DependencyAdapterB;
+import com.example.inventory.adapter.DependencyAdapterA;
 
 /**
  * Created by usuario on 25/10/17.
@@ -18,7 +19,8 @@ public class DependencyActivity extends ListActivity {
 
     //private ArrayAdapter<Dependency> adapter;
     //private DependencyAdapterA adapter;
-    private DependencyAdapterB adapter;
+    //private DependencyAdapterB adapter;
+    private DependencyAdapter adapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -30,7 +32,8 @@ public class DependencyActivity extends ListActivity {
 
         // CASO 2: adapter personalizado
         //adapter = new DependencyAdapterA(this);
-        adapter = new DependencyAdapterB(this);
+        //adapter = new DependencyAdapterB(this);
+        adapter = new DependencyAdapter(this);
         getListView().setAdapter(adapter);
     }
 }
