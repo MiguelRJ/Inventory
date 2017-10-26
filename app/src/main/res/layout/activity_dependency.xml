@@ -6,7 +6,8 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@android:id/list"/>
+        android:id="@android:id/list"
+        android:paddingTop="@dimen/list_top_padding"/>
     <!-- android:id="@android:id/list" si o si usar el id de android -->
 
 </android.support.constraint.ConstraintLayout>

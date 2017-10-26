@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.ArrayAdapter;
 
+import com.example.inventory.adapter.DependencyAdapter;
 import com.example.inventory.pojo.Dependency;
 
 /**
@@ -17,16 +18,19 @@ import com.example.inventory.pojo.Dependency;
 
 public class DependencyActivity extends ListActivity {
 
-    private ArrayAdapter<Dependency> dependencies;
+    //private ArrayAdapter<Dependency> adapter;
+    private DependencyAdapter adapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dependency);
         // CASO 1: adapter no personalizado
-        dependencies = new ArrayAdapter(this,android.R.layout.simple_list_item_1,((InventoryApplication)getApplicationContext()).getDependencies());
-        getListView().setAdapter(dependencies);
+        //dependencies = new ArrayAdapter(this,android.R.layout.simple_list_item_1,((InventoryApplication)getApplicationContext()).getDependencies());
+        //getListView().setAdapter(adapter);
 
         // CASO 2: adapter personalizado
+        adapter = new DependencyAdapter(this);
+        getListView().setAdapter(adapter);
     }
 }

@@ -7,7 +7,7 @@ package com.example.inventory.pojo;
 public class Dependency {
     private int _ID;
     private String name;
-    private String shortame;
+    private String sortName;
     private String description;
 
     public int get_ID() {
@@ -26,12 +26,12 @@ public class Dependency {
         this.name = name;
     }
 
-    public String getShortame() {
-        return shortame;
+    public String getSortName() {
+        return sortName;
     }
 
-    public void setShortame(String shortame) {
-        this.shortame = shortame;
+    public void setSortName(String shortame) {
+        this.sortName = shortame;
     }
 
     public String getDescription() {
@@ -46,7 +46,7 @@ public class Dependency {
 
         this._ID = _ID;
         this.name = name;
-        this.shortame = shortame;
+        this.sortName = shortame;
         this.description = description;
     }
 
@@ -55,7 +55,7 @@ public class Dependency {
         return "Dependency{" +
                 "_ID=" + _ID +
                 ", name='" + name + '\'' +
-                ", shortame='" + shortame + '\'' +
+                ", shortame='" + sortName + '\'' +
                 ", description='" + description + '\'' +
                 '}';
     }

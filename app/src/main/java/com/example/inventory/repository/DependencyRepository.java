@@ -40,10 +40,10 @@ public class DependencyRepository {
         addDependency(new Dependency(2,"2º Ciclo Formativo Grado Superior", "2CFGS","2CFGS Desarrollo aplicaciones multiplataforma"));
     }
 
-    public DependencyRepository getInstance(){
-        if(dependencyRepository==null){ // No se necesita porque ya inicializamos en static{} garantizado
+    public static DependencyRepository getInstance(){
+        /*if(dependencyRepository==null){ // No se necesita porque ya inicializamos en static{} garantizado
             dependencyRepository = new DependencyRepository();
-        }
+        }*/
         return dependencyRepository;
     }
 
@@ -53,5 +53,9 @@ public class DependencyRepository {
      */
     public void addDependency(Dependency dependency){
         dependencies.add(dependency);
+    }
+
+    public ArrayList<Dependency> getDependencies(){
+        return dependencies;
     }
 }
