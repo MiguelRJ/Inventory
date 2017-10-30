@@ -35,7 +35,7 @@ public class SectorRepository {
     /* METODOS */
     private void initialize() {
         addSector(new Sector( 1,"Armario A","ArmA","Armario puerta madera",2,true,true));
-        addSector(new Sector( 2,"Armario B","ArmB","Armario puerta cristal",2,false,false));
+        addSector(new Sector( 2,"Armario B","ArmB","Armario puerta cristal",2,false,true));
     }
 
     public static SectorRepository getInstance() {

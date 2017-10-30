@@ -1,5 +1,8 @@
 package com.example.inventory.pojo;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by
  *
@@ -9,7 +12,7 @@ package com.example.inventory.pojo;
  * @date 30/10/17
  */
 
-public class Sector {
+public class Sector implements Parcelable {
 
     private int _ID;
     private String name;
@@ -27,6 +30,16 @@ public class Sector {
         this.dependencyID = dependencyID;
         this.enabled = enabled;
         this.sectorDefault = _default;
+    }
+
+    protected Sector(Parcel in) {
+        _ID = in.readInt();
+        name = in.readString();
+        sortname = in.readString();
+        description = in.readString();
+        dependencyID = in.readInt();
+        enabled = in.readByte() != 0;
+        sectorDefault = in.readByte() != 0;
     }
 
     public int getID() {
@@ -97,4 +110,32 @@ public class Sector {
                 ", _default=" + sectorDefault +
                 '}';
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(_ID);
+        parcel.writeString(name);
+        parcel.writeString(sortname);
+        parcel.writeString(description);
+        parcel.writeInt(dependencyID);
+        parcel.writeByte((byte) (enabled ? 1 : 0));
+        parcel.writeByte((byte) (sectorDefault ? 1 : 0));
+    }
+
+    public static final Creator<Sector> CREATOR = new Creator<Sector>() {
+        @Override
+        public Sector createFromParcel(Parcel in) {
+            return new Sector(in);
+        }
+
+        @Override
+        public Sector[] newArray(int size) {
+            return new Sector[size];
+        }
+    };
 }
