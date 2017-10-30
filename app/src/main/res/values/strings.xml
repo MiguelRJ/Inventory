@@ -53,4 +53,5 @@
     </string-array>
     <string name="swtCambiarON">ON</string>
     <string name="swtCambiarOFF">OFF</string>
+    <string name="txvSectorDefault">Sector por defecto</string>
 </resources>

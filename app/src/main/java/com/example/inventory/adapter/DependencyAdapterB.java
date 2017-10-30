@@ -59,7 +59,7 @@ public class DependencyAdapterB extends ArrayAdapter<Dependency> {
         }
         //3. Inicializar las variables a los objetos ya creados de los widget del xml.¡¡ CUIDADO View.findViewById!!
         icon = (MaterialLetterIcon) view.findViewById(R.id.icon);
-        txvName = (TextView) view.findViewById(R.id.txvName);
+        txvName = (TextView) view.findViewById(R.id.txvNameSector);
         txvSortName = (TextView) view.findViewById(R.id.txvSortName);
 
         //4. Mostrar los datos del ArrayList mediante position

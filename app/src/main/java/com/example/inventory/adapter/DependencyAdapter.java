@@ -65,7 +65,7 @@ public class DependencyAdapter extends ArrayAdapter<Dependency> {
 
             //3. Inicializar las variables a los objetos ya creados de los widget del xml.¡¡ CUIDADO View.findViewById!!
             dependencyHolder.icon = (MaterialLetterIcon) view.findViewById(R.id.icon);
-            dependencyHolder.txvName = (TextView) view.findViewById(R.id.txvName);
+            dependencyHolder.txvName = (TextView) view.findViewById(R.id.txvNameSector);
             dependencyHolder.txvSortName = (TextView) view.findViewById(R.id.txvSortName);
             view.setTag(dependencyHolder);// Se guarda como Tag la clase DependencyHolder con el valor de sus variables
         } else {

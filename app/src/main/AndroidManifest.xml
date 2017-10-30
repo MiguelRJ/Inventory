@@ -25,7 +25,7 @@
         <activity android:name=".DashBoardActivity" />
         <activity android:name=".ProductsActivity" />
         <activity android:name=".DependencyActivity" />
-        <activity android:name=".SectorActivity"></activity>
+        <activity android:name=".SectorActivity"/>
     </application>
 
 </manifest>

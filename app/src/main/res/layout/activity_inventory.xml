@@ -10,7 +10,7 @@
 
     <TableRow>
         <TextView
-            android:id="@+id/txvName"
+            android:id="@+id/txvNameSector"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:text="@string/txvName"/>

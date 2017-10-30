@@ -17,7 +17,7 @@ public class Sector {
     private String description;
     private int dependencyID;
     private boolean enabled;
-    private boolean _default;
+    private boolean sectorDefault;
 
     public Sector(int ID, String name, String sortname, String description, int dependencyID, boolean enabled, boolean _default) {
         this._ID = ID;
@@ -26,7 +26,7 @@ public class Sector {
         this.description = description;
         this.dependencyID = dependencyID;
         this.enabled = enabled;
-        this._default = _default;
+        this.sectorDefault = _default;
     }
 
     public int getID() {
@@ -77,12 +77,12 @@ public class Sector {
         this.enabled = enabled;
     }
 
-    public boolean is_default() {
-        return _default;
+    public boolean isSectorDefault() {
+        return sectorDefault;
     }
 
     public void set_default(boolean _default) {
-        this._default = _default;
+        this.sectorDefault = _default;
     }
 
     @Override
@@ -94,7 +94,7 @@ public class Sector {
                 ", description='" + description + '\'' +
                 ", dependencyID=" + dependencyID +
                 ", enabled=" + enabled +
-                ", _default=" + _default +
+                ", _default=" + sectorDefault +
                 '}';
     }
 }

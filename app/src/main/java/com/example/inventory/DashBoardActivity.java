@@ -76,6 +76,10 @@ public class DashBoardActivity extends AppCompatActivity {
                     intent = new Intent(DashBoardActivity.this, DependencyActivity.class);
                     startActivity(intent);
                     break;
+                case R.drawable.table:
+                    intent = new Intent(DashBoardActivity.this, SectorActivity.class);
+                    startActivity(intent);
+                    break;
             }
             //startActivity(intent);
         }

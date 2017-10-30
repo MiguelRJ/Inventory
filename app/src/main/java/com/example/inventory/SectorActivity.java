@@ -1,10 +1,11 @@
 package com.example.inventory;
 
 import android.app.ListActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
-import com.example.inventory.adapter.DependencyAdapter;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import com.example.inventory.adapter.SectorAdapter;
 
 /**
@@ -16,16 +17,19 @@ import com.example.inventory.adapter.SectorAdapter;
  * @date 30/10/17
  */
 
-public class SectorActivity extends ListActivity {
+public class SectorActivity extends AppCompatActivity {
 
+    private RecyclerView recyclerSector;
     private SectorAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sector);
-
-        adapter = new SectorActivity(this);
-        getListView().setAdapter(adapter);
+        recyclerSector = (RecyclerView)findViewById(R.id.recyclerSector);
+        recyclerSector.setHasFixedSize(true);
+        recyclerSector.setLayoutManager( new GridLayoutManager(this,2));
+        adapter = new SectorAdapter();
+        recyclerSector.setAdapter(adapter);
     }
 }
