@@ -51,4 +51,6 @@
         <item>Tipo2</item>
         <item>Tipo3</item>
     </string-array>
+    <string name="swtCambiarON">ON</string>
+    <string name="swtCambiarOFF">OFF</string>
 </resources>

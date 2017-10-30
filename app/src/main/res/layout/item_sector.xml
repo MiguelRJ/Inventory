@@ -13,8 +13,8 @@
         android:layout_height="@dimen/switch_size"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
-        android:textOff="OFF"
-        android:textOn="ON"
+        android:textOff="@string/swtCambiarON"
+        android:textOn="@string/swtCambiarOFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

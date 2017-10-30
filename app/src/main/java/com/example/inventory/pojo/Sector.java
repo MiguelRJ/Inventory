@@ -11,7 +11,7 @@ package com.example.inventory.pojo;
 
 public class Sector {
 
-    private int ID;
+    private int _ID;
     private String name;
     private String sortname;
     private String description;
@@ -20,7 +20,7 @@ public class Sector {
     private boolean _default;
 
     public Sector(int ID, String name, String sortname, String description, int dependencyID, boolean enabled, boolean _default) {
-        this.ID = ID;
+        this._ID = ID;
         this.name = name;
         this.sortname = sortname;
         this.description = description;
@@ -30,11 +30,11 @@ public class Sector {
     }
 
     public int getID() {
-        return ID;
+        return _ID;
     }
 
     public void setID(int ID) {
-        this.ID = ID;
+        this._ID = ID;
     }
 
     public String getName() {
@@ -83,5 +83,18 @@ public class Sector {
 
     public void set_default(boolean _default) {
         this._default = _default;
+    }
+
+    @Override
+    public String toString() {
+        return "Sector{" +
+                "_ID=" + _ID +
+                ", name='" + name + '\'' +
+                ", sortname='" + sortname + '\'' +
+                ", description='" + description + '\'' +
+                ", dependencyID=" + dependencyID +
+                ", enabled=" + enabled +
+                ", _default=" + _default +
+                '}';
     }
 }

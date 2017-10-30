@@ -52,4 +52,6 @@
         <item>Type2</item>
         <item>Type3</item>
     </string-array>
+    <string name="swtCambiarON">ON</string>
+    <string name="swtCambiarOFF">OFF</string>
 </resources>
