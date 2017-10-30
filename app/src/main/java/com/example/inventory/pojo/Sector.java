@@ -9,7 +9,6 @@ package com.example.inventory.pojo;
  * @date 30/10/17
  */
 
-
 public class Sector {
 
     private int ID;

@@ -23,4 +23,5 @@
     <dimen name="secondary_text">14sp</dimen>
     <dimen name="imgQrcodeWidth">32dp</dimen>
     <dimen name="imgQrcodeHeight">32dp</dimen>
+    <dimen name="switch_size">48dp</dimen>
 </resources>
