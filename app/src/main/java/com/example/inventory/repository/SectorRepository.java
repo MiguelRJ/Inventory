@@ -34,8 +34,8 @@ public class SectorRepository {
 
     /* METODOS */
     private void initialize() {
-        addSector(new Sector(1, "1º Ciclo Formativo Grado Superior", "1CFGS", "1CFGS Desarrollo aplicaciones multiplataforma"));
-        addSector(new Sector(2, "2º Ciclo Formativo Grado Superior", "2CFGS", "2CFGS Desarrollo aplicaciones multiplataforma"));
+        addSector(new Sector( 1,"Armario A","ArmA","Armario puerta madera",2,true,true));
+        addSector(new Sector( 2,"Armario B","ArmB","Armario puerta cristal",2,true,true));
     }
 
     public static SectorRepository getInstance() {
