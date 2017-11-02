@@ -22,7 +22,7 @@
     <Preference
         android:key="abaoutus"
         android:title="@string/pref_title_aboutus">
-        <intent android:targetClass="AboutusActivity"
+        <intent android:targetClass="com.example.inventory.AboutusActivity"
             android:targetPackage="com.example.inventory"/>
     </Preference>
 </PreferenceScreen>

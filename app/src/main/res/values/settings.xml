@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- general_settings.xml -->
     <string name="pref_category_general">Preferencias generales</string>
     <string name="pref_title_showimage">Mostrar Imagen</string>
     <string name="pref_description_viewicon">Mostrar las imagenes en los listados de la aplicacion</string>
@@ -18,4 +19,14 @@
         <item>3</item>
         <item>4</item>
     </string-array>
+
+    <!-- account_settings.xml -->
+    <string name="pref_category_account">Configuracion cuenta</string>
+    <string name="pref_title_swtRemember">Recordar Usuario</string>
+    <string name="pref_summary_swtRemember">Indicar si se quiere almacenar el usuario</string>
+    <string name="pref_title_edtRememberUser">Usuario</string>
+    <string name="pref_summary_edtRememberUser">Nombre de usuario de la aplicacion</string>
+    <string name="pref_title_edtRememberPass">Contraseña</string>
+    <string name="pref_summary_edtRememberPass">Contraseña del usuario en la aplicacion</string>
+
 </resources>

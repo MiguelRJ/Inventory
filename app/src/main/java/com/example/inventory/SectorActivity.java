@@ -1,9 +1,11 @@
 package com.example.inventory;
 
+import android.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 
@@ -28,6 +30,7 @@ public class SectorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sector);
+        Log.e("Hola","onCreate");
         recyclerSector = (RecyclerView)findViewById(R.id.recyclerSector);
         recyclerSector.setHasFixedSize(true);
         recyclerSector.setLayoutManager( new GridLayoutManager(this,2));
@@ -37,6 +40,7 @@ public class SectorActivity extends AppCompatActivity {
             sectorAdapter = new SectorAdapter();
         }
         recyclerSector.setAdapter(sectorAdapter);
+
     }
 
     @Override
@@ -53,7 +57,16 @@ public class SectorActivity extends AppCompatActivity {
      */
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
         outState.putParcelableArrayList("sector",sectorAdapter.getSectorsModified());
+        Log.e("Hola","onSaveInstanceState");
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        sectorAdapter = new SectorAdapter(savedInstanceState.<Sector>getParcelableArrayList("sector"));
+        recyclerSector.setAdapter(sectorAdapter);
+        Log.e("Hola","onRestoreInstanceState");
+        super.onRestoreInstanceState(savedInstanceState);
     }
 }
