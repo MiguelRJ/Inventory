@@ -2,6 +2,7 @@ package com.example.inventory;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -30,13 +31,15 @@ public class SectorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sector);
-        Log.e("Hola","onCreate");
+        //Log.e("Hola","onCreate");
         recyclerSector = (RecyclerView)findViewById(R.id.recyclerSector);
         recyclerSector.setHasFixedSize(true);
         recyclerSector.setLayoutManager( new GridLayoutManager(this,2));
         if(savedInstanceState != null){
+            //Log.e("Hola","saveInstanceState not null");
             sectorAdapter = new SectorAdapter(savedInstanceState.<Sector>getParcelableArrayList("sector"));
         } else {
+            //Log.e("Hola","saveInstanceState null");
             sectorAdapter = new SectorAdapter();
         }
         recyclerSector.setAdapter(sectorAdapter);
@@ -58,15 +61,17 @@ public class SectorActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         outState.putParcelableArrayList("sector",sectorAdapter.getSectorsModified());
-        Log.e("Hola","onSaveInstanceState");
+        //Log.e("Hola", String.valueOf(sectorAdapter.getItemCount()));
+        //Log.e("Hola","onSaveInstanceState");
         super.onSaveInstanceState(outState);
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        //Log.e("Hola",savedInstanceState.<Sector>getParcelableArrayList("sector").toString());
+        //Log.e("Hola", String.valueOf(sectorAdapter.getItemCount()));
         sectorAdapter = new SectorAdapter(savedInstanceState.<Sector>getParcelableArrayList("sector"));
-        recyclerSector.setAdapter(sectorAdapter);
-        Log.e("Hola","onRestoreInstanceState");
+        //Log.e("Hola","onRestoreInstanceState");
         super.onRestoreInstanceState(savedInstanceState);
     }
 }
