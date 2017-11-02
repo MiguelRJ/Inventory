@@ -54,5 +54,8 @@
     <string name="swtCambiarON">ON</string>
     <string name="swtCambiarOFF">OFF</string>
     <string name="txvSectorDefault">Sector por defecto</string>
-    <string name="menuSave">Guardar</string>
+    <string name="action_save">Guardar</string>
+    <string name="action_general_settings">Ajustes Generales</string>
+    <string name="action_account_settings">Ajustes de Cuenta</string>
+
 </resources>

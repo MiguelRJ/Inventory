@@ -26,6 +26,8 @@
         <activity android:name=".ProductsActivity" />
         <activity android:name=".DependencyActivity" />
         <activity android:name=".SectorActivity"/>
+        <activity android:name=".GeneralSettingActivity"/>
+        <activity android:name=".AccountSettingActivity"/>
     </application>
 
 </manifest>

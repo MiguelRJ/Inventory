@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pref_category_general">Preferencias generales</string>
+    <string name="pref_title_showimage">Mostrar Imagen</string>
+    <string name="pref_description_viewicon">Mostrar las imagenes en los listados de la aplicacion</string>
+    <string name="pref_summary_numcolum">Numero de columnas a mostrar en los listados</string>
+    <string name="pref_title_numcolum">Numero columnas</string>
+    <string name="pref_title_aboutus">Sobre nosotros</string>
+    <string-array name="pref_entries_numcolum">
+        <item>1 columna</item>
+        <item>2 columnas</item>
+        <item>3 columnas</item>
+        <item>4 columnas</item>
+    </string-array>
+    <string-array name="pref_entiresvalues_numcolum">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+</resources>
