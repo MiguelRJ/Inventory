@@ -1,6 +1,6 @@
-package com.example.inventory.repository;
+package com.example.inventoryMaterial.repository;
 
-import com.example.inventory.pojo.Sector;
+import com.example.inventoryMaterial.pojo.Sector;
 import java.util.ArrayList;
 
 /**
@@ -36,6 +36,15 @@ public class SectorRepository {
     private void initialize() {
         addSector(new Sector( 1,"Armario A","ArmA","Armario puerta madera",2,true,true));
         addSector(new Sector( 2,"Armario B","ArmB","Armario puerta cristal",2,false,true));
+        addSector(new Sector( 3,"Armario A","ArmA","Armario puerta madera",2,true,true));
+        addSector(new Sector( 4,"Armario B","ArmB","Armario puerta cristal",2,false,true));
+        addSector(new Sector( 5,"Armario A","ArmA","Armario puerta madera",2,true,true));
+        addSector(new Sector( 6,"Armario B","ArmB","Armario puerta cristal",2,false,true));
+        addSector(new Sector( 7,"Armario A","ArmA","Armario puerta madera",2,true,true));
+        addSector(new Sector( 8,"Armario B","ArmB","Armario puerta cristal",2,false,true));
+        addSector(new Sector( 9,"Armario A","ArmA","Armario puerta madera",2,true,true));
+        addSector(new Sector( 10,"Armario B","ArmB","Armario puerta cristal",2,false,true));
+
     }
 
     public static SectorRepository getInstance() {

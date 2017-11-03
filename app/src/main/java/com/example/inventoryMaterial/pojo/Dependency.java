@@ -1,4 +1,4 @@
-package com.example.inventory.pojo;
+package com.example.inventoryMaterial.pojo;
 
 /**
  * Created by

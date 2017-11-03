@@ -1,17 +1,14 @@
-package com.example.inventory;
+package com.example.inventoryMaterial;
 
-import android.app.Fragment;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 
-import com.example.inventory.adapter.SectorAdapter;
-import com.example.inventory.pojo.Sector;
+import com.example.inventoryMaterial.adapter.SectorAdapter;
+import com.example.inventoryMaterial.pojo.Sector;
 
 /**
  * Created by

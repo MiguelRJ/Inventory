@@ -1,6 +1,6 @@
-package com.example.inventory.repository;
+package com.example.inventoryMaterial.repository;
 
-import com.example.inventory.pojo.Dependency;
+import com.example.inventoryMaterial.pojo.Dependency;
 
 import java.util.ArrayList;
 
@@ -48,6 +48,15 @@ public class DependencyRepository {
     private void initialize() {
         addDependency(new Dependency(1, "1º Ciclo Formativo Grado Superior", "1CFGS", "1CFGS Desarrollo aplicaciones multiplataforma"));
         addDependency(new Dependency(2, "2º Ciclo Formativo Grado Superior", "2CFGS", "2CFGS Desarrollo aplicaciones multiplataforma"));
+        addDependency(new Dependency(3, "1º Ciclo Formativo Grado Superior", "1CFGS", "1CFGS Desarrollo aplicaciones multiplataforma"));
+        addDependency(new Dependency(4, "2º Ciclo Formativo Grado Superior", "2CFGS", "2CFGS Desarrollo aplicaciones multiplataforma"));
+        addDependency(new Dependency(5, "1º Ciclo Formativo Grado Superior", "1CFGS", "1CFGS Desarrollo aplicaciones multiplataforma"));
+        addDependency(new Dependency(6, "2º Ciclo Formativo Grado Superior", "2CFGS", "2CFGS Desarrollo aplicaciones multiplataforma"));
+        addDependency(new Dependency(7, "1º Ciclo Formativo Grado Superior", "1CFGS", "1CFGS Desarrollo aplicaciones multiplataforma"));
+        addDependency(new Dependency(8, "2º Ciclo Formativo Grado Superior", "2CFGS", "2CFGS Desarrollo aplicaciones multiplataforma"));
+        addDependency(new Dependency(9, "1º Ciclo Formativo Grado Superior", "1CFGS", "1CFGS Desarrollo aplicaciones multiplataforma"));
+        addDependency(new Dependency(10, "2º Ciclo Formativo Grado Superior", "2CFGS", "2CFGS Desarrollo aplicaciones multiplataforma"));
+
     }
 
     public static DependencyRepository getInstance() {

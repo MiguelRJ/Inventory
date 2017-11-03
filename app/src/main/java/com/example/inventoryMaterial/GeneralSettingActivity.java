@@ -1,4 +1,4 @@
-package com.example.inventory;
+package com.example.inventoryMaterial;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
@@ -13,10 +13,10 @@ import android.support.annotation.Nullable;
  * @date 02/11/17
  */
 
-public class AccountSettingActivity extends PreferenceActivity {
+public class GeneralSettingActivity extends PreferenceActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.account_settings);
+        addPreferencesFromResource(R.xml.general_settings);
     }
 }

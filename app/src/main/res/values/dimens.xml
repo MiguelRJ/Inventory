@@ -24,4 +24,6 @@
     <dimen name="imgQrcodeWidth">32dp</dimen>
     <dimen name="imgQrcodeHeight">32dp</dimen>
     <dimen name="switch_size">48dp</dimen>
+    <dimen name="margin_fab">16dp</dimen>
+    <dimen name="translationZ">12dp</dimen>
 </resources>

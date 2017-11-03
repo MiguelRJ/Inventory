@@ -1,8 +1,8 @@
-package com.example.inventory;
+package com.example.inventoryMaterial;
 
 import android.app.Application;
 
-import com.example.inventory.pojo.Dependency;
+import com.example.inventoryMaterial.pojo.Dependency;
 
 import java.util.ArrayList;
 

@@ -1,11 +1,7 @@
-package com.example.inventory;
+package com.example.inventoryMaterial;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 
 /**
  * @author Miguel Rodriguez Jimenez

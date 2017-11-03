@@ -1,4 +1,4 @@
-package com.example.inventory;
+package com.example.inventoryMaterial;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,15 +6,15 @@ import android.os.Bundle;
 /**
  * @author Miguel Rodriguez Jimenez
  * @version 17.10.20
- *          InventoryActivity
- * @date 17/10/2017
+ *          SplashActivity
+ *          Pantalla de inicio con el logo de la app
  */
 
-public class InventoryActivity extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inventory);
+        setContentView(R.layout.activity_splash);
     }
 }
