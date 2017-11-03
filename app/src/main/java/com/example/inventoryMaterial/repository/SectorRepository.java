@@ -44,6 +44,16 @@ public class SectorRepository {
         addSector(new Sector( 8,"Armario B","ArmB","Armario puerta cristal",2,false,true));
         addSector(new Sector( 9,"Armario A","ArmA","Armario puerta madera",2,true,true));
         addSector(new Sector( 10,"Armario B","ArmB","Armario puerta cristal",2,false,true));
+        addSector(new Sector( 11,"Armario A","ArmA","Armario puerta madera",2,true,true));
+        addSector(new Sector( 12,"Armario B","ArmB","Armario puerta cristal",2,false,true));
+        addSector(new Sector( 13,"Armario A","ArmA","Armario puerta madera",2,true,true));
+        addSector(new Sector( 14,"Armario B","ArmB","Armario puerta cristal",2,false,true));
+        addSector(new Sector( 15,"Armario A","ArmA","Armario puerta madera",2,true,true));
+        addSector(new Sector( 16,"Armario B","ArmB","Armario puerta cristal",2,false,true));
+        addSector(new Sector( 17,"Armario A","ArmA","Armario puerta madera",2,true,true));
+        addSector(new Sector( 18,"Armario B","ArmB","Armario puerta cristal",2,false,true));
+        addSector(new Sector( 19,"Armario A","ArmA","Armario puerta madera",2,true,true));
+        addSector(new Sector( 20,"Armario B","ArmB","Armario puerta cristal",2,false,true));
 
     }
 
