@@ -79,4 +79,22 @@ public class User {
         this.isManager = isManager;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user1 = (User) o;
+
+        if (!user.equals(user1.user)) return false;
+        return email.equals(user1.email);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = user.hashCode();
+        result = 31 * result + email.hashCode();
+        return result;
+    }
+
 }

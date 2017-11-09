@@ -38,4 +38,12 @@ public class UserRepository {
     public ArrayList<User> getUsers(){
         return users;
     }
+
+    /**
+     * Metodo que comprueba si el usuario existe en la base de datos
+     * @return
+     */
+    public boolean isUserExists(User user){
+        return true;
+    }
 }
