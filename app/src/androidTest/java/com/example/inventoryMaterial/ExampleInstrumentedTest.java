@@ -17,6 +17,8 @@ import static org.junit.Assert.*;
  * 2. El usuario introduce una contraseña (Instrumental)
  * 3. La contraseña tiene al menos 6 caracteres (Instrumental)
  * 4. Doble comprobacion de la contraseña (Instrumental)
+ * 
+ * https://developer.android.com/training/testing/ui-testing/espresso-testing.html
  */
 @RunWith(AndroidJUnit4.class)
 public class ExampleInstrumentedTest {
