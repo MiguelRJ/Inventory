@@ -1,4 +1,4 @@
-package com.example.inventoryMaterial.repository;
+package com.example.inventoryMaterial.data.db.repository;
 
 /**
  * Created by

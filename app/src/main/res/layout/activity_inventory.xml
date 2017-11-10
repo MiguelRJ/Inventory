@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.inventoryMaterial.InventoryActivity"
+    tools:context="com.example.inventoryMaterial.ui.inventory.InventoryActivity"
     android:stretchColumns="1">
     <!-- android:stretchColumns="1" sirve para que una columna obtenga el mayor tamaño posible, adaptando las otras a su contenido -->
 

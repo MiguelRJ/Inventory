@@ -10,8 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.inventoryMaterial.R;
-import com.example.inventoryMaterial.pojo.Dependency;
-import com.example.inventoryMaterial.repository.DependencyRepository;
+import com.example.inventoryMaterial.data.db.model.Dependency;
+import com.example.inventoryMaterial.data.db.repository.DependencyRepository;
 import com.github.ivbaranov.mli.MaterialLetterIcon;
 
 /**

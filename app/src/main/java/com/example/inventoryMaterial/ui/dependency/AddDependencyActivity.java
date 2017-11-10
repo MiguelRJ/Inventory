@@ -1,9 +1,11 @@
-package com.example.inventoryMaterial;
+package com.example.inventoryMaterial.ui.dependency;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+
+import com.example.inventoryMaterial.R;
 
 /**
  * Created by usuario on 3/11/17.

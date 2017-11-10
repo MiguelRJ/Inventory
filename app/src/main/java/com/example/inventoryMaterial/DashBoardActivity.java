@@ -10,6 +10,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.example.inventoryMaterial.ui.dependency.DependencyActivity;
+import com.example.inventoryMaterial.ui.inventory.InventoryActivity;
+import com.example.inventoryMaterial.ui.prefs.AccountSettingActivity;
+import com.example.inventoryMaterial.ui.products.GeneralSettingActivity;
+import com.example.inventoryMaterial.ui.products.ProductsActivity;
+import com.example.inventoryMaterial.ui.sector.SectorActivity;
+
 /**
  * @author Miguel Rodriguez Jimenez
  * @version 17.10.20
