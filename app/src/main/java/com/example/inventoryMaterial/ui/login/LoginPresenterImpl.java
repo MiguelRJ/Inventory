@@ -7,16 +7,16 @@ package com.example.inventoryMaterial.ui.login;
 public class LoginPresenterImpl implements LoginPresenter,LoginInteractor.OnLoginFinishedListener {
 
     private LoginView loginView;
-    private LoginInteractorImpl loginInteractorImpl;
+    private LoginInteractorImpl loginInteractor;
 
     public LoginPresenterImpl(LoginView loginView) {
         this.loginView = loginView;
-        loginInteractorImpl = new LoginInteractorImpl();
+        loginInteractor = new LoginInteractorImpl();
     }
 
     @Override
     public void validateCredentials(String user, String password) {
-        loginInteractorImpl.validateCredentials(user,password,this);
+        loginInteractor.validateCredentials(user,password,this);
     }
 
     @Override
@@ -26,16 +26,22 @@ public class LoginPresenterImpl implements LoginPresenter,LoginInteractor.OnLogi
 
     @Override
     public void onPasswordEmptyError() {
-
+        loginView.setPasswordEmptyError();
     }
 
     @Override
     public void onPasswordError() {
-
+        loginView.setPasswordError();
     }
 
     @Override
     public void onSuccess() {
+        loginView.navigateToHome();
+    }
 
+    @Override
+    public void onDestroy() {
+        loginView = null;
+        loginInteractor = null;
     }
 }

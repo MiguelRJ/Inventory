@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryLight"
-    tools:context="com.example.inventoryMaterial.ui.products.ProductsActivity">
+    tools:context="com.example.inventoryMaterial.ui.products.ProductsActivity"
+    android:id="@+id/android.R.id.content">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"

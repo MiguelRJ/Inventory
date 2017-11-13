@@ -5,5 +5,8 @@ package com.example.inventoryMaterial.ui.login;
  */
 
 public interface LoginPresenter {
+
     void validateCredentials(String user, String password);
+
+    void onDestroy();
 }
