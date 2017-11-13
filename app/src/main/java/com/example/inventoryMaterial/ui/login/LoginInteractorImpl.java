@@ -14,12 +14,12 @@ public class LoginInteractorImpl {
     public void validateCredentials(String user, String password, LoginInteractor.OnLoginFinishedListener listener) {
         //Si el password es vacio
         if(TextUtils.isEmpty(user)) {
-            listener.onPasswordEmptyError();
-        }else if (TextUtils.isEmpty(password)) {
             listener.onUserEmptyError();
+        }else if (TextUtils.isEmpty(password)) {
+            listener.onPasswordEmptyError();
         }else if (!CommonUtils.isPasswordValid(password)) {
             listener.onPasswordError();
-        } else if (UserRepository.getInstance().validateCredentials(user, password)){
+        } else if (true){//UserRepository.getInstance().validateCredentials(user, password)
             listener.onSuccess();
         }
 

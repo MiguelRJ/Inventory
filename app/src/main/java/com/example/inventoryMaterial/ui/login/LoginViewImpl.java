@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.inventoryMaterial.DashBoardActivity;
 import com.example.inventoryMaterial.R;
@@ -32,7 +33,7 @@ public class LoginViewImpl extends BaseActivity implements LoginView {
         btnSignIN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loginPresenter.validateCredentials("Miguel","123");
+                loginPresenter.validateCredentials("Miguel","Miguel1");
             }
         });
     }
