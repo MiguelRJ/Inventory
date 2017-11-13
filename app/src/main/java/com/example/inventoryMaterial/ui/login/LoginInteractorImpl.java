@@ -8,11 +8,15 @@ public class LoginInteractorImpl {
 
     public void validateCredentials(String user, String password, LoginInteractor.OnLoginFinishedListener listener) {
         //Si el password es vacio
-        if listener.onPasswordEmptyError()
-                if else
-                    listener.onUserEmptyError();
-                    if else
-                        listener.onPasswordError();
+        if(false) {
+            listener.onPasswordEmptyError();
+        }else if(false) {
+            listener.onUserEmptyError();
+        }else if(false) {
+            listener.onPasswordError();
+        } else {
+            listener.onSuccess();
+        }
 
         //Y es correcto
     }

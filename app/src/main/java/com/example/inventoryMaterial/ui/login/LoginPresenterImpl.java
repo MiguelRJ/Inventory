@@ -7,16 +7,16 @@ package com.example.inventoryMaterial.ui.login;
 public class LoginPresenterImpl implements LoginPresenter,LoginInteractor.OnLoginFinishedListener {
 
     private LoginView loginView;
-    private LoginInteractorImpl loginInteractor;
+    private LoginInteractorImpl loginInteractorImpl;
 
     public LoginPresenterImpl(LoginView loginView) {
         this.loginView = loginView;
-        loginInteractor = new LoginInteractorImpl();
+        loginInteractorImpl = new LoginInteractorImpl();
     }
 
     @Override
     public void validateCredentials(String user, String password) {
-        loginInteractor.validateCredentials(user,password,this);
+        loginInteractorImpl.validateCredentials(user,password,this);
     }
 
     @Override
