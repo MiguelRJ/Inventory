@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.EditText;
 
 import com.example.inventoryMaterial.DashBoardActivity;
 import com.example.inventoryMaterial.R;
@@ -22,6 +22,7 @@ import com.example.inventoryMaterial.ui.base.BaseActivity;
 public class LoginViewImpl extends BaseActivity implements LoginView {
 
     private Button btnSignIN;
+    private EditText edtUser,edtPassword;
     private LoginPresenter loginPresenter;
 
     @Override
@@ -29,11 +30,14 @@ public class LoginViewImpl extends BaseActivity implements LoginView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         loginPresenter = new LoginPresenterImpl(this);
+        edtUser = findViewById(R.id.edtUser);
+        edtPassword = findViewById(R.id.edtPassword);
         btnSignIN = findViewById(R.id.btnSignIn);
         btnSignIN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loginPresenter.validateCredentials("Miguel","Miguel1");
+                //loginPresenter.validateCredentials("Miguel","Miguel1");
+                loginPresenter.validateCredentials(edtUser.getText().toString(),edtPassword.getText().toString());
             }
         });
     }

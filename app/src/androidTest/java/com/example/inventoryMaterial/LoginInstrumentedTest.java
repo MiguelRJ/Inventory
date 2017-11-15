@@ -2,8 +2,12 @@ package com.example.inventoryMaterial;
 
 import android.support.annotation.StringRes;
 import android.support.test.espresso.matcher.ViewMatchers;
+import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
+import com.example.inventoryMaterial.ui.login.LoginViewImpl;
+
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -29,6 +33,9 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
  */
 @RunWith(AndroidJUnit4.class)
 public class LoginInstrumentedTest {
+
+    @Rule
+    public ActivityTestRule<LoginViewImpl> mActivityRule = new ActivityTestRule<>(LoginViewImpl.class);
     /**
      * Comprueba que el campo User no es vacio
      */
@@ -52,6 +59,7 @@ public class LoginInstrumentedTest {
      */
     @Test
     public void isPasswordEmpty() {
+        onView(withId(R.id.edtUser)).perform(typeText("Miguel"),closeSoftKeyboard());
         onView(withId(R.id.btnSignIn)).perform(click());
         checkSnackBarDisplayByMessage(R.string.errorPasswordEmpty);
     }
@@ -61,8 +69,8 @@ public class LoginInstrumentedTest {
      */
     @Test
     public void passwordLenght() {
-        onView(withId(R.id.edtUser)).perform(typeText("lourdes"),closeSoftKeyboard());
-        onView(withId(R.id.edtPassword)).perform(typeText("lu"),closeSoftKeyboard());
+        onView(withId(R.id.edtUser)).perform(typeText("Miguel"),closeSoftKeyboard());
+        onView(withId(R.id.edtPassword)).perform(typeText("Migu1"),closeSoftKeyboard());
         onView(withId(R.id.btnSignIn)).perform(click());
         checkSnackBarDisplayByMessage(R.string.errorPasswordLength);
     }

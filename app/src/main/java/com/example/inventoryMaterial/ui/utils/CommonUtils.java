@@ -22,7 +22,7 @@ public class CommonUtils {
     public static boolean isPasswordValid(String password){
         Pattern pattern;
         Matcher matcher;
-        final String PASSWORD_PATTERN = "[a-zA-Z0-9]{6,}";//[a-zA-Z0-9]{6,} https://regexr.com/
+        final String PASSWORD_PATTERN = "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,}";//(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,} https://regexr.com/
         pattern = Pattern.compile(PASSWORD_PATTERN);
         matcher = pattern.matcher(password);
         return matcher.matches();
