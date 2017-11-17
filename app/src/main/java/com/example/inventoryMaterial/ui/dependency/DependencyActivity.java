@@ -7,12 +7,18 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
 
+import com.example.inventoryMaterial.DashBoardActivity;
 import com.example.inventoryMaterial.R;
 import com.example.inventoryMaterial.adapter.DependencyAdapter;
+import com.example.inventoryMaterial.ui.prefs.AccountSettingActivity;
+import com.example.inventoryMaterial.ui.products.GeneralSettingActivity;
 
 /**
  * Created by
@@ -64,5 +70,27 @@ public class DependencyActivity extends AppCompatActivity {
                 startActivity(new Intent(DependencyActivity.this,AddDependencyActivity.class));
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_activity_dependency,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_order_by_name:
+                adapter = new DependencyAdapter(this);
+                listview.setAdapter(adapter);
+                break;
+            case R.id.action_order_by_shortname:
+                listview.setAdapter(adapter.orderByShortName());
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

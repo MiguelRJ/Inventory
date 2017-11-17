@@ -28,13 +28,14 @@
 
     <EditText
         android:id="@+id/edtUser"
+        style="@style/LoginEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
         android:layout_marginBottom="@dimen/edtUser_margin"
         android:background="@drawable/shape_edittext"
-        style="@style/LoginEditText"/>
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Migue" />
 
     <TextView
         android:id="@+id/txvPassword"
@@ -45,12 +46,13 @@
 
     <EditText
         android:id="@+id/edtPassword"
+        style="@style/LoginEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/shape_edittext"
         android:ems="10"
         android:inputType="textPassword"
-        android:background="@drawable/shape_edittext"
-        style="@style/LoginEditText"/>
+        android:text="Migue1" />
 
     <LinearLayout
         android:id="@+id/llySignOptions"

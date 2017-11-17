@@ -22,9 +22,9 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.inventoryMaterial.ui.inventory.InventoryActivity" />
-        <activity android:name="com.example.inventoryMaterial.DashBoardActivity" />
+        <activity android:name="com.example.inventoryMaterial.DashBoardActivity" android:theme="@style/AppThemeDarkActionBar"/>
         <activity android:name="com.example.inventoryMaterial.ui.products.ProductsActivity" />
-        <activity android:name="com.example.inventoryMaterial.ui.dependency.DependencyActivity" />
+        <activity android:name="com.example.inventoryMaterial.ui.dependency.DependencyActivity"/>
         <activity android:name="com.example.inventoryMaterial.ui.sector.SectorActivity"/>
         <activity android:name="com.example.inventoryMaterial.ui.products.GeneralSettingActivity"/>
         <activity android:name="com.example.inventoryMaterial.ui.prefs.AccountSettingActivity"/>

@@ -14,6 +14,8 @@ import com.example.inventoryMaterial.data.db.model.Dependency;
 import com.example.inventoryMaterial.data.db.repository.DependencyRepository;
 import com.github.ivbaranov.mli.MaterialLetterIcon;
 
+import java.util.ArrayList;
+
 /**
  * Created by
  *
@@ -43,8 +45,18 @@ import com.github.ivbaranov.mli.MaterialLetterIcon;
  */
 
 public class DependencyAdapter extends ArrayAdapter<Dependency> {
+
+    //private ArrayList<Dependency> dependencies;
+
+    /**
+     * Se crea una copia del ArrayList que se tiene en DependencyRepository
+     * para tener una copia local en el adapter que se pueda moficar sin cambiar los datos originales
+     * @param context
+     */
     public DependencyAdapter(@NonNull Context context) {
-        super(context, R.layout.item_dependency, DependencyRepository.getInstance().getDependencies());
+        super(context, R.layout.item_dependency, new ArrayList<>(DependencyRepository.getInstance().getDependencies()));
+        //sort(new Dependency.DependencyOrderByShortName());
+        //dependencies = new ArrayList<>(DependencyRepository.getInstance().getDependencies());// Para tener un array list distinto del que sea ha hecho sort
     }
 
     @NonNull
@@ -77,6 +89,11 @@ public class DependencyAdapter extends ArrayAdapter<Dependency> {
         dependencyHolder.txvName.setText(getItem(position).getName());
         dependencyHolder.txvSortName.setText(getItem(position).getSortName());
         return view;
+    }
+
+    public DependencyAdapter orderByShortName(){
+        sort(new Dependency.DependencyOrderByShortName());
+        return this;
     }
 
     /**

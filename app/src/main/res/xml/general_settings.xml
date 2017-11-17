@@ -20,9 +20,9 @@
         </ListPreference>
     </PreferenceCategory>
     <Preference
-        android:key="abaoutus"
+        android:key="aboutus"
         android:title="@string/pref_title_aboutus">
-        <intent android:targetClass="com.example.inventory.AboutusActivity"
-            android:targetPackage="com.example.inventory"/>
+        <intent android:targetClass="com.example.inventoryMaterial.ui.about.AboutActivity"
+            android:targetPackage="com.example.inventoryMaterial"/>
     </Preference>
 </PreferenceScreen>

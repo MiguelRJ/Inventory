@@ -3,6 +3,7 @@ package com.example.inventoryMaterial.data.db.repository;
 import com.example.inventoryMaterial.data.db.model.Dependency;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by
@@ -46,10 +47,10 @@ public class DependencyRepository {
 
     /* METODOS */
     private void initialize() {
-        addDependency(new Dependency(1, "1º Ciclo Formativo Grado Superior", "1CFGS", "1CFGS Desarrollo aplicaciones multiplataforma"));
-        addDependency(new Dependency(2, "2º Ciclo Formativo Grado Superior", "2CFGS", "2CFGS Desarrollo aplicaciones multiplataforma"));
-        addDependency(new Dependency(3, "1º Ciclo Formativo Grado Superior", "1CFGS", "1CFGS Desarrollo aplicaciones multiplataforma"));
-        addDependency(new Dependency(4, "2º Ciclo Formativo Grado Superior", "2CFGS", "2CFGS Desarrollo aplicaciones multiplataforma"));
+        addDependency(new Dependency(1, "1º Ciclo Formativo Grado Superior", "aaa", "1CFGS Desarrollo aplicaciones multiplataforma"));
+        addDependency(new Dependency(2, "2º Ciclo Formativo Grado Superior", "bbb", "2CFGS Desarrollo aplicaciones multiplataforma"));
+        addDependency(new Dependency(3, "1º Ciclo Formativo Grado Superior", "DDD", "1CFGS Desarrollo aplicaciones multiplataforma"));
+        addDependency(new Dependency(4, "2º Ciclo Formativo Grado Superior", "AAA", "2CFGS Desarrollo aplicaciones multiplataforma"));
         addDependency(new Dependency(5, "1º Ciclo Formativo Grado Superior", "1CFGS", "1CFGS Desarrollo aplicaciones multiplataforma"));
         addDependency(new Dependency(6, "2º Ciclo Formativo Grado Superior", "2CFGS", "2CFGS Desarrollo aplicaciones multiplataforma"));
         addDependency(new Dependency(7, "1º Ciclo Formativo Grado Superior", "1CFGS", "1CFGS Desarrollo aplicaciones multiplataforma"));
@@ -80,6 +81,15 @@ public class DependencyRepository {
      * @return
      */
     public ArrayList<Dependency> getDependencies() {
+        /**
+         * El array list se ordena segun el criterio/s del metodo compareTo de la interfaz Comparable
+         */
+        Collections.sort(dependencies); // ordena el arraylist
+        return dependencies; // devolverlo ya ordenado
+    }
+
+    public ArrayList<Dependency> getDependenciesByShortName(){
+        Collections.sort(dependencies, new Dependency.DependencyOrderByShortName());
         return dependencies;
     }
 }
