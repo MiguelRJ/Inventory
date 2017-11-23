@@ -29,7 +29,6 @@
         <activity android:name="com.example.inventoryFragment.ui.products.GeneralSettingActivity"/>
         <activity android:name="com.example.inventoryFragment.ui.prefs.AccountSettingActivity"/>
         <activity android:name="com.example.inventoryFragment.ui.about.AboutActivity"/>
-        <activity android:name="com.example.inventoryFragment.ui.dependency.AddDependencyActivity"/>
     </application>
 
 </manifest>
