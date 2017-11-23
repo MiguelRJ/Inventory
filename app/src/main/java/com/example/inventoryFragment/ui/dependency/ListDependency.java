@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.app.ListFragment;
 import android.support.design.widget.FloatingActionButton;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,9 +54,11 @@ public class ListDependency extends ListFragment implements ListDependencyContra
         FloatingActionButton fab = (FloatingActionButton) rootView.findViewById(R.id.fab);
         // Si el FloatingActionButton se encontrara en el xml de la activity
         //FloatingActionButton fab = getActivity().findViewById(R.id.fab);
+        //Log.d("DA","antes del setonclick");
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Log.d("DA","dentro del onclick");
                 callback.addNewDependency();
             }
         });

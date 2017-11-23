@@ -18,6 +18,7 @@ public class AddEditDependency extends Fragment implements AddEditDependencyCont
 
     public static final String TAG = "AddEditDependencyPresenter";
 
+    AddEditDependencyContract.Presenter presenter;
 
     public static AddEditDependency newInstace(Bundle bundle) {
         AddEditDependency addEditDependency = new AddEditDependency();
@@ -40,6 +41,6 @@ public class AddEditDependency extends Fragment implements AddEditDependencyCont
 
     @Override
     public void setPresenter(AddEditDependencyContract.Presenter presenter) {
-        //this.presenter = presenter;
+        this.presenter = presenter;
     }
 }

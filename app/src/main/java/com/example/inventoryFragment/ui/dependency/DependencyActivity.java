@@ -5,10 +5,13 @@ import android.support.annotation.Nullable;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.util.Log;
 
 import com.example.inventoryFragment.R;
 import com.example.inventoryFragment.ui.base.BaseActivity;
+import com.example.inventoryFragment.ui.dependency.contract.AddEditDependencyContract;
 import com.example.inventoryFragment.ui.dependency.presenter.AddEditDependencyPresenter;
+import com.example.inventoryFragment.ui.dependency.presenter.DetailDependencyPresenter;
 import com.example.inventoryFragment.ui.dependency.presenter.ListDependencyPresenter;
 
 /**
@@ -28,8 +31,9 @@ public class DependencyActivity extends BaseActivity implements ListDependency.L
     private ListDependency listDependency;
     private ListDependencyPresenter listDependencyPresenter;
     private AddEditDependency addeditDependency;
-    //private AddEditDependencyPresenter addEditDependencyPresenter;
-    private Fragment detailDependency;
+    private AddEditDependencyPresenter addEditDependencyPresenter;
+    private DetailDependency detailDependency;
+    private DetailDependencyPresenter detailDependencyPresenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -56,15 +60,19 @@ public class DependencyActivity extends BaseActivity implements ListDependency.L
      */
     @Override
     public void addNewDependency() {
+        //Log.d("DA","addnewdependency()");
         FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         // 1- Se crea la vista
         addeditDependency = (AddEditDependency) fragmentManager.findFragmentByTag(AddEditDependency.TAG);
-        if (addeditDependency != null) {
+        if (addeditDependency == null) {
             addeditDependency = (AddEditDependency) ListDependency.newInstance(null);
-            fragmentTransaction.replace(android.R.id.content,addeditDependency);
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(android.R.id.content, addeditDependency,AddEditDependency.TAG);
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
         }
+        addEditDependencyPresenter = new AddEditDependencyPresenter(addeditDependency);
+        addeditDependency.setPresenter((AddEditDependencyContract.Presenter) addEditDependencyPresenter);
+
     }
 }
