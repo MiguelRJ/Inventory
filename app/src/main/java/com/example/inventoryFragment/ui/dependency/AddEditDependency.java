@@ -47,7 +47,7 @@ public class AddEditDependency extends Fragment implements AddEditDependencyCont
             @Override
             public void onClick(View view) {
                 //Log.d("DA","dentro del onclick");
-                callback.addNewDependency();
+                //callback.addNewDependency();
             }
         });
         return rootView;

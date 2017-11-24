@@ -35,13 +35,11 @@
             android:layout_height="match_parent"
             android:padding="16dp">
 
-
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/tilName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                app:errorEnabled="true"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <android.support.design.widget.TextInputEditText
@@ -59,7 +57,6 @@
                 android:layout_marginTop="8dp"
                 app:counterEnabled="true"
                 app:counterMaxLength="10"
-                app:errorEnabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tilName">
@@ -77,7 +74,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                app:errorEnabled="true"
+                app:counterEnabled="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tilSortName">
@@ -99,7 +96,6 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/margin_fab"
         android:clickable="true"
-        android:focusable="true"
         app:pressedTranslationZ="@dimen/translationZ"
         app:srcCompat="@drawable/ic_action_add" />
     <!-- android:id="@android:id/list" si o si usar el id de android -->
