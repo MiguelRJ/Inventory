@@ -71,8 +71,10 @@ public class DependencyActivity extends BaseActivity implements ListDependency.L
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
         }
-        //addEditDependencyPresenter = new AddEditDependencyPresenter(addeditDependency);
-        //addeditDependency.setPresenter(addEditDependencyPresenter);
+        // 2 se crea el presentador y se le pasa el constructo de la vista crrecpondiente
+        addEditDependencyPresenter = new AddEditDependencyPresenter(addeditDependency);
+        // 3 asignas presentador
+        addeditDependency.setPresenter(addEditDependencyPresenter);
 
     }
 }
