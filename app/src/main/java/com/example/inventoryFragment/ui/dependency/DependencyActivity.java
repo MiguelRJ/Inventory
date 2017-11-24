@@ -26,7 +26,7 @@ import com.example.inventoryFragment.ui.dependency.presenter.ListDependencyPrese
  * @date 25/10/17
  */
 
-public class DependencyActivity extends BaseActivity implements ListDependency.ListDependencyListener{
+public class DependencyActivity extends BaseActivity implements ListDependency.ListDependencyListener, AddEditDependency.AddEditDependencyListener{
 
     private ListDependency listDependency;
     private ListDependencyPresenter listDependencyPresenter;
@@ -63,16 +63,16 @@ public class DependencyActivity extends BaseActivity implements ListDependency.L
         //Log.d("DA","addnewdependency()");
         FragmentManager fragmentManager = getFragmentManager();
         // 1- Se crea la vista
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         addeditDependency = (AddEditDependency) fragmentManager.findFragmentByTag(AddEditDependency.TAG);
         if (addeditDependency == null) {
-            addeditDependency = (AddEditDependency) ListDependency.newInstance(null);
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            addeditDependency = AddEditDependency.newInstace(null);
             fragmentTransaction.replace(android.R.id.content, addeditDependency,AddEditDependency.TAG);
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
         }
-        addEditDependencyPresenter = new AddEditDependencyPresenter(addeditDependency);
-        addeditDependency.setPresenter((AddEditDependencyContract.Presenter) addEditDependencyPresenter);
+        //addEditDependencyPresenter = new AddEditDependencyPresenter(addeditDependency);
+        //addeditDependency.setPresenter(addEditDependencyPresenter);
 
     }
 }
