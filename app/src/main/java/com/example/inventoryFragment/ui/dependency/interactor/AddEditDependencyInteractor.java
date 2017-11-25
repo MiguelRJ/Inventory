@@ -8,8 +8,11 @@ import com.example.inventoryFragment.ui.utils.CommonUtils;
  * Created by usuario on 24/11/17.
  */
 
-public class AddEditDependencyInteractor {
-    public void validateCredentials(String name, String shortName, String description, AddEditDependencyIntereactorInterface.OnAddDependencyListener listener) {
+public class AddEditDependencyInteractor implements AddEditDependencyIntereactorInterface {
+
+
+    @Override
+    public void validateDependency(String name, String shortName, String description,AddEditDependencyIntereactorInterface.OnAddDependencyListener listener) {
         //Si el password es vacio
         if(TextUtils.isEmpty(name)) {
             listener.onNameEmptyError();
@@ -20,7 +23,5 @@ public class AddEditDependencyInteractor {
         } else if (true){//UserRepository.getInstance().validateCredentials(user, password)
             listener.onSuccess();
         }
-
-        //Y es correcto
     }
 }

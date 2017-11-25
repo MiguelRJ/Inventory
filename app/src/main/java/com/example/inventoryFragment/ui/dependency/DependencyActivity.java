@@ -26,7 +26,7 @@ import com.example.inventoryFragment.ui.dependency.presenter.ListDependencyPrese
  * @date 25/10/17
  */
 
-public class DependencyActivity extends BaseActivity implements ListDependency.ListDependencyListener, AddEditDependency.AddEditDependencyListener{
+public class DependencyActivity extends BaseActivity implements ListDependency.ListDependencyListener{
 
     private ListDependency listDependency;
     private ListDependencyPresenter listDependencyPresenter;

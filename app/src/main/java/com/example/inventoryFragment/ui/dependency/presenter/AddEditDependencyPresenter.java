@@ -1,6 +1,7 @@
 package com.example.inventoryFragment.ui.dependency.presenter;
 
 import com.example.inventoryFragment.ui.dependency.contract.AddEditDependencyContract;
+import com.example.inventoryFragment.ui.dependency.interactor.AddEditDependencyInteractor;
 import com.example.inventoryFragment.ui.dependency.interactor.AddEditDependencyIntereactorInterface;
 
 /**
@@ -10,14 +11,16 @@ import com.example.inventoryFragment.ui.dependency.interactor.AddEditDependencyI
 public class AddEditDependencyPresenter implements AddEditDependencyContract.Presenter, AddEditDependencyIntereactorInterface.OnAddDependencyListener{
 
     private final AddEditDependencyContract.View view;
+    private final AddEditDependencyInteractor interactor;
 
     public AddEditDependencyPresenter (AddEditDependencyContract.View view) {
         this.view = view;
+        interactor = new AddEditDependencyInteractor();
     }
 
     @Override
     public void validateDependency(String name,String shortName,String description) {
-        validateDependency(name,shortName,description);
+        interactor.validateDependency(name,shortName,description, this);
     }
 
     @Override
