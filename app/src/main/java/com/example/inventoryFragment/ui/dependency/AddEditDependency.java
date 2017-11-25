@@ -48,6 +48,7 @@ public class AddEditDependency extends BaseFragment implements AddEditDependency
         View rootView = inflater.inflate(R.layout.fragment_addedit_dependency,container,false);
         FloatingActionButton fab = rootView.findViewById(R.id.fab);
         tilName = rootView.findViewById(R.id.tilName);
+        edtName = rootView.findViewById(R.id.edtName);
         edtName.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -73,7 +74,7 @@ public class AddEditDependency extends BaseFragment implements AddEditDependency
             @Override
             public void onClick(View view) {
                 //Log.d("DA","dentro del onclick");
-                callback.addNewDependency();
+                //callback.addNewDependency();
                 presenter.validateDependency(tilName.getEditText().getText().toString(),tilSortName.getEditText().getText().toString(),tilDescription.getEditText().getText().toString());
             }
         });
