@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="errorUserEmpty">You must enter a user</string>
+    <string name="errorEmailEmpty">You must enter a password</string>
+    <string name="errorPasswordEmpty">You must enter an email</string>
+    <string name="errorPasswordLength">Wrong password lenght</string>
+    <string name="errorNameEmpty">You must enter a name</string>
+    <string name="errorShortNameEmpty">You must enter a short name</string>
+    <string name="errorDescripcionEmpty">You must enter a description</string>
+</resources>

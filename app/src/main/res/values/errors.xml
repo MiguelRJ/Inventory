@@ -4,4 +4,7 @@
     <string name="errorEmailEmpty">Debe introducir una contraseña</string>
     <string name="errorPasswordEmpty">Debe introducir un email</string>
     <string name="errorPasswordLength">Longitud de contraseña erronea</string>
+    <string name="errorNameEmpty">Debe introducir un nombre</string>
+    <string name="errorShortNameEmpty">Debe introducir un nombre corto</string>
+    <string name="errorDescripcionEmpty">Debe introducir una descripcion</string>
 </resources>

@@ -44,7 +44,7 @@ public class AddEditDependency extends BaseFragment implements AddEditDependency
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_addedit_dependency,container,false);
 
-        tilDescription = (TextInputEditText) rootView.findViewById(R.id.tilDescription);
+        tilDescription = (TextInputEditText) rootView.findViewById(R.id.edtDescription);
         tilDescription.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -61,8 +61,8 @@ public class AddEditDependency extends BaseFragment implements AddEditDependency
             }
         });
 
-        tilName = (TextInputEditText) rootView.findViewById(R.id.tilName);
-        tilSortName = (TextInputEditText) rootView.findViewById(R.id.tilSortName);
+        tilName = (TextInputEditText) rootView.findViewById(R.id.edtName);
+        tilSortName = (TextInputEditText) rootView.findViewById(R.id.edtSortName);
 
         fab = rootView.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -87,17 +87,17 @@ public class AddEditDependency extends BaseFragment implements AddEditDependency
 
     @Override
     public void showNameEmptyError() {
-        tilName.setError("Nombre vacio.");
+        tilName.setError(getString(R.string.errorNameEmpty));
     }
 
     @Override
     public void showShortNameEmptyError() {
-        tilSortName.setError("nombre corto vacio");
+        tilSortName.setError(getString(R.string.errorShortNameEmpty));
     }
 
     @Override
     public void showDescriptionEmptyError() {
-        tilDescription.setError("Descripcion vacia");
+        tilDescription.setError(getString(R.string.errorDescripcionEmpty));
     }
 
     @Override
