@@ -2,14 +2,14 @@ package com.example.inventoryFragment.ui.dependency;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.util.Log;
 
 import com.example.inventoryFragment.R;
 import com.example.inventoryFragment.ui.base.BaseActivity;
-import com.example.inventoryFragment.ui.dependency.contract.AddEditDependencyContract;
+import com.example.inventoryFragment.ui.dependency.fragment.AddEditDependencyFragment;
+import com.example.inventoryFragment.ui.dependency.fragment.DetailDependencyFragment;
+import com.example.inventoryFragment.ui.dependency.fragment.ListDependencyFragment;
 import com.example.inventoryFragment.ui.dependency.presenter.AddEditDependencyPresenter;
 import com.example.inventoryFragment.ui.dependency.presenter.DetailDependencyPresenter;
 import com.example.inventoryFragment.ui.dependency.presenter.ListDependencyPresenter;
@@ -26,13 +26,13 @@ import com.example.inventoryFragment.ui.dependency.presenter.ListDependencyPrese
  * @date 25/10/17
  */
 
-public class DependencyActivity extends BaseActivity implements ListDependency.ListDependencyListener{
+public class DependencyActivity extends BaseActivity implements ListDependencyFragment.ListDependencyListener{
 
-    private ListDependency listDependency;
+    private ListDependencyFragment listDependency;
     private ListDependencyPresenter listDependencyPresenter;
-    private AddEditDependency addeditDependency;
+    private AddEditDependencyFragment addeditDependency;
     private AddEditDependencyPresenter addEditDependencyPresenter;
-    private DetailDependency detailDependency;
+    private DetailDependencyFragment detailDependency;
     private DetailDependencyPresenter detailDependencyPresenter;
 
     @Override
@@ -42,10 +42,10 @@ public class DependencyActivity extends BaseActivity implements ListDependency.L
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         // 1- Se crea la vista
-        listDependency = (ListDependency) fragmentManager.findFragmentByTag(ListDependency.TAG);
+        listDependency = (ListDependencyFragment) fragmentManager.findFragmentByTag(ListDependencyFragment.TAG);
         if(listDependency==null){
-            listDependency = (ListDependency) ListDependency.newInstance(null);
-            fragmentTransaction.add(android.R.id.content,listDependency,ListDependency.TAG);
+            listDependency = (ListDependencyFragment) ListDependencyFragment.newInstance(null);
+            fragmentTransaction.add(android.R.id.content,listDependency, ListDependencyFragment.TAG);
             fragmentTransaction.commit();
         }
         // 2- Se crea el presentador, y se le pasa en el constructor la vista correspodiente
@@ -64,10 +64,10 @@ public class DependencyActivity extends BaseActivity implements ListDependency.L
         FragmentManager fragmentManager = getFragmentManager();
         // 1- Se crea la vista
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        addeditDependency = (AddEditDependency) fragmentManager.findFragmentByTag(AddEditDependency.TAG);
+        addeditDependency = (AddEditDependencyFragment) fragmentManager.findFragmentByTag(AddEditDependencyFragment.TAG);
         if (addeditDependency == null) {
-            addeditDependency = AddEditDependency.newInstace(null);
-            fragmentTransaction.replace(android.R.id.content, addeditDependency,AddEditDependency.TAG);
+            addeditDependency = AddEditDependencyFragment.newInstace(null);
+            fragmentTransaction.replace(android.R.id.content, addeditDependency, AddEditDependencyFragment.TAG);
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
         }

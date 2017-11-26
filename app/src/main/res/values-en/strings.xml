@@ -55,5 +55,24 @@
     <string name="swtCambiarON">ON</string>
     <string name="swtCambiarOFF">OFF</string>
     <string name="txvSectorDefault">Default sector</string>
-    <string name="menuSave">Save</string>
+    <string name="menuSave">Save menu</string>
+    <string name="edtName">Write a name</string>
+    <string name="edtSortName">Write a short name</string>
+    <string name="edtDescription">Write a description</string>
+    <string name="action_save">Save</string>
+    <string name="action_general_settings">General settings</string>
+    <string name="action_account_settings">Account settings</string>
+    <string name="pref_category_general">General preferences</string>
+    <string name="pref_title_showimage">Show image</string>
+    <string name="pref_description_viewicon">Show images in applicationl lists</string>
+    <string name="pref_summary_numcolum">Numbre of columns in application lists</string>
+    <string name="pref_title_numcolum">Numbre of columns</string>
+    <string name="pref_title_aboutus">About us</string>
+    <string name="pref_category_account">Configuration</string>
+    <string name="pref_title_swtRemember">Remember user</string>
+    <string name="pref_summary_swtRemember">Save user</string>
+    <string name="pref_title_edtRememberUser">User</string>
+    <string name="pref_summary_edtRememberUser">Application user name</string>
+    <string name="pref_title_edtRememberPass">Password</string>
+    <string name="pref_summary_edtRememberPass">User password in application</string>
 </resources>

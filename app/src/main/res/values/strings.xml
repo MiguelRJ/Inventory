@@ -60,5 +60,6 @@
     <string name="action_save">Guardar</string>
     <string name="action_general_settings">Ajustes Generales</string>
     <string name="action_account_settings">Ajustes de Cuenta</string>
+    <string name="menuSave">Guardar menu</string>
 
 </resources>

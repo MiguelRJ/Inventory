@@ -1,4 +1,4 @@
-package com.example.inventoryFragment.ui.dependency;
+package com.example.inventoryFragment.ui.dependency.fragment;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.app.ListFragment;
 import android.support.design.widget.FloatingActionButton;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,13 +18,13 @@ import com.example.inventoryFragment.ui.dependency.contract.ListDependencyContra
  * Created by usuario on 23/11/17.
  */
 
-public class ListDependency extends ListFragment implements ListDependencyContract.View {
+public class ListDependencyFragment extends ListFragment implements ListDependencyContract.View {
 
     public static final String TAG = "ListDependencyPresenter";
     private ListDependencyListener callback;
     private ListDependencyContract.Presenter presenter;
 
-    interface ListDependencyListener{
+    public interface ListDependencyListener{
         void addNewDependency();
     }
 
@@ -40,7 +39,7 @@ public class ListDependency extends ListFragment implements ListDependencyContra
     }
 
     public static Fragment newInstance(Bundle bundle) {
-        ListDependency listDependency = new ListDependency();
+        ListDependencyFragment listDependency = new ListDependencyFragment();
         if (bundle != null) {
             listDependency.setArguments(bundle);
         }

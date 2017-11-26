@@ -1,17 +1,14 @@
-package com.example.inventoryFragment.ui.dependency;
+package com.example.inventoryFragment.ui.dependency.fragment;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputEditText;
-import android.support.design.widget.TextInputLayout;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 
 import com.example.inventoryFragment.R;
 import com.example.inventoryFragment.ui.base.BaseFragment;
@@ -22,7 +19,7 @@ import com.example.inventoryFragment.ui.dependency.contract.AddEditDependencyCon
  * Created by usuario on 23/11/17.
  */
 
-public class AddEditDependency extends BaseFragment implements AddEditDependencyContract.View {
+public class AddEditDependencyFragment extends BaseFragment implements AddEditDependencyContract.View {
 
     public static final String TAG = "AddEditDependencyPresenter";
     private AddEditDependencyContract.Presenter presenter;
@@ -30,8 +27,8 @@ public class AddEditDependency extends BaseFragment implements AddEditDependency
     private TextInputEditText tilName,tilSortName,tilDescription;
     private FloatingActionButton fab;
 
-    public static AddEditDependency newInstace(Bundle bundle) {
-        AddEditDependency addEditDependency = new AddEditDependency();
+    public static AddEditDependencyFragment newInstace(Bundle bundle) {
+        AddEditDependencyFragment addEditDependency = new AddEditDependencyFragment();
         if (bundle != null) {
             addEditDependency.setArguments(bundle);
         }
