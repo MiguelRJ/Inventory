@@ -1,5 +1,6 @@
 package com.example.inventoryFragment.ui.dependency.fragment;
 
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -143,7 +144,8 @@ public class AddEditDependencyFragment extends BaseFragment implements AddEditDe
     @Override
     public void showOnSucces() {
         showMessage("Guardado");
+        FragmentManager fm = getActivity().getFragmentManager();
+        fm.popBackStack();
     }
-
 
 }

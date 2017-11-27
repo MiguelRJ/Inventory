@@ -26,7 +26,6 @@ public class ListDependencyPresenter implements ListDependencyContract.Presenter
         interactor.loadDependency();
     }
 
-
     @Override
     public void onSucces(List<Dependency> list) {
         view.showDependency(list);
