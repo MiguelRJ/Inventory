@@ -43,7 +43,7 @@ public class DependencyActivity extends BaseActivity implements ListDependencyFr
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         // 1- Se crea la vista
         listDependency = (ListDependencyFragment) fragmentManager.findFragmentByTag(ListDependencyFragment.TAG);
-        if(listDependency==null){
+        if(listDependency==null) {
             listDependency = (ListDependencyFragment) ListDependencyFragment.newInstance(null);
             fragmentTransaction.add(android.R.id.content,listDependency, ListDependencyFragment.TAG);
             fragmentTransaction.commit();

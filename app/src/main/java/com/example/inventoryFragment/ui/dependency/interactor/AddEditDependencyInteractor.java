@@ -10,7 +10,6 @@ import com.example.inventoryFragment.ui.utils.CommonUtils;
 
 public class AddEditDependencyInteractor implements AddEditDependencyIntereactorInterface {
 
-
     @Override
     public void validateDependency(String name, String shortName, String description,AddEditDependencyIntereactorInterface.OnAddDependencyListener listener) {
         //Si el password es vacio
