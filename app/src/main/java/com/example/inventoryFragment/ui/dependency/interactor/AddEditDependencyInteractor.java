@@ -2,6 +2,8 @@ package com.example.inventoryFragment.ui.dependency.interactor;
 
 import android.text.TextUtils;
 
+import com.example.inventoryFragment.data.db.model.Dependency;
+import com.example.inventoryFragment.data.db.repository.DependencyRepository;
 import com.example.inventoryFragment.ui.utils.CommonUtils;
 
 /**
@@ -20,6 +22,8 @@ public class AddEditDependencyInteractor implements AddEditDependencyIntereactor
         }else if (TextUtils.isEmpty(description)) {
             listener.onDescriptionEmptyError();
         } else if (true){//UserRepository.getInstance().validateCredentials(user, password)
+            DependencyRepository.getInstance().addDependency(
+                    new Dependency(DependencyRepository.getInstance().getDependencies().size()+1,name,shortName,description));
             listener.onSuccess();
         }
     }

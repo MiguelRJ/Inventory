@@ -4,11 +4,13 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.inventoryFragment.R;
 import com.example.inventoryFragment.ui.base.BaseFragment;
@@ -24,7 +26,7 @@ public class AddEditDependencyFragment extends BaseFragment implements AddEditDe
     public static final String TAG = "AddEditDependencyPresenter";
     private AddEditDependencyContract.Presenter presenter;
 
-    private TextInputEditText tilName,tilSortName,tilDescription;
+    private TextInputLayout tilName,tilSortName,tilDescription;
     private FloatingActionButton fab;
 
     public static AddEditDependencyFragment newInstace(Bundle bundle) {
@@ -41,8 +43,42 @@ public class AddEditDependencyFragment extends BaseFragment implements AddEditDe
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_addedit_dependency,container,false);
 
-        tilDescription = (TextInputEditText) rootView.findViewById(R.id.edtDescription);
-        tilDescription.addTextChangedListener(new TextWatcher() {
+        tilName = (TextInputLayout) rootView.findViewById(R.id.tilName);
+        tilName.getEditText().addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                tilName.setError(null);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        tilSortName = (TextInputLayout) rootView.findViewById(R.id.tilSortName);
+        tilSortName.getEditText().addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                tilSortName.setError(null);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        tilDescription = (TextInputLayout) rootView.findViewById(R.id.tilDescription);
+        tilDescription.getEditText().addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
             }
@@ -58,16 +94,15 @@ public class AddEditDependencyFragment extends BaseFragment implements AddEditDe
             }
         });
 
-        tilName = (TextInputEditText) rootView.findViewById(R.id.edtName);
-        tilSortName = (TextInputEditText) rootView.findViewById(R.id.edtSortName);
-
         fab = rootView.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Log.d("DA","dentro del onclick");
                 //callback.addNewDependency();
-                presenter.validateDependency(tilName.getText().toString(),tilSortName.getText().toString(),tilDescription.getText().toString());
+                presenter.validateDependency(tilName.getEditText().getText().toString(),
+                        tilSortName.getEditText().getText().toString(),
+                        tilDescription.getEditText().getText().toString());
             }
         });
 
@@ -104,7 +139,7 @@ public class AddEditDependencyFragment extends BaseFragment implements AddEditDe
 
     @Override
     public void showOnSucces() {
-
+        showMessage("Guardado");
     }
 
 
