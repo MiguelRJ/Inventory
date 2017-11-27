@@ -13,9 +13,12 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.inventoryFragment.R;
+import com.example.inventoryFragment.data.db.model.Dependency;
 import com.example.inventoryFragment.ui.base.BaseFragment;
 import com.example.inventoryFragment.ui.base.BasePresenter;
 import com.example.inventoryFragment.ui.dependency.contract.AddEditDependencyContract;
+
+import java.util.List;
 
 /**
  * Created by usuario on 23/11/17.

@@ -11,8 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.example.inventoryFragment.R;
 import com.example.inventoryFragment.adapter.DependencyAdapter;
+import com.example.inventoryFragment.data.db.model.Dependency;
 import com.example.inventoryFragment.ui.base.BasePresenter;
 import com.example.inventoryFragment.ui.dependency.contract.ListDependencyContract;
+
+import java.util.List;
 
 /**
  * Created by usuario on 23/11/17.
@@ -22,7 +25,15 @@ public class ListDependencyFragment extends ListFragment implements ListDependen
 
     public static final String TAG = "ListDependencyPresenter";
     private ListDependencyListener callback;
+    private DependencyAdapter adapter;
     private ListDependencyContract.Presenter presenter;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        this.adapter = new DependencyAdapter(getActivity());
+        setRetainInstance(true);
+    }
 
     public interface ListDependencyListener{
         void addNewDependency();
@@ -62,19 +73,38 @@ public class ListDependencyFragment extends ListFragment implements ListDependen
                 callback.addNewDependency();
             }
         });
+        presenter.loadDependency();
         return rootView;
     }
 
+    /**
+     * Se asigna el adapter isn datos a la lista
+     * @param view
+     * @param savedInstanceState
+     */
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setListAdapter(new DependencyAdapter(getActivity()));
+        //setListAdapter(new DependencyAdapter(getActivity()));
+        setListAdapter(adapter);
     }
 
+    /**
+     *
+     * @param presenter
+     */
     @Override
     public void setPresenter(BasePresenter presenter) {
         this.presenter = (ListDependencyContract.Presenter) presenter;
     }
+
+    @Override
+    public void showDependency(List<Dependency> list) {
+        adapter.clear();
+        adapter.addAll(list);
+    }
+
+
 
     /*@Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

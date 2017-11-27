@@ -54,9 +54,10 @@ public class DependencyAdapter extends ArrayAdapter<Dependency> {
      * @param context
      */
     public DependencyAdapter(@NonNull Context context) {
-        super(context, R.layout.item_dependency, new ArrayList<>(DependencyRepository.getInstance().getDependencies()));
+        //super(context, R.layout.item_dependency, new ArrayList<>(DependencyRepository.getInstance().getDependencies())); // para mostrar los datos de innitializate
         //sort(new Dependency.DependencyOrderByShortName());
         //dependencies = new ArrayList<>(DependencyRepository.getInstance().getDependencies());// Para tener un array list distinto del que sea ha hecho sort
+        super(context,R.layout.item_dependency,new ArrayList<Dependency>());// para mostrar la lista vacia al principio
     }
 
     @NonNull
