@@ -18,6 +18,7 @@ import com.example.inventoryFragment.data.db.model.Dependency;
 import com.example.inventoryFragment.ui.base.BaseFragment;
 import com.example.inventoryFragment.ui.base.BasePresenter;
 import com.example.inventoryFragment.ui.dependency.contract.AddEditDependencyContract;
+import com.example.inventoryFragment.ui.utils.AddEdit;
 
 import java.util.List;
 
@@ -33,9 +34,13 @@ public class AddEditDependencyFragment extends BaseFragment implements AddEditDe
     private TextInputLayout tilName,tilSortName,tilDescription;
     private FloatingActionButton fab;
 
+    static AddEdit mode;
+
     public static AddEditDependencyFragment newInstace(Bundle bundle) {
         AddEditDependencyFragment addEditDependency = new AddEditDependencyFragment();
+        mode = new AddEdit();
         if (bundle != null) {
+            mode.setMode(AddEdit.EDIT_MODE);
             addEditDependency.setArguments(bundle);
         }
         return addEditDependency;
@@ -110,8 +115,12 @@ public class AddEditDependencyFragment extends BaseFragment implements AddEditDe
             }
         });
 
-        if (getArguments() == null){
-
+        if (getArguments() != null){
+            tilName.getEditText().setText(((Dependency)getArguments().getParcelable(Dependency.TAG)).getName().toString());
+            tilName.setEnabled(false);
+            tilSortName.getEditText().setText(((Dependency)getArguments().getParcelable(Dependency.TAG)).getSortName().toString());
+            tilSortName.setEnabled(false);
+            tilDescription.getEditText().setText(((Dependency)getArguments().getParcelable(Dependency.TAG)).getDescription().toString());
         }
         return rootView;
     }

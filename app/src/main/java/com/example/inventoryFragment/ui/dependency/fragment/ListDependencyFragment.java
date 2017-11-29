@@ -9,6 +9,8 @@ import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+
 import com.example.inventoryFragment.R;
 import com.example.inventoryFragment.adapter.DependencyAdapter;
 import com.example.inventoryFragment.data.db.model.Dependency;
@@ -36,7 +38,7 @@ public class ListDependencyFragment extends ListFragment implements ListDependen
     }
 
     public interface ListDependencyListener{
-        void addNewDependency();
+        void addNewDependency(Bundle bundle);
     }
 
     @Override
@@ -70,7 +72,7 @@ public class ListDependencyFragment extends ListFragment implements ListDependen
             @Override
             public void onClick(View view) {
                 //Log.d("DA","dentro del onclick");
-                callback.addNewDependency();
+                callback.addNewDependency(null);
             }
         });
         presenter.loadDependency();
@@ -87,6 +89,14 @@ public class ListDependencyFragment extends ListFragment implements ListDependen
         super.onViewCreated(view, savedInstanceState);
         //setListAdapter(new DependencyAdapter(getActivity()));
         setListAdapter(adapter);
+        getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Bundle bundle = new Bundle();
+                bundle.putParcelable(Dependency.TAG,(Dependency)adapterView.getItemAtPosition(position));
+                callback.addNewDependency(bundle);
+            }
+        });
     }
 
     /**

@@ -1,6 +1,8 @@
 package com.example.inventoryFragment.ui.dependency.interactor;
 
 import android.text.TextUtils;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.example.inventoryFragment.data.db.model.Dependency;
 import com.example.inventoryFragment.data.db.repository.DependencyRepository;
@@ -22,8 +24,15 @@ public class AddEditDependencyInteractor implements AddEditDependencyIntereactor
         }else if (TextUtils.isEmpty(description)) {
             listener.onDescriptionEmptyError();
         } else if (true){//UserRepository.getInstance().validateCredentials(user, password)
-            DependencyRepository.getInstance().addDependency(
-                    new Dependency(DependencyRepository.getInstance().getDependencies().size()+1,name,shortName,description));
+            int id;
+            id = DependencyRepository.getInstance().getDependencyBy(name.toString(),shortName.toString());
+            Log.e("interactor","id encontrado "+String.valueOf(id));
+            if (id < 0) {
+                DependencyRepository.getInstance().addDependency(
+                        new Dependency(DependencyRepository.getInstance().getDependencies().size() + 1, name, shortName, description));
+            } else {
+                DependencyRepository.getInstance().editDependencyById(id,name,shortName,description);
+            }
             listener.onSuccess();
         }
     }
