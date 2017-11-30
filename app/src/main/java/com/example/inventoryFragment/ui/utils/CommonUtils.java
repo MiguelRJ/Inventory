@@ -1,5 +1,13 @@
 package com.example.inventoryFragment.ui.utils;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Bundle;
+
+import com.example.inventoryFragment.R;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -27,4 +35,6 @@ public class CommonUtils {
         matcher = pattern.matcher(password);
         return matcher.matches();
     }
+
+
 }

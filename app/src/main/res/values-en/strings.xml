@@ -76,4 +76,6 @@
     <string name="pref_title_edtRememberPass">Password</string>
     <string name="pref_summary_edtRememberPass">User password in application</string>
     <string name="fragment_listdependency_delete">Delete</string>
+    <string name="btnOk">Yes</string>
+    <string name="btnCancel">No</string>
 </resources>

@@ -1,5 +1,8 @@
 package com.example.inventoryFragment.ui.dependency.presenter;
 
+import android.util.Log;
+import android.widget.Toast;
+
 import com.example.inventoryFragment.data.db.model.Dependency;
 import com.example.inventoryFragment.ui.dependency.contract.ListDependencyContract;
 import com.example.inventoryFragment.ui.dependency.interactor.ListDependencyInteractor;
@@ -11,6 +14,9 @@ import java.util.List;
  */
 
 public class ListDependencyPresenter implements ListDependencyContract.Presenter,ListDependencyInteractor.OnLoadFinishedListener{
+
+    public static final int DELETE = 1;
+
     ListDependencyContract.View view;
     //private static TYPE_FILTER;
     private ListDependencyInteractor interactor;
@@ -31,10 +37,28 @@ public class ListDependencyPresenter implements ListDependencyContract.Presenter
         view.showDependency(list);
     }
 
+    @Override
+    public void deleteDependency(int id){
+        interactor.deleteDependeny(id);
+        loadDependency();
+    }
 
     @Override
     public void OnDestroy() {
         view = null;
         interactor = null;
     }
+
+    @Override
+    public void options(int i) {
+        switch (i) {
+            case DELETE:
+                deleteDependency(1);
+                break;
+            default:
+                Log.e("Error option","opcion "+i+" no encontrada");
+        }
+    }
+
+
 }

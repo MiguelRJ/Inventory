@@ -9,9 +9,12 @@ import java.util.List;
  */
 
 public interface ListDependencyInteractorInterface {
+
     interface OnLoadFinishedListener {
         void onSucces(List<Dependency> list);
+        void deleteDependency(int id);
     }
 
     void loadDependency();
+    //void deleteDependeny(int id);
 }

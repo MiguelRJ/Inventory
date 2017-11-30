@@ -53,4 +53,9 @@ public class AddEditDependencyPresenter implements AddEditDependencyContract.Pre
         view = null;
         interactor = null;
     }
+
+    @Override
+    public void options(int i) {
+
+    }
 }

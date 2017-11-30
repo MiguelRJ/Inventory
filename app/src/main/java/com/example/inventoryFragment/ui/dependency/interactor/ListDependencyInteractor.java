@@ -19,4 +19,14 @@ public class ListDependencyInteractor implements ListDependencyInteractorInterfa
         listener.onSucces(DependencyRepository.getInstance().getDependencies());
     }
 
+
+    public void deleteDependeny(int id) {
+        DependencyRepository.getInstance().deleteDependency(id);
+    }
+
+    /*@Override
+    public void deleteDependency(String name, String shortName) {
+        DependencyRepository.getInstance().deleteDependency(DependencyRepository.getInstance().getDependencyBy(name, shortName));
+    }*/
+
 }

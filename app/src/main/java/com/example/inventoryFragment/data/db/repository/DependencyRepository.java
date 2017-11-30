@@ -82,7 +82,7 @@ public class DependencyRepository {
 
     public int getDependencyBy(String name, String shortname){
         for (int i = 0;i<dependencies.size();i++){
-            Log.e(String.valueOf(dependencies.get(i).get_ID()),String.valueOf(name+"--"+shortname));
+            //Log.e(String.valueOf(dependencies.get(i).get_ID()),String.valueOf(name+"--"+shortname));
             if (dependencies.get(i).getName().equals(name) && dependencies.get(i).getSortName().equals(shortname)){
                 return dependencies.get(i).get_ID();
             }
@@ -97,6 +97,16 @@ public class DependencyRepository {
      */
     public void addDependency(Dependency dependency) {
         dependencies.add(dependency);
+    }
+
+    public boolean deleteDependency(int id){
+        for (int i = 0;i<dependencies.size();i++){
+            if (dependencies.get(i).get_ID() == id){
+                dependencies.remove(i);
+                return true;
+            }
+        }
+        return false;
     }
 
     /**

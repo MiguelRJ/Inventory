@@ -25,8 +25,8 @@ public class AddEditDependencyInteractor implements AddEditDependencyIntereactor
             listener.onDescriptionEmptyError();
         } else if (true){//UserRepository.getInstance().validateCredentials(user, password)
             int id;
-            id = DependencyRepository.getInstance().getDependencyBy(name.toString(),shortName.toString());
-            Log.e("interactor","id encontrado "+String.valueOf(id));
+            id = DependencyRepository.getInstance().getDependencyBy(name,shortName);
+            //Log.e("interactor","id encontrado "+String.valueOf(id));
             if (id < 0) {
                 DependencyRepository.getInstance().addDependency(
                         new Dependency(DependencyRepository.getInstance().getDependencies().size() + 1, name, shortName, description));

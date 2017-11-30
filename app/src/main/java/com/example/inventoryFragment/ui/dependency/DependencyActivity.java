@@ -80,16 +80,6 @@ public class DependencyActivity extends BaseActivity implements ListDependencyFr
         addEditDependencyPresenter = new AddEditDependencyPresenter(addeditDependency);
         // 3 asignas presentador
         addeditDependency.setPresenter(addEditDependencyPresenter);
-
     }
 
-    /*@Override
-    protected void onResumeFragments() {
-        super.onResumeFragments();
-        int index = getFragmentManager().getBackStackEntryCount() - 1;
-        FragmentManager.BackStackEntry backEntry = getFragmentManager().getBackStackEntryAt(index);
-        String tag = backEntry.getName();
-        Fragment fragment = getFragmentManager().findFragmentByTag(tag);
-
-    }*/
 }

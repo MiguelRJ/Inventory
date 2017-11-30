@@ -1,6 +1,7 @@
 package com.example.inventoryFragment.ui.dependency.fragment;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.renderscript.RSDriverException;
@@ -9,6 +10,7 @@ import android.app.ListFragment;
 import android.support.design.widget.FloatingActionButton;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -18,6 +20,8 @@ import com.example.inventoryFragment.adapter.DependencyAdapter;
 import com.example.inventoryFragment.data.db.model.Dependency;
 import com.example.inventoryFragment.ui.base.BasePresenter;
 import com.example.inventoryFragment.ui.dependency.contract.ListDependencyContract;
+import com.example.inventoryFragment.ui.dependency.presenter.ListDependencyPresenter;
+import com.example.inventoryFragment.ui.utils.ComonDialog;
 
 import java.util.List;
 
@@ -114,6 +118,25 @@ public class ListDependencyFragment extends ListFragment implements ListDependen
             }
         });
         registerForContextMenu(getListView());// OnCreateContextMenu
+    }
+
+    /**
+     * implementar las diferentes acciones a realizar en las opcioes del menu contextual
+     * @param item
+     * @return
+     */
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_listdependency_delete:
+                Bundle bundle = new Bundle();
+                bundle.putString(ComonDialog.MESSAGE,"Desea eliminar la dependencia");
+                bundle.putString(ComonDialog.TITTLE, "Eliminar dependencia");
+                Dialog dialog = ComonDialog.showConfirmDialog(bundle,getActivity(),presenter, ListDependencyPresenter.DELETE);
+                dialog.show();
+                break;
+        }
+        return super.onContextItemSelected(item);
     }
 
     /**
