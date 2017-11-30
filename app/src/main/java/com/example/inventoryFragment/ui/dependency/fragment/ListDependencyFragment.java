@@ -3,9 +3,11 @@ package com.example.inventoryFragment.ui.dependency.fragment;
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
+import android.renderscript.RSDriverException;
 import android.support.annotation.Nullable;
 import android.app.ListFragment;
 import android.support.design.widget.FloatingActionButton;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +36,7 @@ public class ListDependencyFragment extends ListFragment implements ListDependen
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.adapter = new DependencyAdapter(getActivity());
+        setRetainInstance(true);
         setRetainInstance(true);
     }
 
@@ -80,6 +83,19 @@ public class ListDependencyFragment extends ListFragment implements ListDependen
     }
 
     /**
+     * Menu contextual (pulsacion larga) sobre la lista
+     * @param menu
+     * @param v
+     * @param menuInfo
+     */
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        menu.setHeaderTitle("Options list dependency");
+        getActivity().getMenuInflater().inflate(R.menu.menu_fragment_listdependency, menu);
+    }
+
+    /**
      * Se asigna el adapter isn datos a la lista
      * @param view
      * @param savedInstanceState
@@ -97,6 +113,7 @@ public class ListDependencyFragment extends ListFragment implements ListDependen
                 callback.addNewDependency(bundle);
             }
         });
+        registerForContextMenu(getListView());// OnCreateContextMenu
     }
 
     /**
@@ -114,57 +131,14 @@ public class ListDependencyFragment extends ListFragment implements ListDependen
         adapter.addAll(list);
     }
 
-
-
-    /*@Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_list_dependency);
-        // CASO 1: adapter no personalizado
-        //dependencies = new ArrayAdapter(this,android.R.layout.simple_list_item_1,((InventoryApplication)getApplicationContext()).getDependencies());
-        //getListView().setAdapter(adapter);
-
-        // CASO 2: adapter personalizado
-        //adapter = new DependencyAdapterA(this);
-        //adapter = new DependencyAdapterB(this);
-        listview = findViewById(android.R.id.list);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        fab=findViewById(R.id.fab);
-        coordinatorLayout=findViewById(R.id.coordinator);
-
-        setSupportActionBar(toolbar);
-        adapter = new DependencyAdapter(this);
-        listview.setAdapter(adapter);
-
-        // al pulser sobre el boton se visualizara el snackbar y FAB se desplazara haci arriba
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Snackbar.make(coordinatorLayout,"Ejemplo Snackbar",Snackbar.LENGTH_SHORT).show();
-                startActivity(new Intent(DependencyActivity.this,AddDependencyActivity.class));
-            }
-        });
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        callback=null;
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_activity_dependency,menu);
-        return super.onCreateOptionsMenu(menu);
+    public void onDestroy() {
+        super.onDestroy();
     }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_order_by_name:
-                adapter = new DependencyAdapter(this);
-                listview.setAdapter(adapter);
-                break;
-            case R.id.action_order_by_shortname:
-                listview.setAdapter(adapter.orderByShortName());
-                break;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }*/
 }

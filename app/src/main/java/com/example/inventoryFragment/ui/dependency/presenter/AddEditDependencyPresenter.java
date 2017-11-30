@@ -10,8 +10,8 @@ import com.example.inventoryFragment.ui.dependency.interactor.AddEditDependencyI
 
 public class AddEditDependencyPresenter implements AddEditDependencyContract.Presenter, AddEditDependencyIntereactorInterface.OnAddDependencyListener{
 
-    private final AddEditDependencyContract.View view;
-    private final AddEditDependencyInteractor interactor;
+    private AddEditDependencyContract.View view;
+    private AddEditDependencyInteractor interactor;
 
     public AddEditDependencyPresenter (AddEditDependencyContract.View view) {
         this.view = view;
@@ -46,5 +46,11 @@ public class AddEditDependencyPresenter implements AddEditDependencyContract.Pre
     @Override
     public void onSuccess() {
         view.showOnSucces();
+    }
+
+    @Override
+    public void OnDestroy() {
+        view = null;
+        interactor = null;
     }
 }

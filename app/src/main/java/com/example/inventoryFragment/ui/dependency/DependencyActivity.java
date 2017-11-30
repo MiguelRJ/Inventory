@@ -1,5 +1,6 @@
 package com.example.inventoryFragment.ui.dependency;
 
+import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.app.FragmentManager;
@@ -82,4 +83,13 @@ public class DependencyActivity extends BaseActivity implements ListDependencyFr
 
     }
 
+    /*@Override
+    protected void onResumeFragments() {
+        super.onResumeFragments();
+        int index = getFragmentManager().getBackStackEntryCount() - 1;
+        FragmentManager.BackStackEntry backEntry = getFragmentManager().getBackStackEntryAt(index);
+        String tag = backEntry.getName();
+        Fragment fragment = getFragmentManager().findFragmentByTag(tag);
+
+    }*/
 }

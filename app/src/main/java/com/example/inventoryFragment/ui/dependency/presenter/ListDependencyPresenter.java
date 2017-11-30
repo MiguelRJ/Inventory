@@ -30,4 +30,11 @@ public class ListDependencyPresenter implements ListDependencyContract.Presenter
     public void onSucces(List<Dependency> list) {
         view.showDependency(list);
     }
+
+
+    @Override
+    public void OnDestroy() {
+        view = null;
+        interactor = null;
+    }
 }

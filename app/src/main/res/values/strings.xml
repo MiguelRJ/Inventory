@@ -61,5 +61,5 @@
     <string name="action_general_settings">Ajustes Generales</string>
     <string name="action_account_settings">Ajustes de Cuenta</string>
     <string name="menuSave">Guardar menu</string>
-
+    <string name="fragment_listdependency_delete">Borrar</string>
 </resources>
