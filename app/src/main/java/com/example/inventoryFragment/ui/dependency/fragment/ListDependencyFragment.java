@@ -40,7 +40,7 @@ public class ListDependencyFragment extends ListFragment implements ListDependen
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.adapter = new DependencyAdapter(getActivity());
-        setRetainInstance(true);
+        this.presenter = new ListDependencyPresenter(this);
         setRetainInstance(true);
     }
 
@@ -129,9 +129,13 @@ public class ListDependencyFragment extends ListFragment implements ListDependen
     public boolean onContextItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_listdependency_delete:
+                AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
+                Dependency dependency = (Dependency) getListView().getItemAtPosition(info.position);
                 Bundle bundle = new Bundle();
-                bundle.putString(ComonDialog.MESSAGE,"Desea eliminar la dependencia");
                 bundle.putString(ComonDialog.TITTLE, "Eliminar dependencia");
+                bundle.putString(ComonDialog.MESSAGE,"Desea eliminar la dependencia: "+dependency.getName());
+                bundle.putString("TAG",Dependency.TAG);
+                bundle.putParcelable(Dependency.TAG,dependency);
                 Dialog dialog = ComonDialog.showConfirmDialog(bundle,getActivity(),presenter, ListDependencyPresenter.DELETE);
                 dialog.show();
                 break;
@@ -163,5 +167,7 @@ public class ListDependencyFragment extends ListFragment implements ListDependen
     @Override
     public void onDestroy() {
         super.onDestroy();
+        presenter.OnDestroy();
+        adapter = null;
     }
 }

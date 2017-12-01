@@ -37,9 +37,10 @@ public class ListDependencyPresenter implements ListDependencyContract.Presenter
         view.showDependency(list);
     }
 
+
     @Override
-    public void deleteDependency(int id){
-        interactor.deleteDependeny(id);
+    public void deleteDependencyIterator(Dependency dependency) {
+        interactor.deleteDependeny(dependency);
         loadDependency();
     }
 
@@ -50,10 +51,10 @@ public class ListDependencyPresenter implements ListDependencyContract.Presenter
     }
 
     @Override
-    public void options(int i) {
+    public void options(int i,Object o) {
         switch (i) {
             case DELETE:
-                deleteDependency(1);
+                deleteDependencyIterator((Dependency)o);
                 break;
             default:
                 Log.e("Error option","opcion "+i+" no encontrada");

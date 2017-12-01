@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 
 import com.example.inventoryFragment.R;
+import com.example.inventoryFragment.data.db.model.Dependency;
 import com.example.inventoryFragment.ui.base.BasePresenter;
 
 /**
@@ -18,14 +19,14 @@ public class ComonDialog {
     public static String MESSAGE = "message";
     public static String TITTLE = "tittle";
 
-    public static Dialog showConfirmDialog(Bundle bundle, Context context, final BasePresenter presenter, final int option){
+    public static Dialog showConfirmDialog(final Bundle bundle, Context context, final BasePresenter presenter, final int option){
         final AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setMessage(bundle.getString(ComonDialog.MESSAGE))
                 .setTitle(bundle.getString(ComonDialog.TITTLE))
                 .setPositiveButton(R.string.btnOk, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        presenter.options(option);
+                        presenter.options(option,bundle.getParcelable(bundle.getString("TAG")));
                         dialogInterface.cancel();
                     }
                 })

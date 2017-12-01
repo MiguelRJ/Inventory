@@ -6,5 +6,5 @@ package com.example.inventoryFragment.ui.base;
 
 public interface BasePresenter {
     void OnDestroy();
-    void options(int i);
+    void options(int i,Object o);
 }

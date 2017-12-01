@@ -6,6 +6,7 @@ import com.example.inventoryFragment.data.db.model.Dependency;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 
 import javax.security.auth.login.LoginException;
 
@@ -61,7 +62,6 @@ public class DependencyRepository {
         addDependency(new Dependency(8, "8º Ciclo Formativo Grado Superior", "8CFGS", "2CFGS Desarrollo aplicaciones multiplataforma"));
         addDependency(new Dependency(9, "9º Ciclo Formativo Grado Superior", "9CFGS", "1CFGS Desarrollo aplicaciones multiplataforma"));
         addDependency(new Dependency(10, "10º Ciclo Formativo Grado Superior", "10CFGS", "2CFGS Desarrollo aplicaciones multiplataforma"));
-
     }
 
     public static DependencyRepository getInstance() {
@@ -99,13 +99,13 @@ public class DependencyRepository {
         dependencies.add(dependency);
     }
 
-    public boolean deleteDependency(int id){
-        for (int i = 0;i<dependencies.size();i++){
+    public boolean deleteDependency(Dependency dependency){
+        /*for (int i = 0;i<dependencies.size();i++){
             if (dependencies.get(i).get_ID() == id){
                 dependencies.remove(i);
                 return true;
             }
-        }
+        }*/
         return false;
     }
 
@@ -125,5 +125,21 @@ public class DependencyRepository {
     public ArrayList<Dependency> getDependenciesByShortName(){
         Collections.sort(dependencies, new Dependency.DependencyOrderByShortName());
         return dependencies;
+    }
+
+    /**
+     * elimina con iterator no hacer con for!
+     * @param d
+     */
+    public void deleteDependencyIterator(Dependency d){
+        Iterator<Dependency> iterator = dependencies.iterator();
+        Dependency dependency;
+        while (iterator.hasNext()){
+            dependency = iterator.next();
+            if (dependency.getName().equals(d.getName())){
+                iterator.remove();
+                break;
+            }
+        }
     }
 }

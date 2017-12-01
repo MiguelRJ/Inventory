@@ -18,6 +18,7 @@ import com.example.inventoryFragment.data.db.model.Dependency;
 import com.example.inventoryFragment.ui.base.BaseFragment;
 import com.example.inventoryFragment.ui.base.BasePresenter;
 import com.example.inventoryFragment.ui.dependency.contract.AddEditDependencyContract;
+import com.example.inventoryFragment.ui.dependency.presenter.AddEditDependencyPresenter;
 import com.example.inventoryFragment.ui.utils.AddEdit;
 
 import java.util.List;
@@ -46,11 +47,21 @@ public class AddEditDependencyFragment extends BaseFragment implements AddEditDe
         return addEditDependency;
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // al poner el presetner en el fragment se puede guardar con setretain
+        presenter = new AddEditDependencyPresenter(this);
+        setRetainInstance(true);
+    }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_addedit_dependency,container,false);
+
+        // como el fragment mantiene el estado y solo elimina la vistas
+        // se debe reinicialiar el presenter ciando se crea la vista
 
         tilName = (TextInputLayout) rootView.findViewById(R.id.tilName);
         tilName.getEditText().addTextChangedListener(new TextWatcher() {
@@ -153,8 +164,14 @@ public class AddEditDependencyFragment extends BaseFragment implements AddEditDe
     @Override
     public void showOnSucces() {
         showMessage("Guardado");
-        FragmentManager fm = getActivity().getFragmentManager();
+        FragmentManager fm = getFragmentManager();
         fm.popBackStack();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        presenter.OnDestroy();
     }
 
 }

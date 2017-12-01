@@ -55,7 +55,8 @@ public class AddEditDependencyPresenter implements AddEditDependencyContract.Pre
     }
 
     @Override
-    public void options(int i) {
+    public void options(int i, Object o) {
 
     }
+
 }

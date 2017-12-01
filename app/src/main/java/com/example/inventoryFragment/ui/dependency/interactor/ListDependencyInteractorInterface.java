@@ -12,7 +12,8 @@ public interface ListDependencyInteractorInterface {
 
     interface OnLoadFinishedListener {
         void onSucces(List<Dependency> list);
-        void deleteDependency(int id);
+        //void deleteDependency(Dependency dependency);
+        void deleteDependencyIterator(Dependency dependency);
     }
 
     void loadDependency();

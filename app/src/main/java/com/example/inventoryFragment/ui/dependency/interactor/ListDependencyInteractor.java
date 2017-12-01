@@ -1,5 +1,6 @@
 package com.example.inventoryFragment.ui.dependency.interactor;
 
+import com.example.inventoryFragment.data.db.model.Dependency;
 import com.example.inventoryFragment.data.db.repository.DependencyRepository;
 
 /**
@@ -20,8 +21,8 @@ public class ListDependencyInteractor implements ListDependencyInteractorInterfa
     }
 
 
-    public void deleteDependeny(int id) {
-        DependencyRepository.getInstance().deleteDependency(id);
+    public void deleteDependeny(Dependency dependency) {
+        DependencyRepository.getInstance().deleteDependencyIterator(dependency);
     }
 
     /*@Override
