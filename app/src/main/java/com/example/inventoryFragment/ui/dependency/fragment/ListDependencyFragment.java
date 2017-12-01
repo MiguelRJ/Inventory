@@ -3,17 +3,22 @@ package com.example.inventoryFragment.ui.dependency.fragment;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.Fragment;
+import android.os.Build;
 import android.os.Bundle;
-import android.renderscript.RSDriverException;
 import android.support.annotation.Nullable;
 import android.app.ListFragment;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ListView;
 
 import com.example.inventoryFragment.R;
 import com.example.inventoryFragment.adapter.DependencyAdapter;
@@ -35,6 +40,9 @@ public class ListDependencyFragment extends ListFragment implements ListDependen
     private ListDependencyListener callback;
     private DependencyAdapter adapter;
     private ListDependencyContract.Presenter presenter;
+
+    private ListView listView;
+    private Toolbar toolbar;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -74,6 +82,13 @@ public class ListDependencyFragment extends ListFragment implements ListDependen
         FloatingActionButton fab = (FloatingActionButton) rootView.findViewById(R.id.fab);
         // Si el FloatingActionButton se encontrara en el xml de la activity
         //FloatingActionButton fab = getActivity().findViewById(R.id.fab);
+        toolbar = rootView.findViewById(R.id.toolbar);
+        listView = rootView.findViewById(android.R.id.list);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            listView.setNestedScrollingEnabled(true);
+        }
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        setHasOptionsMenu(true);
         //Log.d("DA","antes del setonclick");
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,7 +111,12 @@ public class ListDependencyFragment extends ListFragment implements ListDependen
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
         menu.setHeaderTitle("Options list dependency");
-        getActivity().getMenuInflater().inflate(R.menu.menu_fragment_listdependency, menu);
+        getActivity().getMenuInflater().inflate(R.menu.menu_fragment_listdependency_longclick, menu);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_fragment_listdependency,menu);
     }
 
     /**
