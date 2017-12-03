@@ -21,6 +21,7 @@ public class Sector implements Parcelable {
     private int dependencyID;
     private boolean enabled;
     private boolean sectorDefault;
+    public static String TAG = "Sector";
 
     public Sector(int ID, String name, String sortname, String description, int dependencyID, boolean enabled, boolean _default) {
         this._ID = ID;

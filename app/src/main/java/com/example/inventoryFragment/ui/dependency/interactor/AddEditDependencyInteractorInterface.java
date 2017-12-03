@@ -4,7 +4,7 @@ package com.example.inventoryFragment.ui.dependency.interactor;
  * Created by usuario on 24/11/17.
  */
 
-public interface AddEditDependencyIntereactorInterface {
+public interface AddEditDependencyInteractorInterface {
     interface OnAddDependencyListener{
         void onNameEmptyError();
 
@@ -16,5 +16,5 @@ public interface AddEditDependencyIntereactorInterface {
 
         void onSuccess();
     };
-    void validateDependency(String name,String shortName,String description, AddEditDependencyIntereactorInterface.OnAddDependencyListener listener);
+    void validateDependency(String name,String shortName,String description, AddEditDependencyInteractorInterface.OnAddDependencyListener listener);
 }

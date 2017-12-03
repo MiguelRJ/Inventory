@@ -14,7 +14,9 @@ import com.example.inventoryFragment.R;
 import com.example.inventoryFragment.adapter.SectorAdapter;
 import com.example.inventoryFragment.data.db.model.Sector;
 import com.example.inventoryFragment.ui.base.BaseActivity;
+import com.example.inventoryFragment.ui.sector.fragment.AddEditSectorFragment;
 import com.example.inventoryFragment.ui.sector.fragment.ListSectorFragment;
+import com.example.inventoryFragment.ui.sector.presenter.AddEditSectorPresenter;
 import com.example.inventoryFragment.ui.sector.presenter.ListSectorPresenter;
 
 /**
@@ -30,8 +32,8 @@ public class SectorActivity extends BaseActivity implements ListSectorFragment.L
 
     private ListSectorFragment listSector;
     private ListSectorPresenter listSectorPresenter;
-    //private AddEditSectorFragment addeditSector;
-    //private AddEditSectorPresenter addEditSectorPresenter;
+    private AddEditSectorFragment addeditSector;
+    private AddEditSectorPresenter addEditSectorPresenter;
     private SectorAdapter sectorAdapter;
 
     private RecyclerView recyclerSector;
@@ -60,6 +62,20 @@ public class SectorActivity extends BaseActivity implements ListSectorFragment.L
 
     @Override
     public void addNewSector(Bundle bundle) {
-
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        addeditSector = (AddEditSectorFragment) fragmentManager.findFragmentByTag(AddEditSectorFragment.TAG);
+        if (addeditSector == null) {
+            if (bundle != null) {
+                addeditSector = AddEditSectorFragment.newInstace(bundle);
+            } else {
+                addeditSector = AddEditSectorFragment.newInstace(null);
+            }
+            fragmentTransaction.replace(android.R.id.content, addeditSector, AddEditSectorFragment.TAG);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+        }
+        addEditSectorPresenter = new AddEditSectorPresenter(addeditSector);
+        addeditSector.setPresenter(addEditSectorPresenter);
     }
 }

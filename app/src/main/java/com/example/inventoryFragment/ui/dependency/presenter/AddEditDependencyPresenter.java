@@ -2,13 +2,13 @@ package com.example.inventoryFragment.ui.dependency.presenter;
 
 import com.example.inventoryFragment.ui.dependency.contract.AddEditDependencyContract;
 import com.example.inventoryFragment.ui.dependency.interactor.AddEditDependencyInteractor;
-import com.example.inventoryFragment.ui.dependency.interactor.AddEditDependencyIntereactorInterface;
+import com.example.inventoryFragment.ui.dependency.interactor.AddEditDependencyInteractorInterface;
 
 /**
  * Created by usuario on 23/11/17.
  */
 
-public class AddEditDependencyPresenter implements AddEditDependencyContract.Presenter, AddEditDependencyIntereactorInterface.OnAddDependencyListener{
+public class AddEditDependencyPresenter implements AddEditDependencyContract.Presenter, AddEditDependencyInteractorInterface.OnAddDependencyListener{
 
     private AddEditDependencyContract.View view;
     private AddEditDependencyInteractor interactor;
