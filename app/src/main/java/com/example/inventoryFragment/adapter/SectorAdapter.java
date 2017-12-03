@@ -1,6 +1,7 @@
 package com.example.inventoryFragment.adapter;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import com.example.inventoryFragment.R;
+import com.example.inventoryFragment.data.db.model.Dependency;
 import com.example.inventoryFragment.data.db.model.Sector;
 import com.example.inventoryFragment.data.db.repository.SectorRepository;
 

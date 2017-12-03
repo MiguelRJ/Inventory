@@ -34,27 +34,16 @@ public class SectorRepository {
 
     /* METODOS */
     private void initialize() {
-        addSector(new Sector( 1,"Armario A","ArmA","Armario puerta madera",2,true,true));
+        addSector(new Sector( 1,"Armario A","ArmA","Armario puerta madera",1,true,true));
         addSector(new Sector( 2,"Armario B","ArmB","Armario puerta cristal",2,false,true));
-        addSector(new Sector( 3,"Armario A","ArmA","Armario puerta madera",2,true,true));
-        addSector(new Sector( 4,"Armario B","ArmB","Armario puerta cristal",2,false,true));
-        addSector(new Sector( 5,"Armario A","ArmA","Armario puerta madera",2,true,true));
-        addSector(new Sector( 6,"Armario B","ArmB","Armario puerta cristal",2,false,true));
-        addSector(new Sector( 7,"Armario A","ArmA","Armario puerta madera",2,true,true));
-        addSector(new Sector( 8,"Armario B","ArmB","Armario puerta cristal",2,false,true));
-        addSector(new Sector( 9,"Armario A","ArmA","Armario puerta madera",2,true,true));
-        addSector(new Sector( 10,"Armario B","ArmB","Armario puerta cristal",2,false,true));
-        addSector(new Sector( 11,"Armario A","ArmA","Armario puerta madera",2,true,true));
-        addSector(new Sector( 12,"Armario B","ArmB","Armario puerta cristal",2,false,true));
-        addSector(new Sector( 13,"Armario A","ArmA","Armario puerta madera",2,true,true));
-        addSector(new Sector( 14,"Armario B","ArmB","Armario puerta cristal",2,false,true));
-        addSector(new Sector( 15,"Armario A","ArmA","Armario puerta madera",2,true,true));
-        addSector(new Sector( 16,"Armario B","ArmB","Armario puerta cristal",2,false,true));
-        addSector(new Sector( 17,"Armario A","ArmA","Armario puerta madera",2,true,true));
-        addSector(new Sector( 18,"Armario B","ArmB","Armario puerta cristal",2,false,true));
-        addSector(new Sector( 19,"Armario A","ArmA","Armario puerta madera",2,true,true));
-        addSector(new Sector( 20,"Armario B","ArmB","Armario puerta cristal",2,false,true));
-
+        addSector(new Sector( 3,"Mesa A","MesA","Mesa madera",1,true,true));
+        addSector(new Sector( 4,"Mesa B","MesB","Mesa cristal",2,false,true));
+        addSector(new Sector( 5,"Silla A","SilA","Silla madera",1,true,true));
+        addSector(new Sector( 6,"Silla B","SilB","Silla cristal",2,false,true));
+        addSector(new Sector( 7,"Pizarra A","PizA","Pizarra tiza",1,true,true));
+        addSector(new Sector( 8,"Pizarra B","PizB","Pizarra rotulador",2,false,true));
+        addSector(new Sector( 9,"Ordenador A","OrdA","Ordendaor madera",1,true,true));
+        addSector(new Sector( 10,"Ordenador B","OrdB","Ordenador cristal",2,false,true));
     }
 
     public static SectorRepository getInstance() {

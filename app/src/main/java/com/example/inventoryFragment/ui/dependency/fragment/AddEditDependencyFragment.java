@@ -29,7 +29,7 @@ import java.util.List;
 
 public class AddEditDependencyFragment extends BaseFragment implements AddEditDependencyContract.View {
 
-    public static final String TAG = "AddEditDependencyPresenter";
+    public static final String TAG = "AddEditDependencyFragment";
     private AddEditDependencyContract.Presenter presenter;
 
     private TextInputLayout tilName,tilSortName,tilDescription;

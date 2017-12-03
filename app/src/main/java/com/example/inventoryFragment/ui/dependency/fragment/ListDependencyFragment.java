@@ -36,7 +36,7 @@ import java.util.List;
 
 public class ListDependencyFragment extends ListFragment implements ListDependencyContract.View {
 
-    public static final String TAG = "ListDependencyPresenter";
+    public static final String TAG = "ListDependencyFragment";
     private ListDependencyListener callback;
     private DependencyAdapter adapter;
     private ListDependencyContract.Presenter presenter;
