@@ -52,6 +52,26 @@ public class SectorRepository {
         return sectorRepository;
     }
 
+    public int getSectorBy(String name, String shortname){
+        for (int i = 0;i<sectors.size();i++){
+            //Log.e(String.valueOf(dependencies.get(i).get_ID()),String.valueOf(name+"--"+shortname));
+            if (sectors.get(i).getName().equals(name) && sectors.get(i).getSortName().equals(shortname)){
+                return sectors.get(i).get_ID();
+            }
+        }
+        return -1;
+    }
+
+    public void editDependencyById(int id,String name, String shortname, String description){
+        for (int i = 0; i < sectors.size();i++){
+            if (sectors.get(i).get_ID() == id){
+                sectors.get(i).setName(name);
+                sectors.get(i).setSortName(shortname);
+                sectors.get(i).setDescription(description);
+            }
+        }
+    }
+
     /**
      * Metodo que añade un sector
      *

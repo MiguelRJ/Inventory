@@ -123,18 +123,12 @@ public class AddEditSectorFragment extends BaseFragment implements AddEditSector
         if (getArguments() != null){
             tilName.getEditText().setText(((Sector)getArguments().getParcelable(Sector.TAG)).getName().toString());
             tilName.setEnabled(false);
-            tilSortName.getEditText().setText(((Sector)getArguments().getParcelable(Sector.TAG)).getSortname().toString());
+            tilSortName.getEditText().setText(((Sector)getArguments().getParcelable(Sector.TAG)).getSortName().toString());
             tilSortName.setEnabled(false);
             tilDescription.getEditText().setText(((Sector)getArguments().getParcelable(Sector.TAG)).getDescription().toString());
         }
         return rootView;
     }
-
-
-
-
-
-
 
     @Override
     public void setPresenter(BasePresenter presenter) {

@@ -2,6 +2,9 @@ package com.example.inventoryFragment.ui.sector.interactor;
 
 import android.text.TextUtils;
 
+import com.example.inventoryFragment.data.db.model.Sector;
+import com.example.inventoryFragment.data.db.repository.SectorRepository;
+
 /**
  * Created by Miguel on 03/12/2017.
  */
@@ -17,15 +20,15 @@ public class AddEditSectorInteractor implements AddEditSectorInteractorInterface
         }else if (TextUtils.isEmpty(description)) {
             listener.onDescriptionEmptyError();
         } else if (true){//UserRepository.getInstance().validateCredentials(user, password)
-            /*int id;
-            id = SectorRepository.getInstance().getSectorsBy(name,shortName);
+            int id;
+            id = SectorRepository.getInstance().getSectorBy(name,shortName);
             //Log.e("interactor","id encontrado "+String.valueOf(id));
             if (id < 0) {
-                DependencyRepository.getInstance().addDependency(
-                        new Dependency(DependencyRepository.getInstance().getDependencies().size() + 1, name, shortName, description));
+                SectorRepository.getInstance().addSector(
+                        new Sector(SectorRepository.getInstance().getSectors().size() + 1, name, shortName, description,1,false,false));
             } else {
-                DependencyRepository.getInstance().editDependencyById(id,name,shortName,description);
-            }*/
+                SectorRepository.getInstance().editDependencyById(id,name,shortName,description);
+            }
             listener.onSuccess();
         }
     }

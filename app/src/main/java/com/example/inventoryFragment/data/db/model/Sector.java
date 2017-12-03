@@ -43,11 +43,11 @@ public class Sector implements Parcelable {
         sectorDefault = in.readByte() != 0;
     }
 
-    public int getID() {
+    public int get_ID() {
         return _ID;
     }
 
-    public void setID(int ID) {
+    public void set_ID(int ID) {
         this._ID = ID;
     }
 
@@ -59,11 +59,11 @@ public class Sector implements Parcelable {
         this.name = name;
     }
 
-    public String getSortname() {
+    public String getSortName() {
         return sortname;
     }
 
-    public void setSortname(String sortname) {
+    public void setSortName(String sortname) {
         this.sortname = sortname;
     }
 
