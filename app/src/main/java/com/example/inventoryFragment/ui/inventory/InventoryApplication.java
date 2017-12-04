@@ -3,6 +3,7 @@ package com.example.inventoryFragment.ui.inventory;
 import android.app.Application;
 
 import com.example.inventoryFragment.data.db.model.Dependency;
+import com.example.inventoryFragment.data.prefs.AppPreferencesHelper;
 
 import java.util.ArrayList;
 
@@ -16,35 +17,23 @@ import java.util.ArrayList;
 
 public class InventoryApplication extends Application {
 
-    ArrayList<Dependency> dependencies;
+    private AppPreferencesHelper appPreferencesHelper;
 
     public InventoryApplication() {
-        dependencies = new ArrayList();
+
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
-        dependencies = new ArrayList();
-        addDependency(new Dependency(1, "1º Ciclo Formativo Grado Superior", "1CFGS", "1CFGS Desarrollo aplicaciones multiplataforma"));
-        addDependency(new Dependency(2, "2º Ciclo Formativo Grado Superior", "2CFGS", "2CFGS Desarrollo aplicaciones multiplataforma"));
+        appPreferencesHelper = AppPreferencesHelper.getInstance();
     }
 
-    /**
-     * Metodo que aññade una dependencia
-     *
-     * @param dependency
-     */
-    public void addDependency(Dependency dependency) {
-        dependencies.add(dependency);
+    public AppPreferencesHelper getAppPreferencesHelper(){
+        return appPreferencesHelper;
     }
 
-    /**
-     * Devuelve el objeto dependencies
-     *
-     * @return
-     */
-    public ArrayList<Dependency> getDependencies() {
-        return dependencies;
+    public static AppPreferencesHelper getContext() {
+        return AppPreferencesHelper.getInstance();
     }
 }

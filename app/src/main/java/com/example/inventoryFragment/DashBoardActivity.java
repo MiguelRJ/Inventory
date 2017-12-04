@@ -1,6 +1,7 @@
 package com.example.inventoryFragment;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayout;
@@ -9,9 +10,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.example.inventoryFragment.data.prefs.AppPreferencesHelper;
 import com.example.inventoryFragment.ui.dependency.DependencyActivity;
 import com.example.inventoryFragment.ui.inventory.InventoryActivity;
+import com.example.inventoryFragment.ui.inventory.InventoryApplication;
 import com.example.inventoryFragment.ui.prefs.AccountSettingActivity;
 import com.example.inventoryFragment.ui.products.GeneralSettingActivity;
 import com.example.inventoryFragment.ui.products.ProductsActivity;
@@ -114,5 +118,18 @@ public class DashBoardActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        showAppPreferences();
+    }
+
+    private void showAppPreferences() {
+        AppPreferencesHelper appPreferencesHelper=((InventoryApplication)getApplicationContext()).getAppPreferencesHelper();
+        appPreferencesHelper.setCurrentUserName("Miguel");
+        String message = "Tu usuario de sesion es"+ appPreferencesHelper.getCurrentUserName();
+        Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
     }
 }
