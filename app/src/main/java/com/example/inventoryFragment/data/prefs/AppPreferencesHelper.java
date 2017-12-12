@@ -26,7 +26,7 @@ public class AppPreferencesHelper implements AccountPreferencesHelper, GeneralPr
 
     private AppPreferencesHelper() {
         // Si es el fichero pr defecto de las preferencias
-        this.preferences = ((InventoryApplication.getContext()).getSharedPreferences(AppConstants.PREF_NAME,0));
+        this.preferences = InventoryApplication.getContext().getSharedPreferences(AppConstants.PREF_NAME,0);
         // Si es un fichero con nombre diferente
     }
 

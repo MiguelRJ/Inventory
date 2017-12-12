@@ -1,6 +1,7 @@
 package com.example.inventoryFragment.ui.inventory;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.example.inventoryFragment.data.db.model.Dependency;
 import com.example.inventoryFragment.data.prefs.AppPreferencesHelper;
@@ -33,7 +34,8 @@ public class InventoryApplication extends Application {
         return appPreferencesHelper;
     }
 
-    public static AppPreferencesHelper getContext() {
-        return AppPreferencesHelper.getInstance();
+    public static Context getContext() {
+        return Context;
     }
+
 }
