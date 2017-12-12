@@ -19,9 +19,10 @@ import java.util.ArrayList;
 public class InventoryApplication extends Application {
 
     private AppPreferencesHelper appPreferencesHelper;
+    private static InventoryApplication mContext;
 
     public InventoryApplication() {
-
+        mContext = this;
     }
 
     @Override
@@ -35,7 +36,7 @@ public class InventoryApplication extends Application {
     }
 
     public static Context getContext() {
-        return Context;
+        return mContext;
     }
 
 }

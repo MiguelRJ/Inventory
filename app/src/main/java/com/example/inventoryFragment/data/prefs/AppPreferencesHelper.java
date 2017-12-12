@@ -1,5 +1,6 @@
 package com.example.inventoryFragment.data.prefs;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import com.example.inventoryFragment.ui.inventory.InventoryApplication;
 import com.example.inventoryFragment.ui.utils.AppConstants;
@@ -26,7 +27,7 @@ public class AppPreferencesHelper implements AccountPreferencesHelper, GeneralPr
 
     private AppPreferencesHelper() {
         // Si es el fichero pr defecto de las preferencias
-        this.preferences = InventoryApplication.getContext().getSharedPreferences(AppConstants.PREF_NAME,0);
+        this.preferences = InventoryApplication.getContext().getSharedPreferences(AppConstants.PREF_NAME, Context.MODE_PRIVATE);
         // Si es un fichero con nombre diferente
     }
 

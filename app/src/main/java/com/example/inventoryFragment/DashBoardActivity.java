@@ -129,7 +129,7 @@ public class DashBoardActivity extends AppCompatActivity {
     private void showAppPreferences() {
         AppPreferencesHelper appPreferencesHelper=((InventoryApplication)getApplicationContext()).getAppPreferencesHelper();
         appPreferencesHelper.setCurrentUserName("Miguel");
-        String message = "Tu usuario de sesion es"+ appPreferencesHelper.getCurrentUserName();
+        String message = "Tu usuario de sesion es "+ appPreferencesHelper.getCurrentUserName();
         Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
     }
 }
