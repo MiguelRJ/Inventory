@@ -10,6 +10,8 @@ import java.util.List;
 
 public interface ListDependencyInteractorInterface {
 
+    Dependency getDependencyAtPosition(int size);
+
     interface OnLoadFinishedListener {
         void onSucces(List<Dependency> list);
         //void deleteDependency(Dependency dependency);

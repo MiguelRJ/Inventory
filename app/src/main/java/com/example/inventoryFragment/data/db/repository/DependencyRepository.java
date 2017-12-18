@@ -99,15 +99,15 @@ public class DependencyRepository {
         dependencies.add(dependency);
     }
 
-    public boolean deleteDependency(Dependency dependency){
+    /*public boolean deleteDependency(Dependency dependency){
         /*for (int i = 0;i<dependencies.size();i++){
             if (dependencies.get(i).get_ID() == id){
                 dependencies.remove(i);
                 return true;
             }
-        }*/
+        }
         return false;
-    }
+    }*/
 
     /**
      * Metodo que devuelve las dependencias

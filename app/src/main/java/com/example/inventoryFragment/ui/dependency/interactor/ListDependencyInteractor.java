@@ -16,6 +16,11 @@ public class ListDependencyInteractor implements ListDependencyInteractorInterfa
     }
 
     @Override
+    public Dependency getDependencyAtPosition(int position) {
+        return DependencyRepository.getInstance().getDependencies().get(position);
+    }
+
+    @Override
     public void loadDependency() {
         listener.onSucces(DependencyRepository.getInstance().getDependencies());
     }

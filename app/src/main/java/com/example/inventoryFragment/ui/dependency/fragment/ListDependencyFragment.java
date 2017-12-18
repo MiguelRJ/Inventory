@@ -143,7 +143,8 @@ public class ListDependencyFragment extends ListFragment implements ListDependen
         getListView().setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long l) {
-                return false;
+                getListView().setItemChecked(position,!presenter.isPositionChecked(position));
+                return true;
             }
         });
         //registerForContextMenu(getListView()); //se ha comentado porque hemos cambio a mode multichoice  // OnCreateContextMenu
