@@ -32,6 +32,8 @@ public class ListDependencyPresenter implements ListDependencyContract.Presenter
         interactor.loadDependency();
     }
 
+
+
     @Override
     public void onSucces(List<Dependency> list) {
         view.showDependency(list);
@@ -59,6 +61,28 @@ public class ListDependencyPresenter implements ListDependencyContract.Presenter
             default:
                 Log.e("Error option","opcion "+i+" no encontrada");
         }
+    }
+
+    // metodos que gestionan la selecion de la vista
+
+    @Override
+    public void setNewSelection(int position) {
+
+    }
+
+    @Override
+    public void removeSelection(int position) {
+
+    }
+
+    @Override
+    public void deleteSelection() {
+
+    }
+
+    @Override
+    public void clearSelection() {
+
     }
 
 

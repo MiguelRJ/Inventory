@@ -17,14 +17,23 @@ import com.example.inventoryFragment.ui.dependency.presenter.ListDependencyPrese
 class DependencyMultiChoiceModeListener implements AbsListView.MultiChoiceModeListener {
 
     private ListDependencyContract.Presenter presenter;
+    private int count;
 
     public DependencyMultiChoiceModeListener(ListDependencyContract.Presenter presenter) {
         this.presenter = presenter;
+        count = 0;
     }
 
     @Override
-    public void onItemCheckedStateChanged(ActionMode actionMode, int i, long l, boolean b) {
-
+    public void onItemCheckedStateChanged(ActionMode actionMode, int position, long l, boolean checked) {
+        if(checked) {
+            count++;
+            presenter.setNewSelection(position);
+        } else {
+            count--;
+            presenter.removeSelection(position);
+        }
+        actionMode.setTitle(count + " seleccionados");
     }
 
     @Override
@@ -44,11 +53,18 @@ class DependencyMultiChoiceModeListener implements AbsListView.MultiChoiceModeLi
     @Override
     public boolean onActionItemClicked(ActionMode actionMode, MenuItem menuItem) {
         // cuando se pulsa sobre el elemento
+        switch (menuItem.getItemId()){
+            case R.id.action_listdependency_delete:
+                presenter.deleteSelection();
+                break;
+        }
+        actionMode.finish();
         return false;
     }
 
     @Override
     public void onDestroyActionMode(ActionMode actionMode) {
-
+        count = 0;
+        presenter.clearSelection();
     }
 }
