@@ -137,7 +137,16 @@ public class ListDependencyFragment extends ListFragment implements ListDependen
                 callback.addNewDependency(bundle);
             }
         });
-        registerForContextMenu(getListView());// OnCreateContextMenu
+        //activar el modo multichoice en la lista
+        getListView().setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);// modal mantiene la seleccion
+        getListView().setMultiChoiceModeListener(new DependencyMultiChoiceModeListener(presenter));
+        getListView().setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long l) {
+                return false;
+            }
+        });
+        //registerForContextMenu(getListView()); //se ha comentado porque hemos cambio a mode multichoice  // OnCreateContextMenu
     }
 
     /**
