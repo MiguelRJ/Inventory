@@ -11,6 +11,7 @@
     <color name="colorGoogle">#e25f43</color>
     <color name="colorFacebook">#395998</color>
     <color name="colorPrimaryLogin">#ffffff</color>
+    <color name="colorBackgroundActionMode">@color/colorPrimary</color>
 </resources>
 <!--
     <color name="colorPrimary">#558b2f</color>

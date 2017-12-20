@@ -56,6 +56,7 @@ class DependencyMultiChoiceModeListener implements AbsListView.MultiChoiceModeLi
         switch (menuItem.getItemId()){
             case R.id.action_listdependency_delete:
                 presenter.deleteSelection();
+                presenter.loadDependency();
                 break;
         }
         actionMode.finish();

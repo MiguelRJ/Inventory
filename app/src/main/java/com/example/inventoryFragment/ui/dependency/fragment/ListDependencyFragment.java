@@ -52,7 +52,7 @@ public class ListDependencyFragment extends ListFragment implements ListDependen
         setRetainInstance(true);
     }
 
-    public interface ListDependencyListener{
+    public interface ListDependencyListener {
         void addNewDependency(Bundle bundle);
     }
 
@@ -79,7 +79,7 @@ public class ListDependencyFragment extends ListFragment implements ListDependen
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_list_dependency,container,false);
         // Como se encuentra en el fragment usamos rootview
-        FloatingActionButton fab = (FloatingActionButton) rootView.findViewById(R.id.fab);
+        final FloatingActionButton fab = (FloatingActionButton) rootView.findViewById(R.id.fab);
         // Si el FloatingActionButton se encontrara en el xml de la activity
         //FloatingActionButton fab = getActivity().findViewById(R.id.fab);
         toolbar = rootView.findViewById(R.id.toolbar);
@@ -94,6 +94,7 @@ public class ListDependencyFragment extends ListFragment implements ListDependen
             @Override
             public void onClick(View view) {
                 //Log.d("DA","dentro del onclick");
+
                 callback.addNewDependency(null);
             }
         });
@@ -189,6 +190,11 @@ public class ListDependencyFragment extends ListFragment implements ListDependen
     }
 
     @Override
+    public Dependency getDependency(Integer position) {
+        return adapter.getItem(position);
+    }
+
+    @Override
     public void onDetach() {
         super.onDetach();
         callback=null;
@@ -200,4 +206,7 @@ public class ListDependencyFragment extends ListFragment implements ListDependen
         presenter.OnDestroy();
         adapter = null;
     }
+
+
+
 }

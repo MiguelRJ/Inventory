@@ -13,6 +13,8 @@ import java.util.List;
 public interface ListDependencyContract {
     interface View extends BaseView{
         void showDependency(List<Dependency> list);
+
+        Dependency getDependency(Integer position);
     }
     interface Presenter extends BasePresenter {
         void loadDependency();

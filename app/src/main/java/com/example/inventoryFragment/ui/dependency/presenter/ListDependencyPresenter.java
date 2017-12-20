@@ -9,6 +9,7 @@ import com.example.inventoryFragment.ui.dependency.contract.ListDependencyContra
 import com.example.inventoryFragment.ui.dependency.interactor.ListDependencyInteractor;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -46,7 +47,7 @@ public class ListDependencyPresenter implements ListDependencyContract.Presenter
     @Override
     public void deleteDependencyIterator(Dependency dependency) {
         interactor.deleteDependeny(dependency);
-        loadDependency();
+        //loadDependency();
     }
 
     @Override
@@ -85,12 +86,19 @@ public class ListDependencyPresenter implements ListDependencyContract.Presenter
      */
     @Override
     public void deleteSelection() {
-        for (HashMap.Entry<Integer,Boolean> entry : selection.entrySet()) {
-            Log.e("delete",String.valueOf(entry.getKey()));
-            interactor.deleteDependeny(interactor.getDependencyAtPosition(entry.getKey()));
-            selection.remove(entry.getKey());
+        for(Integer position : selection.keySet()){
+            interactor.deleteDependeny(view.getDependency(position));
         }
-        interactor.loadDependency();
+        /*Iterator<HashMap.Entry<Integer,Boolean>> it = selection.entrySet().iterator();
+        while(it.hasNext()){
+            Integer position = it.next().getKey();
+            //HashMap.Entry<Integer,Boolean> entry = it.next();
+            Log.e("delete",String.valueOf(position));
+            interactor.deleteDependeny(interactor.getDependencyAtPosition(position));
+            it.remove();
+            Log.e("delete2",String.valueOf(position));
+        }*/
+        //interactor.loadDependency();
     }
 
     @Override
