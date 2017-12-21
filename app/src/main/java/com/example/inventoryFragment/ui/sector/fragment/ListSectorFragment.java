@@ -51,10 +51,14 @@ public class ListSectorFragment extends Fragment implements ListSectorContract.V
         listener = new SectorAdapter.OnItemClickListener() {
             @Override
             public void OnItemClick(Sector sector) {
-                Toast.makeText(getActivity(),"hola",Toast.LENGTH_SHORT).show();
                 Bundle bundle = new Bundle();
                 bundle.putParcelable(Sector.TAG,sector);
                 callback.addNewSector(bundle);
+            }
+
+            @Override
+            public void OnLongClick(Sector sector) {
+                Toast.makeText(getActivity(),sector.getDescription(),Toast.LENGTH_SHORT).show();
             }
         };
         this.adapter = new SectorAdapter(listener);

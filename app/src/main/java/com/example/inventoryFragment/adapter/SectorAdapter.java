@@ -38,6 +38,7 @@ public class SectorAdapter extends RecyclerView.Adapter<SectorAdapter.SectorView
 
     public interface OnItemClickListener {
         void OnItemClick(Sector sector);
+        void OnLongClick(Sector sector);
     }
 
     /**
@@ -106,6 +107,13 @@ public class SectorAdapter extends RecyclerView.Adapter<SectorAdapter.SectorView
                 @Override
                 public void onClick(View view) {
                     listener.OnItemClick(sector);
+                }
+            });
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    listener.OnLongClick(sector);
+                    return false;
                 }
             });
         }
