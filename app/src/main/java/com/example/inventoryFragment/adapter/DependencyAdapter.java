@@ -1,6 +1,7 @@
 package com.example.inventoryFragment.adapter;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -80,6 +81,9 @@ public class DependencyAdapter extends ArrayAdapter<Dependency> {
             dependencyHolder.icon = (MaterialLetterIcon) view.findViewById(R.id.icon);
             dependencyHolder.txvName = (TextView) view.findViewById(R.id.txvNameSector);
             dependencyHolder.txvSortName = (TextView) view.findViewById(R.id.txvSortName);
+            /*Typeface typeface = Typeface.createFromAsset(parent.getResources().getAssets(),"font/fontchristmas.ttf");
+            dependencyHolder.txvName.setTypeface(typeface);
+            dependencyHolder.txvName.setTextSize(40);*/
             view.setTag(dependencyHolder);// Se guarda como Tag la clase DependencyHolder con el valor de sus variables
         } else {
             dependencyHolder = (DependencyHolder) view.getTag();// El objeto dependencyHolder sera el que le asignamos al view

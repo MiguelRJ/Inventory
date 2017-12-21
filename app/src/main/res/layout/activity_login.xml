@@ -23,7 +23,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:labelFor="@+id/edtUser"
-        android:text="@string/txvUser" />
+        android:text="@string/txvUser"
+        android:textSize="18sp" />
     <!-- android:labelFor="@id/edtUser" solo sirve para vincular el txv con el edt -->
 
     <EditText
@@ -42,7 +43,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:labelFor="@+id/edtPassword"
-        android:text="@string/txvPassword" />
+        android:text="@string/txvPassword"
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/edtPassword"
