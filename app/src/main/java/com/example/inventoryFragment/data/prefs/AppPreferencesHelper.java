@@ -1,7 +1,10 @@
 package com.example.inventoryFragment.data.prefs;
 
+import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
+
 import com.example.inventoryFragment.ui.inventory.InventoryApplication;
 import com.example.inventoryFragment.ui.utils.AppConstants;
 
@@ -13,6 +16,8 @@ import com.example.inventoryFragment.ui.utils.AppConstants;
  *      - se puede hacer singleton si es un unico fichero
  *      - una sola instancia de preferencias
  * Created by usuario on 4/12/17.
+ * http://envyandroid.com/android-detect-preference-changes/
+ * http://www.sgoliver.net/blog/preferencias-en-android-ii-preferenceactivity/
  */
 
 public class AppPreferencesHelper implements AccountPreferencesHelper, GeneralPreferencesHelper {
@@ -20,15 +25,27 @@ public class AppPreferencesHelper implements AccountPreferencesHelper, GeneralPr
      // 1. Se definen todas las key posibles del fichero de preferencias
     // pero en si interfaz
 
+    public interface AppPreferencesListener{
+        public void onSharedPreferencesChanged();
+    }
 
     // 2. El objeto para editar las preferencias
     private final SharedPreferences preferences;
     private static AppPreferencesHelper instance;
+    private SharedPreferences.OnSharedPreferenceChangeListener listener;
+    private String TAG="AppPreferencesHelper";
 
     private AppPreferencesHelper() {
         // Si es el fichero pr defecto de las preferencias
-        this.preferences = InventoryApplication.getContext().getSharedPreferences(AppConstants.PREF_NAME, Context.MODE_PRIVATE);
+        this.preferences = ((Application)InventoryApplication.getContext()).getSharedPreferences(AppConstants.PREF_NAME, Context.MODE_PRIVATE);
         // Si es un fichero con nombre diferente
+        listener = new SharedPreferences.OnSharedPreferenceChangeListener() {
+            @Override
+            public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+
+                Log.i(TAG,"onSharedPreferenceChanged: Se ha cambiado la key "+key);
+            }
+        };
     }
 
     /**
