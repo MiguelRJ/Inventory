@@ -113,7 +113,7 @@ public class SectorAdapter extends RecyclerView.Adapter<SectorAdapter.SectorView
                 @Override
                 public boolean onLongClick(View view) {
                     listener.OnLongClick(sector);
-                    return false;
+                    return true;
                 }
             });
         }
