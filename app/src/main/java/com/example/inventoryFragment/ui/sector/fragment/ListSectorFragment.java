@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.inventoryFragment.R;
 import com.example.inventoryFragment.adapter.SectorAdapter;
@@ -35,6 +36,7 @@ public class ListSectorFragment extends Fragment implements ListSectorContract.V
     private ListSectorFragment.ListSectorListener callback;
     private SectorAdapter adapter;
     private ListSectorContract.Presenter presenter;
+    private SectorAdapter.OnItemClickListener listener;
 
     private RecyclerView recyclerView;
     private Toolbar toolbar;
@@ -46,7 +48,16 @@ public class ListSectorFragment extends Fragment implements ListSectorContract.V
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.adapter = new SectorAdapter(/*getActivity()*/);
+        listener = new SectorAdapter.OnItemClickListener() {
+            @Override
+            public void OnItemClick(Sector sector) {
+                Toast.makeText(getActivity(),"hola",Toast.LENGTH_SHORT).show();
+                Bundle bundle = new Bundle();
+                bundle.putParcelable(Sector.TAG,sector);
+                callback.addNewSector(bundle);
+            }
+        };
+        this.adapter = new SectorAdapter(listener);
         this.presenter = new ListSectorPresenter(this);
         setRetainInstance(true);
     }
@@ -82,9 +93,9 @@ public class ListSectorFragment extends Fragment implements ListSectorContract.V
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
 
         if(savedInstanceState != null){
-            adapter = new SectorAdapter(savedInstanceState.<Sector>getParcelableArrayList("sector"));
+            adapter = new SectorAdapter(savedInstanceState.<Sector>getParcelableArrayList("sector"),listener);
         } else {
-            adapter = new SectorAdapter();
+            adapter = new SectorAdapter(listener);
         }
 
         setHasOptionsMenu(true);

@@ -94,7 +94,7 @@ public class ListDependencyFragment extends ListFragment implements ListDependen
             @Override
             public void onClick(View view) {
                 //Log.d("DA","dentro del onclick");
-
+                getListView().setChoiceMode(ListView.CHOICE_MODE_NONE);
                 callback.addNewDependency(null);
             }
         });

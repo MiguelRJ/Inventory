@@ -46,6 +46,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txvNameSector"
-        tools:text="1CFGS" />
+        tools:text="1CFGS"
+        android:ellipsize="end"
+        android:maxLines="1"/>
 
 </android.support.constraint.ConstraintLayout>

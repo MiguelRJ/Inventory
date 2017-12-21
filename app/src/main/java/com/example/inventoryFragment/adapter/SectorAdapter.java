@@ -34,19 +34,26 @@ public class SectorAdapter extends RecyclerView.Adapter<SectorAdapter.SectorView
     // En nuestro caso la base de datos es el Repository
     private ArrayList<Sector> sectorsModified;
     private OnSwitchCheckedChangeListener onSwitchCheckedChangeListener;
+    private OnItemClickListener listener;
+
+    public interface OnItemClickListener {
+        void OnItemClick(Sector sector);
+    }
 
     /**
      * Contructor que se llamara cuando sector activity venga de un cambio de configuracion y se haya salvado el estado dinamico
      * @param sectorsModified
      */
-    public SectorAdapter(ArrayList<Sector> sectorsModified){
+    public SectorAdapter(ArrayList<Sector> sectorsModified, OnItemClickListener listener){
         sectors = SectorRepository.getInstance().getSectors();
         this.sectorsModified = sectorsModified;
+        this.listener = listener;
     }
 
-    public SectorAdapter(){
+    public SectorAdapter(OnItemClickListener listener){
         sectors = SectorRepository.getInstance().getSectors();
         sectorsModified = new ArrayList<>();
+        this.listener = listener;
     }
 
     @Override
@@ -68,8 +75,9 @@ public class SectorAdapter extends RecyclerView.Adapter<SectorAdapter.SectorView
         sectorViewHolder.swEnabled.setOnCheckedChangeListener(onSwitchCheckedChangeListener);
         sectorViewHolder.txvNameSector.setText(sectors.get(position).getName());
         if(sectors.get(position).isSectorDefault()){
-            sectorViewHolder.txvSectorDefault.setText(R.string.txvSectorDefault);
+            sectorViewHolder.txvSectorDefault.setText(sectors.get(position).getDescription());
         }
+        sectorViewHolder.bind(sectors.get(position),listener);
     }
 
     /**
@@ -91,6 +99,15 @@ public class SectorAdapter extends RecyclerView.Adapter<SectorAdapter.SectorView
             swEnabled = view.findViewById(R.id.swEnabled);
             txvNameSector = view.findViewById(R.id.txvNameSector);
             txvSectorDefault = view.findViewById(R.id.txvSectorDefault);
+        }
+
+        public void bind(final Sector sector, final OnItemClickListener listener) {
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.OnItemClick(sector);
+                }
+            });
         }
     }
 
