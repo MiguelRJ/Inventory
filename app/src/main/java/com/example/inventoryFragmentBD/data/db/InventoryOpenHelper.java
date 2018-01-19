@@ -37,8 +37,9 @@ public class InventoryOpenHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
+    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
+        db.execSQL(InventoryContract.DependencyEntry.SQL_DELETE_ENTRIES);
+        onCreate(db);
     }
 
     @Override
