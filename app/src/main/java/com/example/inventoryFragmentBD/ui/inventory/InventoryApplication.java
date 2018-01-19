@@ -3,6 +3,7 @@ package com.example.inventoryFragmentBD.ui.inventory;
 import android.app.Application;
 import android.content.Context;
 
+import com.example.inventoryFragmentBD.data.db.InventoryOpenHelper;
 import com.example.inventoryFragmentBD.data.prefs.AppPreferencesHelper;
 
 /**
@@ -26,6 +27,7 @@ public class InventoryApplication extends Application {
     public void onCreate() {
         super.onCreate();
         appPreferencesHelper = AppPreferencesHelper.getInstance();
+        InventoryOpenHelper.getInstance().openDateBase();
     }
 
     public AppPreferencesHelper getAppPreferencesHelper(){
