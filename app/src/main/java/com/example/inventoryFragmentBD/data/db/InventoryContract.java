@@ -9,6 +9,8 @@ import android.provider.BaseColumns;
  *      dependency
  * DATABASE_VERSION=2;
  *      sector
+ * DATABASE_VERSION=3;
+ *      sector foreign key
  */
 
 public final class InventoryContract {
@@ -18,7 +20,7 @@ public final class InventoryContract {
 
     }
 
-    public static final int DATABASE_VERSION=2;
+    public static final int DATABASE_VERSION=3;
     public static final String DATABASE_NAME="Inventory.db";
 
     // Por cada tabla se crea una clase que implementa la interfaz BaseColumns
@@ -99,12 +101,16 @@ public final class InventoryContract {
                 "CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         "%s TEXT NOT NULL," +
                         "%s TEXT NOT NULL," +
-                        "%s TEXT NOT NULL )",
+                        "%s TEXT NOT NULL," +
+                        "FOREIGN KEY (%s) REFERENCES %s (%s) on update cascade on delete restrict )",
                 TABLE_NAME,
                 BaseColumns._ID,
                 COLUMN_NAME,
                 COLUMN_SHORTNAME,
-                COLUMN_DESCRIPTION
+                COLUMN_DESCRIPTION,
+                BaseColumns._ID,
+                DependencyEntry.TABLE_NAME.toString(),
+                BaseColumns._ID
         );
 
         /**

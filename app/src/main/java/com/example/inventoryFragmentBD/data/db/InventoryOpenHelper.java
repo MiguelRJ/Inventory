@@ -26,8 +26,13 @@ public class InventoryOpenHelper extends SQLiteOpenHelper {
         return singleton;
     }
 
-    public void openDateBase(){
+    /**
+     * Nos permitira realizar las operaciones con la base de datos
+     * @return
+     */
+    public SQLiteDatabase openDateBase(){
         sqLiteDatabase = getWritableDatabase();
+        return sqLiteDatabase;
     }
 
     @Override
