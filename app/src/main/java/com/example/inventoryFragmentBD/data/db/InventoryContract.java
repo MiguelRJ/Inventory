@@ -37,6 +37,7 @@ public final class InventoryContract {
                 COLUMN_DESCRIPTION,
                 COLUMN_IMAGENAME
         };
+        public static final String DEFAULT_SORT = COLUMN_NAME;
 
         /**
          * CREATE
@@ -74,9 +75,9 @@ public final class InventoryContract {
                 "Aula de los resopladores de 2CFGS",
                 "No tengo imagen"
         )+String.format(" ('%s','%s','%s','%s')",
-                "Aula de 2CFGS",
-                "2CFGS",
-                "Aula de los resopladores de 2CFGS",
+                "Aula de 1CFGS",
+                "1CFGS",
+                "Aula de los resopladores de 1CFGS",
                 "No tengo imagen"
         );
 

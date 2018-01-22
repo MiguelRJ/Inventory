@@ -12,7 +12,7 @@ import com.example.inventoryFragmentBD.data.db.repository.DependencyRepository;
 public class AddEditDependencyInteractor implements AddEditDependencyInteractorInterface {
 
     @Override
-    public void validateDependency(String name, String shortName, String description,AddEditDependencyInteractorInterface.OnAddDependencyListener listener) {
+    public void validateDependency(String name, String shortName, String description, String imageName, AddEditDependencyInteractorInterface.OnAddDependencyListener listener) {
         //Si el password es vacio
         if(TextUtils.isEmpty(name)) {
             listener.onNameEmptyError();
@@ -26,7 +26,7 @@ public class AddEditDependencyInteractor implements AddEditDependencyInteractorI
             //Log.e("interactor","id encontrado "+String.valueOf(id));
             if (id < 0) {
                 DependencyRepository.getInstance().addDependency(
-                        new Dependency(DependencyRepository.getInstance().getDependencies().size() + 1, name, shortName, description));
+                        new Dependency(DependencyRepository.getInstance().getDependencies().size() + 1, name, shortName, description, imageName));
             } else {
                 DependencyRepository.getInstance().editDependencyById(id,name,shortName,description);
             }

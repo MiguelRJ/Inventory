@@ -27,14 +27,16 @@ public class Dependency implements Comparable,Parcelable {
     private String name;
     private String sortName;
     private String description;
+    private String imageName;
     public static String TAG = "Dependency";
 
     /*CONSTRUCTOR*/
-    public Dependency(int _ID, String name, String shortame, String description) {
+    public Dependency(int _ID, String name, String shortame, String description, String imageName) {
         this._ID = _ID;
         this.name = name;
         this.sortName = shortame;
         this.description = description;
+        this.imageName = imageName;
     }
 
     /*METODOS*/
@@ -68,6 +70,14 @@ public class Dependency implements Comparable,Parcelable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getImageName() {
+        return imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
     }
 
     @Override
@@ -113,6 +123,7 @@ public class Dependency implements Comparable,Parcelable {
         dest.writeString(name);
         dest.writeString(sortName);
         dest.writeString(description);
+        dest.writeString(imageName);
     }
 
     protected Dependency(Parcel in) {
@@ -120,6 +131,7 @@ public class Dependency implements Comparable,Parcelable {
         name = in.readString();
         sortName = in.readString();
         description = in.readString();
+        imageName = in.readString();
     }
 
     public static final Creator<Dependency> CREATOR = new Creator<Dependency>() {

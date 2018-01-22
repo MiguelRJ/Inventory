@@ -118,7 +118,7 @@ public class AddEditDependencyFragment extends BaseFragment implements AddEditDe
                 //callback.addNewDependency();
                 presenter.validateDependency(tilName.getEditText().getText().toString(),
                         tilSortName.getEditText().getText().toString(),
-                        tilDescription.getEditText().getText().toString());
+                        tilDescription.getEditText().getText().toString(),"imageName");
             }
         });
 

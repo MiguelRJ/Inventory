@@ -1,5 +1,8 @@
 package com.example.inventoryFragmentBD.data.db.repository;
 
+import android.database.Cursor;
+
+import com.example.inventoryFragmentBD.data.db.dao.DependencyDao;
 import com.example.inventoryFragmentBD.data.db.model.Dependency;
 
 import java.util.ArrayList;
@@ -27,6 +30,7 @@ public class DependencyRepository {
 
     /* DECLARACION */
     private ArrayList<Dependency> dependencies;
+    private DependencyDao dao;
     private static DependencyRepository dependencyRepository;
 
     /* INICIALIZACION */
@@ -43,11 +47,12 @@ public class DependencyRepository {
      */
     private DependencyRepository() {
         this.dependencies = new ArrayList<>();
-        initialize();
+        this.dao = new DependencyDao();
+        //initialize();
     }
 
     /* METODOS */
-    private void initialize() {
+    /*private void initialize() {
         addDependency(new Dependency(1, "1º Ciclo Formativo Grado Superior", "aaa", "1CFGS Desarrollo aplicaciones multiplataforma"));
         addDependency(new Dependency(2, "2º Ciclo Formativo Grado Superior", "bbb", "2CFGS Desarrollo aplicaciones multiplataforma"));
         addDependency(new Dependency(3, "3º Ciclo Formativo Grado Superior", "DDD", "1CFGS Desarrollo aplicaciones multiplataforma"));
@@ -58,7 +63,7 @@ public class DependencyRepository {
         addDependency(new Dependency(8, "8º Ciclo Formativo Grado Superior", "8CFGS", "2CFGS Desarrollo aplicaciones multiplataforma"));
         addDependency(new Dependency(9, "9º Ciclo Formativo Grado Superior", "9CFGS", "1CFGS Desarrollo aplicaciones multiplataforma"));
         addDependency(new Dependency(10, "10º Ciclo Formativo Grado Superior", "10CFGS", "2CFGS Desarrollo aplicaciones multiplataforma"));
-    }
+    }*/
 
     public static DependencyRepository getInstance() {
         /* No se necesita porque ya inicializamos en static{} garantizado
@@ -93,6 +98,7 @@ public class DependencyRepository {
      */
     public void addDependency(Dependency dependency) {
         dependencies.add(dependency);
+        //dao.addDependency(dependency);
     }
 
     /*public boolean deleteDependency(Dependency dependency){
@@ -111,11 +117,27 @@ public class DependencyRepository {
      * @return
      */
     public ArrayList<Dependency> getDependencies() {
-        /**
-         * El array list se ordena segun el criterio/s del metodo compareTo de la interfaz Comparable
-         */
-        Collections.sort(dependencies); // ordena el arraylist
-        return dependencies; // devolverlo ya ordenado
+        //El array list se ordena segun el criterio/s del metodo compareTo de la interfaz Comparable
+        //Collections.sort(dependencies); // ordena el arraylist
+        //return dependencies; // devolverlo ya ordenado
+        dependencies.clear();
+        Cursor cursor = getDependenciesCursor();
+        if (cursor.moveToFirst()){
+            do {
+                Dependency dependency = new Dependency(
+                        cursor.getInt(0),
+                        cursor.getString(1),
+                        cursor.getString(2),
+                        cursor.getString(3),
+                        cursor.getString(4));
+                dependencies.add(dependency);
+            } while (cursor.moveToNext());
+        }
+        return dependencies;
+    }
+
+    public Cursor getDependenciesCursor(){
+        return dao.loadAll();
     }
 
     public ArrayList<Dependency> getDependenciesByShortName(){

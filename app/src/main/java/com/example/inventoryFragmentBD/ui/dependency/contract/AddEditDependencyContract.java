@@ -15,6 +15,6 @@ public interface AddEditDependencyContract {
         void showOnSucces();
     }
     interface Presenter extends BasePresenter {
-        void validateDependency(String name,String shortName,String description);
+        void validateDependency(String name,String shortName,String description,String imageName);
     }
 }

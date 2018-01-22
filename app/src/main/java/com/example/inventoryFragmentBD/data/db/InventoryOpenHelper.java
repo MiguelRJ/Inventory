@@ -6,20 +6,24 @@ import android.os.Build;
 
 import com.example.inventoryFragmentBD.ui.inventory.InventoryApplication;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
  * Created by usuario on 19/01/18.
  */
 
 public class InventoryOpenHelper extends SQLiteOpenHelper {
 
-    private static InventoryOpenHelper singleton;
+    // volatile, no copies a los hilos si debe ser la misma copia para todos los thread
+    private volatile static InventoryOpenHelper singleton;
     private SQLiteDatabase sqLiteDatabase;
+    private AtomicInteger openCounter = new AtomicInteger();
 
     public InventoryOpenHelper() {
         super(InventoryApplication.getContext(), InventoryContract.DATABASE_NAME, null, InventoryContract.DATABASE_VERSION);
     }
 
-    public static InventoryOpenHelper getInstance() {
+    public synchronized static InventoryOpenHelper getInstance() {
         if (singleton==null) {
             singleton = new InventoryOpenHelper();
         }
@@ -30,9 +34,17 @@ public class InventoryOpenHelper extends SQLiteOpenHelper {
      * Nos permitira realizar las operaciones con la base de datos
      * @return
      */
-    public SQLiteDatabase openDateBase(){
-        sqLiteDatabase = getWritableDatabase();
+    public synchronized SQLiteDatabase openDateBase(){
+        if (openCounter.incrementAndGet() == 1) {
+            sqLiteDatabase = getWritableDatabase();
+        }
         return sqLiteDatabase;
+    }
+
+    public synchronized  void closeDateBase(){
+        if (openCounter.decrementAndGet()==0){
+            sqLiteDatabase.close();
+        }
     }
 
     @Override

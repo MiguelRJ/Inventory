@@ -19,8 +19,8 @@ public class AddEditDependencyPresenter implements AddEditDependencyContract.Pre
     }
 
     @Override
-    public void validateDependency(String name,String shortName,String description) {
-        interactor.validateDependency(name,shortName,description, this);
+    public void validateDependency(String name,String shortName,String description, String imageName) {
+        interactor.validateDependency(name,shortName,description,imageName, this);
     }
 
     @Override
