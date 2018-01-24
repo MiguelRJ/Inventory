@@ -98,6 +98,7 @@ public class DependencyRepository {
      */
     public void addDependency(Dependency dependency) {
         dependencies.add(dependency);
+        dao.save(dependency);
         //dao.addDependency(dependency);
     }
 
@@ -120,7 +121,10 @@ public class DependencyRepository {
         //El array list se ordena segun el criterio/s del metodo compareTo de la interfaz Comparable
         //Collections.sort(dependencies); // ordena el arraylist
         //return dependencies; // devolverlo ya ordenado
-        dependencies.clear();
+
+        return dao.loadAll();
+
+        /*dependencies.clear();
         Cursor cursor = getDependenciesCursor();
         if (cursor.moveToFirst()){
             do {
@@ -133,12 +137,12 @@ public class DependencyRepository {
                 dependencies.add(dependency);
             } while (cursor.moveToNext());
         }
-        return dependencies;
+        return dependencies;*/
     }
 
-    public Cursor getDependenciesCursor(){
+    /*public Cursor getDependenciesCursor(){
         return dao.loadAll();
-    }
+    }*/
 
     public ArrayList<Dependency> getDependenciesByShortName(){
         Collections.sort(dependencies, new Dependency.DependencyOrderByShortName());
@@ -159,5 +163,17 @@ public class DependencyRepository {
                 break;
             }
         }
+    }
+
+    public boolean exists(Dependency dependency){
+        return dao.exists(dependency);
+    }
+
+    public long saveDependency(Dependency dependency){
+        return dao.save(dependency);
+    }
+
+    public void deleteDependency(Dependency dependency){
+        return;
     }
 }
