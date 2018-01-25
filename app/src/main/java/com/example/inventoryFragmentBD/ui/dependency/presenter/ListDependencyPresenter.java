@@ -1,10 +1,12 @@
 package com.example.inventoryFragmentBD.ui.dependency.presenter;
 
+import android.app.ProgressDialog;
 import android.util.Log;
 
 import com.example.inventoryFragmentBD.data.db.model.Dependency;
 import com.example.inventoryFragmentBD.ui.dependency.contract.ListDependencyContract;
 import com.example.inventoryFragmentBD.ui.dependency.interactor.ListDependencyInteractor;
+import com.example.inventoryFragmentBD.ui.inventory.InventoryApplication;
 
 import java.util.HashMap;
 import java.util.List;

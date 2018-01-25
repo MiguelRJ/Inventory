@@ -3,22 +3,19 @@ package com.example.inventoryFragmentBD.data.db.dao;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.provider.BaseColumns;
 
 import com.example.inventoryFragmentBD.data.db.InventoryContract;
 import com.example.inventoryFragmentBD.data.db.InventoryOpenHelper;
 import com.example.inventoryFragmentBD.data.db.model.Dependency;
 
 import java.util.ArrayList;
-import java.util.Observable;
 
 /**
  * Created by usuario on 22/01/18.
  */
 
 public class DependencyDao {
-
-
-
 
     /**
      * Metodo que devuelve un cursor con todas las dependencias de la base de datos
@@ -44,7 +41,8 @@ public class DependencyDao {
                         cursor.getString(1),
                         cursor.getString(2),
                         cursor.getString(3),
-                        cursor.getString(4));
+                        cursor.getString(4)
+                );
                 dependencies.add(dependency);
             } while (cursor.moveToNext());
         }
@@ -57,16 +55,33 @@ public class DependencyDao {
         return false;
     }
 
-    public long save(Dependency dependency) {
+    public long add(Dependency dependency) {
         SQLiteDatabase sqLiteDatabase = InventoryOpenHelper.getInstance().openDateBase();
+        long id = sqLiteDatabase.insert(InventoryContract.DependencyEntry.TABLE_NAME,
+                null,CreateContent(dependency));
+        InventoryOpenHelper.getInstance().closeDateBase();
+        return id;
+    }
+
+    public int update(Dependency dependency) {
+        SQLiteDatabase sqLiteDatabase = InventoryOpenHelper.getInstance().openDateBase();
+        String where = BaseColumns._ID+"=?";
+        String[] whereArgs = new String[] {String.valueOf(dependency.get_ID())};
+        int id = sqLiteDatabase.update(InventoryContract.DependencyEntry.TABLE_NAME,CreateContent(dependency), where, whereArgs);
+        InventoryOpenHelper.getInstance().closeDateBase();
+        return id;
+    }
+
+    public int delete(Dependency dependency) {
+        return 0;
+    }
+
+    public ContentValues CreateContent(Dependency dependency){
         ContentValues contentValues = new ContentValues();
         contentValues.put(InventoryContract.DependencyEntry.COLUMN_NAME,dependency.getName());
         contentValues.put(InventoryContract.DependencyEntry.COLUMN_SHORTNAME,dependency.getSortName());
         contentValues.put(InventoryContract.DependencyEntry.COLUMN_DESCRIPTION,dependency.getDescription());
         contentValues.put(InventoryContract.DependencyEntry.COLUMN_IMAGENAME,dependency.getImageName());
-        long id = sqLiteDatabase.insert(InventoryContract.DependencyEntry.TABLE_NAME,
-                null,contentValues);
-        InventoryOpenHelper.getInstance().closeDateBase();
-        return id;
+        return contentValues;
     }
 }

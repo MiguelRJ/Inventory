@@ -1,5 +1,7 @@
 package com.example.inventoryFragmentBD.ui.utils;
 
+import android.app.Dialog;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -27,6 +29,5 @@ public class CommonUtils {
         matcher = pattern.matcher(password);
         return matcher.matches();
     }
-
 
 }

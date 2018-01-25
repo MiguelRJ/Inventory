@@ -94,6 +94,7 @@ public final class InventoryContract {
                 COLUMN_SHORTNAME,
                 COLUMN_DESCRIPTION
         };
+        public static final String DEFAULT_SORT = COLUMN_NAME;
 
         /**
          * CREATE

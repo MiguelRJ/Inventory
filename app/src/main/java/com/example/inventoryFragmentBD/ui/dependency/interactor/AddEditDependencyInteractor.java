@@ -11,8 +11,14 @@ import com.example.inventoryFragmentBD.data.db.repository.DependencyRepository;
 
 public class AddEditDependencyInteractor implements AddEditDependencyInteractorInterface {
 
+    private AddEditDependencyInteractorInterface.OnAddDependencyListener listener;
+
+    public AddEditDependencyInteractor( AddEditDependencyInteractorInterface.OnAddDependencyListener listener){
+        this.listener = listener;
+    }
+
     @Override
-    public void validateDependency(String name, String shortName, String description, String imageName, AddEditDependencyInteractorInterface.OnAddDependencyListener listener) {
+    public void validateDependency(String name, String shortName, String description, String imageName) {
         //Si el password es vacio
         if(TextUtils.isEmpty(name)) {
             listener.onNameEmptyError();
@@ -26,11 +32,24 @@ public class AddEditDependencyInteractor implements AddEditDependencyInteractorI
             //Log.e("interactor","id encontrado "+String.valueOf(id));
             if (id < 0) {
                 DependencyRepository.getInstance().addDependency(
-                        new Dependency(DependencyRepository.getInstance().getDependencies().size() + 1, name, shortName, description, imageName));
+                        new Dependency(DependencyRepository.getInstance().getDependencies().size() + 1, name, shortName, description, imageName),this
+                );
             } else {
-                DependencyRepository.getInstance().editDependencyById(id,name,shortName,description);
+                Dependency dependency = new Dependency(id,name,shortName,description,imageName);
+                //DependencyRepository.getInstance().editDependencyById(id,name,shortName,description);
+                DependencyRepository.getInstance().updateDependency(dependency,this);
             }
             listener.onSuccess();
         }
+    }
+
+    @Override
+    public void onSuccess() {
+        listener.onSuccess();
+    }
+
+    @Override
+    public void onError() {
+        listener.onNameEmptyError(); // hay que modificar este error
     }
 }

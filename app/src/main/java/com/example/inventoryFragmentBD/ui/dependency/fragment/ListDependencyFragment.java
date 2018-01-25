@@ -3,6 +3,7 @@ package com.example.inventoryFragmentBD.ui.dependency.fragment;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.Fragment;
+import android.app.ProgressDialog;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;

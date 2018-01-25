@@ -16,5 +16,7 @@ public interface AddEditDependencyInteractorInterface {
 
         void onSuccess();
     };
-    void validateDependency(String name,String shortName,String description, String imageName, AddEditDependencyInteractorInterface.OnAddDependencyListener listener);
+    void validateDependency(String name,String shortName,String description, String imageName);
+    void onSuccess();
+    void onError();
 }

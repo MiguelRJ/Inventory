@@ -1,5 +1,6 @@
 package com.example.inventoryFragmentBD.data.db.repository;
 
+import com.example.inventoryFragmentBD.data.db.dao.SectorDao;
 import com.example.inventoryFragmentBD.data.db.model.Sector;
 import java.util.ArrayList;
 
@@ -14,6 +15,7 @@ public class SectorRepository {
     /* DECLARACION */
     private ArrayList<Sector> sectors;
     private static SectorRepository sectorRepository;
+    private SectorDao dao;
 
     /* INICIALIZACION */
 
@@ -29,11 +31,12 @@ public class SectorRepository {
      */
     private SectorRepository() {
         this.sectors = new ArrayList<>();
-        initialize();
+        dao = new SectorDao();
+        //initialize();
     }
 
     /* METODOS */
-    private void initialize() {
+    /*private void initialize() {
         addSector(new Sector( 1,"Armario A","ArmA","Armario puerta madera",1,true,true));
         addSector(new Sector( 2,"Armario B","ArmB","Armario puerta cristal",2,false,true));
         addSector(new Sector( 3,"Mesa A","MesA","Mesa madera",1,true,true));
@@ -44,7 +47,7 @@ public class SectorRepository {
         addSector(new Sector( 8,"Pizarra B","PizB","Pizarra rotulador",2,false,true));
         addSector(new Sector( 9,"Ordenador A","OrdA","Ordendaor madera",1,true,true));
         addSector(new Sector( 10,"Ordenador B","OrdB","Ordenador cristal",2,false,true));
-    }
+    }*/
 
     public static SectorRepository getInstance() {
         /* No se necesita porque ya inicializamos en static{} garantizado
@@ -78,7 +81,8 @@ public class SectorRepository {
      * @param sector
      */
     public void addSector(Sector sector) {
-        sectors.add(sector);
+        //sectors.add(sector);
+        dao.add(sector);
     }
 
     /**
@@ -87,6 +91,7 @@ public class SectorRepository {
      * @return
      */
     public ArrayList<Sector> getSectors() {
+        sectors = dao.loadAll();
         return sectors;
     }
 }

@@ -4,6 +4,7 @@ import android.database.Cursor;
 
 import com.example.inventoryFragmentBD.data.db.dao.DependencyDao;
 import com.example.inventoryFragmentBD.data.db.model.Dependency;
+import com.example.inventoryFragmentBD.ui.dependency.interactor.AddEditDependencyInteractorInterface;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -96,11 +97,11 @@ public class DependencyRepository {
      *
      * @param dependency
      */
-    public void addDependency(Dependency dependency) {
+    /*public void addDependency(Dependency dependency) {
         dependencies.add(dependency);
-        dao.save(dependency);
+        dao.add(dependency);
         //dao.addDependency(dependency);
-    }
+    }*/
 
     /*public boolean deleteDependency(Dependency dependency){
         /*for (int i = 0;i<dependencies.size();i++){
@@ -121,8 +122,8 @@ public class DependencyRepository {
         //El array list se ordena segun el criterio/s del metodo compareTo de la interfaz Comparable
         //Collections.sort(dependencies); // ordena el arraylist
         //return dependencies; // devolverlo ya ordenado
-
-        return dao.loadAll();
+        dependencies = dao.loadAll();
+        return dependencies;
 
         /*dependencies.clear();
         Cursor cursor = getDependenciesCursor();
@@ -169,11 +170,30 @@ public class DependencyRepository {
         return dao.exists(dependency);
     }
 
-    public long saveDependency(Dependency dependency){
-        return dao.save(dependency);
+    public void addDependency(Dependency dependency,AddEditDependencyInteractorInterface callback){
+        long count = dao.add(dependency);
+        if (count==-1){
+            callback.onError();
+        } else {
+            callback.onSuccess();
+        }
     }
 
-    public void deleteDependency(Dependency dependency){
-        return;
+    public void updateDependency(Dependency dependency, AddEditDependencyInteractorInterface callback) {
+        int count = dao.update(dependency);
+        if (count==-1){
+            callback.onError();
+        } else {
+            callback.onSuccess();
+        }
+    }
+
+    public void deleteDependency(Dependency dependency, AddEditDependencyInteractorInterface callback){
+        int count = dao.delete(dependency);
+        if (count==0){
+            callback.onError();
+        } else {
+            callback.onSuccess();
+        }
     }
 }
