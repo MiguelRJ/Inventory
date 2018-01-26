@@ -82,6 +82,7 @@ public class SectorDao {
         contentValues.put(InventoryContract.SectorEntry.COLUMN_NAME,sector.getName());
         contentValues.put(InventoryContract.SectorEntry.COLUMN_SHORTNAME,sector.getSortName());
         contentValues.put(InventoryContract.SectorEntry.COLUMN_DESCRIPTION,sector.getDescription());
+        contentValues.put(InventoryContract.SectorEntry.COLUMN_DEPENDENCY,sector.getDependencyID());
         return contentValues;
     }
 }

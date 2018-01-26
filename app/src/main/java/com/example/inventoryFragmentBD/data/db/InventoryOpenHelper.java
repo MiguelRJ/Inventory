@@ -57,6 +57,7 @@ public class InventoryOpenHelper extends SQLiteOpenHelper {
             sqLiteDatabase.execSQL(InventoryContract.DependencyEntry.SQL_CREATE_ENTRIES);
             sqLiteDatabase.execSQL(InventoryContract.DependencyEntry.SQL_INSERT_ENTRIES);
             sqLiteDatabase.execSQL(InventoryContract.SectorEntry.SQL_CREATE_ENTRIES);
+            Log.e("sector create",InventoryContract.SectorEntry.SQL_CREATE_ENTRIES);
             sqLiteDatabase.execSQL(InventoryContract.SectorEntry.SQL_INSERT_ENTRIES);
             sqLiteDatabase.setTransactionSuccessful();
         } catch (SQLiteException e) {
@@ -68,6 +69,7 @@ public class InventoryOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
+        Log.e("upgrade db", "entrando...");
         try {
             db.beginTransaction();
             db.execSQL(InventoryContract.DependencyEntry.SQL_DELETE_ENTRIES);
@@ -77,7 +79,7 @@ public class InventoryOpenHelper extends SQLiteOpenHelper {
         } catch (SQLiteException e) {
             Log.e("upgrade db", e.getMessage());
         } finally {
-            sqLiteDatabase.endTransaction();
+            db.endTransaction();
         }
     }
 
