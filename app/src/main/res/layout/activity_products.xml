@@ -34,8 +34,9 @@
             android:id="@+id/edtNombre"
             style="@style/edtProductsActivyty"
             android:layout_width="0dp"
+            android:layout_marginEnd="8dp"
             app:layout_constraintBaseline_toBaselineOf="@+id/txvNombre"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imgQrcode"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/barrera" />
 
@@ -80,9 +81,9 @@
             android:id="@+id/edtVendedor"
             style="@style/edtProductsActivyty"
             android:layout_width="0dp"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="8dp"
             app:layout_constraintBaseline_toBaselineOf="@+id/txvVendedor"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imgQrcode"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/barrera" />
 
@@ -98,8 +99,9 @@
             android:id="@+id/edtModelo"
             style="@style/edtProductsActivyty"
             android:layout_width="0dp"
+            android:layout_marginEnd="8dp"
             app:layout_constraintBaseline_toBaselineOf="@+id/txvModelo"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imgQrcode"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/barrera" />
 
