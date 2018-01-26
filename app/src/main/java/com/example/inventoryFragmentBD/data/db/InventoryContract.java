@@ -13,10 +13,9 @@ import android.provider.BaseColumns;
  *      sector foreign key
  * DATABASE_VERSION=4;
  *      sector foreign key references dependency (_id)
- * DATABASE_VERSION=5;
+ * DATABASE_VERSION=5,6,7;
  *      SQLiteException: no such column: dependency
- * DATABASE_VERSION=6;
- *      SQLiteException: no such column: dependency
+ *      ERROR el insert de los datos predefinidos estaba incorrecto entonces no creaba la tabla con el foreign key
  */
 
 public final class InventoryContract {

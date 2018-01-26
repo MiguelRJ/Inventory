@@ -44,6 +44,7 @@ public class ListDependencyFragment extends ListFragment implements ListDependen
 
     private ListView listView;
     private Toolbar toolbar;
+    private ProgressDialog progress;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,6 +52,10 @@ public class ListDependencyFragment extends ListFragment implements ListDependen
         this.adapter = new DependencyAdapter(getActivity());
         this.presenter = new ListDependencyPresenter(this);
         setRetainInstance(true);
+        progress = new ProgressDialog(getActivity());
+        progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progress.setMessage("Conectando . . .");
+        progress.setCancelable(false);
     }
 
     public interface ListDependencyListener {
@@ -99,7 +104,7 @@ public class ListDependencyFragment extends ListFragment implements ListDependen
                 callback.addNewDependency(null);
             }
         });
-        presenter.loadDependency();
+
         return rootView;
     }
 
@@ -129,6 +134,7 @@ public class ListDependencyFragment extends ListFragment implements ListDependen
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        presenter.loadDependency();
         //setListAdapter(new DependencyAdapter(getActivity()));
         setListAdapter(adapter);
         getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -208,6 +214,19 @@ public class ListDependencyFragment extends ListFragment implements ListDependen
         adapter = null;
     }
 
+    @Override
+    public void showProgress(){
+        progress.show();
+    }
+
+    @Override
+    public void dismiddProgress(){
+        progress.dismiss();
+    }
+
+    public void notifyList(){
+        listView.notify();
+    }
 
 
 }

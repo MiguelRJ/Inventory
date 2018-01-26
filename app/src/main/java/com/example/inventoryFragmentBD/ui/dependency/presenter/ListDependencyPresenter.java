@@ -1,6 +1,7 @@
 package com.example.inventoryFragmentBD.ui.dependency.presenter;
 
 import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.util.Log;
 
 import com.example.inventoryFragmentBD.data.db.model.Dependency;
@@ -10,6 +11,7 @@ import com.example.inventoryFragmentBD.ui.inventory.InventoryApplication;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by usuario on 23/11/17.
@@ -31,13 +33,35 @@ public class ListDependencyPresenter implements ListDependencyContract.Presenter
     @Override
     public void loadDependency() {
         //progress bar
-        interactor.loadDependency();
+        //view.showProgress();
+        //interactor.loadDependency();
+        try {
+            view.showProgress();
+            new AsyncTask<Void, Void, Void>() {
+                @Override
+                protected Void doInBackground(Void... params) {
+                    // Load data from Model
+                    try {
+                        Thread.sleep(10000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    interactor.loadDependency();
+                    return null;
+                }
+
+            }.execute();
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+
     }
 
 
 
     @Override
     public void onSucces(List<Dependency> list) {
+        view.dismiddProgress();
         view.showDependency(list);
     }
 

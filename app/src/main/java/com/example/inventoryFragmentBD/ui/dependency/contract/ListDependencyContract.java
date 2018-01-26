@@ -13,7 +13,9 @@ import java.util.List;
 public interface ListDependencyContract {
     interface View extends BaseView{
         void showDependency(List<Dependency> list);
+        void showProgress();
 
+        void dismiddProgress();
         Dependency getDependency(Integer position);
     }
     interface Presenter extends BasePresenter {
