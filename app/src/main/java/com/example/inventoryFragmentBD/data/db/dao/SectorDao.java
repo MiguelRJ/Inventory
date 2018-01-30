@@ -74,7 +74,12 @@ public class SectorDao {
     }
 
     public int delete(Sector sector) {
-        return 0;
+        SQLiteDatabase sqLiteDatabase = InventoryOpenHelper.getInstance().openDateBase();
+        String where = BaseColumns._ID+"=?";
+        String[] whereArgs = new String[] {String.valueOf(sector.get_ID())};
+        int id = sqLiteDatabase.delete(InventoryContract.SectorEntry.TABLE_NAME, where, whereArgs);
+        InventoryOpenHelper.getInstance().closeDateBase();
+        return id;
     }
 
     public ContentValues CreateContent(Sector sector){

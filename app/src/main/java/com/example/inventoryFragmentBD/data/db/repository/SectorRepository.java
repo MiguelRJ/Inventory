@@ -86,6 +86,10 @@ public class SectorRepository {
         dao.add(sector);
     }
 
+    public void deleteSector(Sector sector) {
+        dao.delete(sector);
+    }
+
     /**
      * Metodo que devuelve los sectores
      *

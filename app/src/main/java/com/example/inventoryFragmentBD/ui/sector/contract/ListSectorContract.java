@@ -16,5 +16,6 @@ public interface ListSectorContract {
     }
     interface Presenter extends BasePresenter {
         void loadSector();
+        void deleteSector(Sector sector);
     }
 }

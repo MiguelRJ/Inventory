@@ -15,4 +15,5 @@ public interface ListSectorInteractorInterface {
     }
 
     void loadSector();
+    void deleteSector(Sector sector);
 }

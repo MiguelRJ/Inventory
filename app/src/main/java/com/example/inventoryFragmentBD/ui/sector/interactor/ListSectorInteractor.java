@@ -1,5 +1,6 @@
 package com.example.inventoryFragmentBD.ui.sector.interactor;
 
+import com.example.inventoryFragmentBD.data.db.model.Sector;
 import com.example.inventoryFragmentBD.data.db.repository.SectorRepository;
 
 /**
@@ -17,5 +18,10 @@ public class ListSectorInteractor implements ListSectorInteractorInterface {
     @Override
     public void loadSector() {
         listener.onSucces(SectorRepository.getInstance().getSectors());
+    }
+
+    @Override
+    public void deleteSector(Sector sector) {
+        SectorRepository.getInstance().deleteSector(sector);
     }
 }

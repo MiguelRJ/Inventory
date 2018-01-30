@@ -1,6 +1,7 @@
 package com.example.inventoryFragmentBD.ui.sector.fragment;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,14 +13,18 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Toast;
 
 import com.example.inventoryFragmentBD.R;
 import com.example.inventoryFragmentBD.adapter.SectorAdapter;
+import com.example.inventoryFragmentBD.data.db.model.Dependency;
 import com.example.inventoryFragmentBD.data.db.model.Sector;
 import com.example.inventoryFragmentBD.ui.base.BasePresenter;
+import com.example.inventoryFragmentBD.ui.dependency.presenter.ListDependencyPresenter;
 import com.example.inventoryFragmentBD.ui.sector.contract.ListSectorContract;
 import com.example.inventoryFragmentBD.ui.sector.presenter.ListSectorPresenter;
+import com.example.inventoryFragmentBD.ui.utils.ComonDialog;
 
 import java.util.List;
 
@@ -56,6 +61,14 @@ public class ListSectorFragment extends Fragment implements ListSectorContract.V
             @Override
             public void OnLongClick(Sector sector) {
                 Toast.makeText(getActivity(),sector.getDescription(),Toast.LENGTH_SHORT).show();
+                Bundle bundle = new Bundle();
+                bundle.putString(ComonDialog.TITTLE, "Eliminar sector");
+                bundle.putString(ComonDialog.MESSAGE,"Desea eliminar el sector: "+sector.getName());
+                bundle.putString("TAG",Sector.TAG);
+                bundle.putParcelable(Sector.TAG,sector);
+                Dialog dialog = ComonDialog.showConfirmDialog(bundle,getActivity(),presenter, ListSectorPresenter.DELETE);
+                dialog.show();
+
             }
         };
         this.adapter = new SectorAdapter(listener);
