@@ -28,7 +28,7 @@ import com.example.inventoryFragmentBD.ui.sector.SectorActivity;
  *      Donde estaran los iconos de las distintas funciones de la aplicacion
  *      Dashboard contara con los siguientes iconos:
  *      Inventario, Producto, Dependencias, Sectores, Preferencias
- *      Inventory, Products, Dependencies, Sectors, Preferences
+ *      Inventory, Product, Dependencies, Sectors, Preferences
  */
 
 public class DashBoardActivity extends AppCompatActivity {
@@ -43,7 +43,7 @@ public class DashBoardActivity extends AppCompatActivity {
         gridDashboard = (GridLayout) findViewById(R.id.gridDashboard);
 
         // Definir un array de int, que contendra el id de las imagenes
-        // Inventory, Products, Dependencies, Sectors, Preferences
+        // Inventory, Product, Dependencies, Sectors, Preferences
         int[] images = {R.drawable.inventory, R.drawable.monitor, R.drawable.closet, R.drawable.table, R.drawable.cpu};
 
         // En Java/Android no se utilizan arrays de objetos, se utilizan vector o colecciones
