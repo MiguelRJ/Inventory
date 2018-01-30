@@ -65,14 +65,15 @@ public class SectorRepository {
         return -1;
     }
 
-    public void editDependencyById(int id,String name, String shortname, String description){
-        for (int i = 0; i < sectors.size();i++){
+    public void editSectorById(int id,String name, String shortname, String description){
+        /*for (int i = 0; i < sectors.size();i++){
             if (sectors.get(i).get_ID() == id){
                 sectors.get(i).setName(name);
                 sectors.get(i).setSortName(shortname);
                 sectors.get(i).setDescription(description);
             }
-        }
+        }*/
+        dao.update(new Sector(id,name,shortname,description,1,true,false));
     }
 
     /**

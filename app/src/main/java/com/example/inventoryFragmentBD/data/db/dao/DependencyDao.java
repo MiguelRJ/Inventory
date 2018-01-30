@@ -80,7 +80,12 @@ public class DependencyDao {
     }
 
     public int delete(Dependency dependency) {
-        return 0;
+        SQLiteDatabase sqLiteDatabase = InventoryOpenHelper.getInstance().openDateBase();
+        String where = BaseColumns._ID + "=?";
+        String[] whereArgs = new String[]{String.valueOf(dependency.get_ID())};
+        int id = sqLiteDatabase.delete(InventoryContract.DependencyEntry.TABLE_NAME,where,whereArgs);
+        InventoryOpenHelper.getInstance().closeDateBase();
+        return id;
     }
 
     public ContentValues CreateContent(Dependency dependency) {

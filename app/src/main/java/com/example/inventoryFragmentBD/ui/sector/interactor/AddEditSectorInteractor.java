@@ -27,7 +27,7 @@ public class AddEditSectorInteractor implements AddEditSectorInteractorInterface
                 SectorRepository.getInstance().addSector(
                         new Sector(SectorRepository.getInstance().getSectors().size() + 1, name, shortName, description,1,false,false));
             } else {
-                SectorRepository.getInstance().editDependencyById(id,name,shortName,description);
+                SectorRepository.getInstance().editSectorById(id,name,shortName,description);
             }
             listener.onSuccess();
         }

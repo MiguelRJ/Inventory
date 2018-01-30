@@ -155,7 +155,7 @@ public class DependencyRepository {
      * @param d
      */
     public void deleteDependencyIterator(Dependency d){
-        Iterator<Dependency> iterator = dependencies.iterator();
+        /*Iterator<Dependency> iterator = dependencies.iterator();
         Dependency dependency;
         while (iterator.hasNext()){
             dependency = iterator.next();
@@ -163,7 +163,8 @@ public class DependencyRepository {
                 iterator.remove();
                 break;
             }
-        }
+        }*/
+        dao.delete(d);
     }
 
     public boolean exists(Dependency dependency){
