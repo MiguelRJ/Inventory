@@ -1,5 +1,7 @@
 package com.example.inventoryFragmentBD.ui.dependency.contract;
 
+import android.app.Activity;
+
 import com.example.inventoryFragmentBD.data.db.model.Dependency;
 import com.example.inventoryFragmentBD.ui.base.BasePresenter;
 import com.example.inventoryFragmentBD.ui.base.BaseView;
@@ -14,8 +16,8 @@ public interface ListDependencyContract {
     interface View extends BaseView{
         void showDependency(List<Dependency> list);
         void showProgress();
-
         void dismiddProgress();
+        Activity getActivityUiThread();
         Dependency getDependency(Integer position);
     }
     interface Presenter extends BasePresenter {

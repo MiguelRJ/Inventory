@@ -220,6 +220,11 @@ public class ListDependencyFragment extends ListFragment implements ListDependen
     }
 
     @Override
+    public Activity getActivityUiThread(){
+        return getActivity();
+    }
+
+    @Override
     public void dismiddProgress(){
         progress.dismiss();
     }

@@ -36,17 +36,23 @@ public class ListDependencyPresenter implements ListDependencyContract.Presenter
         //view.showProgress();
         //interactor.loadDependency();
         try {
+
             view.showProgress();
             new AsyncTask<Void, Void, Void>() {
                 @Override
                 protected Void doInBackground(Void... params) {
                     // Load data from Model
                     try {
-                        Thread.sleep(10000);
+                        Thread.sleep(1);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    interactor.loadDependency();
+                    view.getActivityUiThread().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            interactor.loadDependency();
+                        }
+                    });
                     return null;
                 }
 
@@ -56,8 +62,6 @@ public class ListDependencyPresenter implements ListDependencyContract.Presenter
         }
 
     }
-
-
 
     @Override
     public void onSucces(List<Dependency> list) {
