@@ -33,9 +33,9 @@ public class ListDependencyPresenter implements ListDependencyContract.Presenter
     @Override
     public void loadDependency() {
         //progress bar
-        //view.showProgress();
-        //interactor.loadDependency();
-        try {
+        view.showProgress();
+        interactor.loadDependency();
+        /*try {
 
             view.showProgress();
             new AsyncTask<Void, Void, Void>() {
@@ -59,7 +59,7 @@ public class ListDependencyPresenter implements ListDependencyContract.Presenter
             }.execute();
         } catch (NullPointerException e) {
             e.printStackTrace();
-        }
+        }*/
 
     }
 

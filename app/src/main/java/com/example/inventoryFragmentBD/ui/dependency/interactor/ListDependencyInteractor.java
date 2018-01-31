@@ -1,7 +1,11 @@
 package com.example.inventoryFragmentBD.ui.dependency.interactor;
 
+import android.os.AsyncTask;
+
 import com.example.inventoryFragmentBD.data.db.model.Dependency;
 import com.example.inventoryFragmentBD.data.db.repository.DependencyRepository;
+
+import java.util.ArrayList;
 
 /**
  * Created by usuario on 27/11/17.
@@ -22,7 +26,32 @@ public class ListDependencyInteractor implements ListDependencyInteractorInterfa
 
     @Override
     public void loadDependency() {
-        listener.onSucces(DependencyRepository.getInstance().getDependencies());
+        try {
+            new AsyncTask<Void, Void, ArrayList<Dependency>>() {
+                @Override
+                protected void onPreExecute() {
+                    //show dialog
+                }
+
+                @Override
+                protected ArrayList<Dependency> doInBackground(Void... params) {
+                    try {
+                        Thread.sleep(5000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    return DependencyRepository.getInstance().getDependencies();
+                }
+
+                @Override
+                protected void onPostExecute(ArrayList<Dependency> dependencies) {
+                    listener.onSucces(dependencies);
+                }
+            }.execute();
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+
     }
 
 
