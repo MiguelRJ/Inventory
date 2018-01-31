@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
+import android.util.Log;
 
 import com.example.inventoryFragmentBD.data.db.InventoryContract;
 import com.example.inventoryFragmentBD.data.db.InventoryOpenHelper;
@@ -31,7 +32,7 @@ public class SectorDao {
                 null,
                 null,
                 null,
-                InventoryContract.SectorEntry.DEFAULT_SORT,
+                 InventoryContract.SectorEntry.DEFAULT_SORT,
                 null);
         sectors.clear();
         if (cursor.moveToFirst()){
@@ -41,7 +42,7 @@ public class SectorDao {
                         cursor.getString(1),
                         cursor.getString(2),
                         cursor.getString(3),
-                        0,
+                        cursor.getInt(4),
                         true,
                         true);
                 sectors.add(sector);
@@ -65,6 +66,7 @@ public class SectorDao {
     }
 
     public int update(Sector sector) {
+        Log.e("dao",String.valueOf(sector.getDependencyID()));
         SQLiteDatabase sqLiteDatabase = InventoryOpenHelper.getInstance().openDateBase();
         String where = BaseColumns._ID+"=?";
         String[] whereArgs = new String[] {String.valueOf(sector.get_ID())};
@@ -84,6 +86,7 @@ public class SectorDao {
 
     public ContentValues CreateContent(Sector sector){
         ContentValues contentValues = new ContentValues();
+        Log.e("values",String.valueOf(sector.getDependencyID()));
         contentValues.put(InventoryContract.SectorEntry.COLUMN_NAME,sector.getName());
         contentValues.put(InventoryContract.SectorEntry.COLUMN_SHORTNAME,sector.getSortName());
         contentValues.put(InventoryContract.SectorEntry.COLUMN_DESCRIPTION,sector.getDescription());

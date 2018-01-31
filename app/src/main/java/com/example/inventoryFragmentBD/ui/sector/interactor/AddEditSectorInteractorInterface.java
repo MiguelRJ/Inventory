@@ -1,5 +1,7 @@
 package com.example.inventoryFragmentBD.ui.sector.interactor;
 
+import com.example.inventoryFragmentBD.data.db.model.Sector;
+
 /**
  * Created by Miguel on 03/12/2017.
  */
@@ -16,5 +18,5 @@ public interface AddEditSectorInteractorInterface {
 
         void onSuccess();
     };
-    void validateSector(String name,String shortName,String description, AddEditSectorInteractorInterface.OnAddSectorListener listener);
+    void validateSector(Sector sector, AddEditSectorInteractorInterface.OnAddSectorListener listener);
 }

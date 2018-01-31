@@ -7,6 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,7 @@ import com.example.inventoryFragmentBD.ui.sector.contract.AddEditSectorContract;
 import com.example.inventoryFragmentBD.ui.sector.presenter.AddEditSectorPresenter;
 import com.example.inventoryFragmentBD.ui.utils.AddEdit;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 /**
@@ -120,21 +122,21 @@ public class AddEditSectorFragment extends BaseFragment implements AddEditSector
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                presenter.validateSector(tilName.getEditText().getText().toString(),
+                Log.e("selected",String.valueOf(((Dependency)spnDependencies.getSelectedItem()).get_ID()));
+                presenter.validateSector(new Sector(
+                        0,
+                        tilName.getEditText().getText().toString(),
                         tilSortName.getEditText().getText().toString(),
-                        tilDescription.getEditText().getText().toString());
+                        tilDescription.getEditText().getText().toString(),
+                        ((Dependency)spnDependencies.getSelectedItem()).get_ID(),
+                        false,false)
+                );
             }
         });
 
         spnDependencies = rootView.findViewById(R.id.spnDependencies);
 
-        if (getArguments() != null){
-            tilName.getEditText().setText(((Sector)getArguments().getParcelable(Sector.TAG)).getName().toString());
-            tilName.setEnabled(false);
-            tilSortName.getEditText().setText(((Sector)getArguments().getParcelable(Sector.TAG)).getSortName().toString());
-            tilSortName.setEnabled(false);
-            tilDescription.getEditText().setText(((Sector)getArguments().getParcelable(Sector.TAG)).getDescription().toString());
-        }
+
         return rootView;
     }
 
@@ -142,6 +144,15 @@ public class AddEditSectorFragment extends BaseFragment implements AddEditSector
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         presenter.loadDependencies();
+        if (getArguments() != null){
+            tilName.getEditText().setText(((Sector)getArguments().getParcelable(Sector.TAG)).getName().toString());
+            tilName.setEnabled(false);
+            tilSortName.getEditText().setText(((Sector)getArguments().getParcelable(Sector.TAG)).getSortName().toString());
+            tilSortName.setEnabled(false);
+            tilDescription.getEditText().setText(((Sector)getArguments().getParcelable(Sector.TAG)).getDescription().toString());
+            spnDependencies.setSelection(1);
+            Log.e("id view", String.valueOf( ((Sector)getArguments().getParcelable(Sector.TAG)).getDependencyID()-1) );
+        }
     }
 
     @Override

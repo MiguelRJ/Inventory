@@ -1,5 +1,7 @@
 package com.example.inventoryFragmentBD.data.db.repository;
 
+import android.util.Log;
+
 import com.example.inventoryFragmentBD.data.db.dao.SectorDao;
 import com.example.inventoryFragmentBD.data.db.model.Sector;
 import java.util.ArrayList;
@@ -65,7 +67,7 @@ public class SectorRepository {
         return -1;
     }
 
-    public void editSectorById(int id,String name, String shortname, String description){
+    public void editSectorById(Sector sector){
         /*for (int i = 0; i < sectors.size();i++){
             if (sectors.get(i).get_ID() == id){
                 sectors.get(i).setName(name);
@@ -73,7 +75,8 @@ public class SectorRepository {
                 sectors.get(i).setDescription(description);
             }
         }*/
-        dao.update(new Sector(id,name,shortname,description,1,true,false));
+        Log.e("repo",String.valueOf(sector.getDependencyID()));
+        dao.update(sector);
     }
 
     /**

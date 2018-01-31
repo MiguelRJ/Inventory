@@ -1,6 +1,7 @@
 package com.example.inventoryFragmentBD.ui.sector.presenter;
 
 import com.example.inventoryFragmentBD.data.db.model.Dependency;
+import com.example.inventoryFragmentBD.data.db.model.Sector;
 import com.example.inventoryFragmentBD.ui.dependency.interactor.ListDependencyInteractor;
 import com.example.inventoryFragmentBD.ui.sector.contract.AddEditSectorContract;
 import com.example.inventoryFragmentBD.ui.sector.interactor.AddEditSectorInteractor;
@@ -27,8 +28,8 @@ public class AddEditSectorPresenter implements AddEditSectorContract.Presenter,
     }
 
     @Override
-    public void validateSector(String name, String shortName, String description) {
-        interactor.validateSector(name,shortName,description,this);
+    public void validateSector(Sector sector) {
+        interactor.validateSector(sector,this);
     }
 
     @Override
