@@ -54,11 +54,22 @@ public class InventoryOpenHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         try {
             sqLiteDatabase.beginTransaction();
+
             sqLiteDatabase.execSQL(InventoryContract.DependencyEntry.SQL_CREATE_ENTRIES);
             sqLiteDatabase.execSQL(InventoryContract.DependencyEntry.SQL_INSERT_ENTRIES);
+
             sqLiteDatabase.execSQL(InventoryContract.SectorEntry.SQL_CREATE_ENTRIES);
-            Log.e("sector create",InventoryContract.SectorEntry.SQL_CREATE_ENTRIES);
             sqLiteDatabase.execSQL(InventoryContract.SectorEntry.SQL_INSERT_ENTRIES);
+
+            sqLiteDatabase.execSQL(InventoryContract.TypeEntry.SQL_CREATE_ENTRIES);
+            sqLiteDatabase.execSQL(InventoryContract.TypeEntry.SQL_INSERT_ENTRIES);
+
+            sqLiteDatabase.execSQL(InventoryContract.CategorieEntry.SQL_CREATE_ENTRIES);
+            sqLiteDatabase.execSQL(InventoryContract.CategorieEntry.SQL_INSERT_ENTRIES);
+
+            sqLiteDatabase.execSQL(InventoryContract.ProducteEntry.SQL_CREATE_ENTRIES);
+            sqLiteDatabase.execSQL(InventoryContract.ProducteEntry.SQL_INSERT_ENTRIES);
+
             sqLiteDatabase.setTransactionSuccessful();
         } catch (SQLiteException e) {
             Log.e("create db", e.getMessage());
@@ -72,8 +83,13 @@ public class InventoryOpenHelper extends SQLiteOpenHelper {
         Log.e("upgrade db", "entrando...");
         try {
             db.beginTransaction();
+
             db.execSQL(InventoryContract.DependencyEntry.SQL_DELETE_ENTRIES);
             db.execSQL(InventoryContract.SectorEntry.SQL_DELETE_ENTRIES);
+            db.execSQL(InventoryContract.TypeEntry.SQL_DELETE_ENTRIES);
+            db.execSQL(InventoryContract.CategorieEntry.SQL_DELETE_ENTRIES);
+            db.execSQL(InventoryContract.ProducteEntry.SQL_DELETE_ENTRIES);
+
             onCreate(db);
             db.setTransactionSuccessful();
         } catch (SQLiteException e) {

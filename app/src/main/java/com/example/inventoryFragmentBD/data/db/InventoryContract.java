@@ -2,6 +2,8 @@ package com.example.inventoryFragmentBD.data.db;
 
 import android.provider.BaseColumns;
 
+import com.example.inventoryFragmentBD.data.db.model.Type;
+
 /**
  * Created by usuario on 19/01/18.
  *
@@ -16,6 +18,8 @@ import android.provider.BaseColumns;
  * DATABASE_VERSION=5,6,7;
  *      SQLiteException: no such column: dependency
  *      ERROR el insert de los datos predefinidos estaba incorrecto entonces no creaba la tabla con el foreign key
+ * DATABASE_VERSION=8,9,10;
+ *      Creadas tablas type categorie y product
  */
 
 public final class InventoryContract {
@@ -25,7 +29,7 @@ public final class InventoryContract {
 
     }
 
-    public static final int DATABASE_VERSION=7;
+    public static final int DATABASE_VERSION=10;
     public static final String DATABASE_NAME="Inventory.db";
 
     // Por cada tabla se crea una clase que implementa la interfaz BaseColumns
@@ -149,6 +153,156 @@ public final class InventoryContract {
                 "2"
         );
 
+    }
+
+    public static class TypeEntry implements BaseColumns {
+        public static final String TABLE_NAME = "type";
+        public static final String COLUMN_NAME = "name";
+        public static final String[] ALL_COLUMN = new String[]{
+                BaseColumns._ID,
+                COLUMN_NAME
+        };
+        public static final String DEFAULT_SORT = COLUMN_NAME;
+
+        public static final String SQL_CREATE_ENTRIES = String.format(
+                "CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        "%s TEXT NOT NULL )",
+                TABLE_NAME,
+                BaseColumns._ID,
+                COLUMN_NAME
+        );
+
+        public static final String SQL_DELETE_ENTRIES = String.format("DROP TABLE IF EXISTS %s",TABLE_NAME);
+
+        public static final String SQL_INSERT_ENTRIES = String.format("INSERT INTO %s (%s) VALUES ('%s'),",
+                TABLE_NAME,
+                COLUMN_NAME,
+                "type 1"
+        )+String.format(" ('%s')",
+                "type 2"
+        );
+    }
+
+    public static class CategorieEntry implements BaseColumns {
+        public static final String TABLE_NAME = "categorie";
+        public static final String COLUMN_NAME = "name";
+        public static final String[] ALL_COLUMN = new String[]{
+                BaseColumns._ID,
+                COLUMN_NAME
+        };
+        public static final String DEFAULT_SORT = COLUMN_NAME;
+
+        public static final String SQL_CREATE_ENTRIES = String.format(
+                "CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        "%s TEXT NOT NULL )",
+                TABLE_NAME,
+                BaseColumns._ID,
+                COLUMN_NAME
+        );
+
+        public static final String SQL_DELETE_ENTRIES = String.format("DROP TABLE IF EXISTS %s",TABLE_NAME);
+
+        public static final String SQL_INSERT_ENTRIES = String.format("INSERT INTO %s (%s) VALUES ('%s'),",
+                TABLE_NAME,
+                COLUMN_NAME,
+                "categorie 1"
+        )+String.format(" ('%s')",
+                "categorie 2"
+        );
+    }
+
+    public static class ProducteEntry implements BaseColumns {
+        public static final String TABLE_NAME = "product";
+        public static final String COLUMN_NAME = "name";
+        public static final String COLUMN_SERIAL = "serial";
+        public static final String COLUMN_SELLER = "seller";
+        public static final String COLUMN_MODEL = "model";
+        public static final String COLUMN_CATEGORIE = "categorie";
+        public static final String COLUMN_TYPE = "type";
+        public static final String COLUMN_DESCRIPTION = "description";
+        public static final String COLUMN_PRICE = "price";
+        public static final String COLUMN_BUYDATE = "buydate";
+        public static final String COLUMN_URL = "url";
+        public static final String COLUMN_NOTES = "notes";
+        public static final String[] ALL_COLUMN = new String[]{
+                BaseColumns._ID,
+                COLUMN_NAME,COLUMN_SERIAL,COLUMN_SELLER,COLUMN_MODEL,
+                COLUMN_CATEGORIE,COLUMN_TYPE,COLUMN_DESCRIPTION,
+                COLUMN_PRICE,COLUMN_BUYDATE,COLUMN_URL,COLUMN_NOTES
+        };
+        public static final String DEFAULT_SORT = COLUMN_NAME;
+
+        public static final String SQL_CREATE_ENTRIES = String.format(
+                "CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        "%s TEXT NOT NULL, " +
+                        "%s TEXT NOT NULL, " +
+                        "%s TEXT NOT NULL, " +
+                        "%s TEXT NOT NULL, " +
+                        "%s TEXT NOT NULL, " +
+                        "%s TEXT NOT NULL, " +
+                        "%s TEXT NOT NULL, " +
+                        "%s TEXT NOT NULL, " +
+                        "%s TEXT NOT NULL, " +
+                        "%s TEXT NOT NULL, " +
+                        "%s TEXT NOT NULL, " +
+                        "FOREIGN KEY (%s) REFERENCES %s (%s) on update cascade on delete restrict, "+
+                        "FOREIGN KEY (%s) REFERENCES %s (%s) on update cascade on delete restrict )",
+                TABLE_NAME,
+                BaseColumns._ID,
+                COLUMN_NAME,
+                COLUMN_SERIAL,
+                COLUMN_SELLER,
+                COLUMN_MODEL,
+                COLUMN_CATEGORIE,
+                COLUMN_TYPE,
+                COLUMN_DESCRIPTION,
+                COLUMN_PRICE,
+                COLUMN_BUYDATE,
+                COLUMN_URL,
+                COLUMN_NOTES,
+                COLUMN_CATEGORIE, CategorieEntry.TABLE_NAME, BaseColumns._ID,
+                COLUMN_TYPE, TypeEntry.TABLE_NAME, BaseColumns._ID
+        );
+
+        public static final String SQL_DELETE_ENTRIES = String.format("DROP TABLE IF EXISTS %s",TABLE_NAME);
+
+        public static final String SQL_INSERT_ENTRIES = String.format("INSERT INTO %s (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s'),",
+                TABLE_NAME,
+                COLUMN_NAME,
+                COLUMN_SERIAL,
+                COLUMN_SELLER,
+                COLUMN_MODEL,
+                COLUMN_CATEGORIE,
+                COLUMN_TYPE,
+                COLUMN_DESCRIPTION,
+                COLUMN_PRICE,
+                COLUMN_BUYDATE,
+                COLUMN_URL,
+                COLUMN_NOTES,
+                "p 1",
+                "serial 1",
+                "seller 1",
+                "model 1",
+                "1",
+                "1",
+                "desc 1",
+                "price 1",
+                "date 1",
+                "url 1",
+                "note 1"
+        )+String.format(" ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
+                "p 2",
+                "serial 2",
+                "seller 2",
+                "model 2",
+                "2",
+                "2",
+                "desc 2",
+                "price 2",
+                "date 2",
+                "url 2",
+                "note 2"
+        );
     }
 
 }
