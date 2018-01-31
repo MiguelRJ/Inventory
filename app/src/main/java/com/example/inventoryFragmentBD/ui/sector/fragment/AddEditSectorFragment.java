@@ -10,14 +10,19 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import com.example.inventoryFragmentBD.R;
+import com.example.inventoryFragmentBD.data.db.model.Dependency;
 import com.example.inventoryFragmentBD.data.db.model.Sector;
 import com.example.inventoryFragmentBD.ui.base.BaseFragment;
 import com.example.inventoryFragmentBD.ui.base.BasePresenter;
 import com.example.inventoryFragmentBD.ui.sector.contract.AddEditSectorContract;
 import com.example.inventoryFragmentBD.ui.sector.presenter.AddEditSectorPresenter;
 import com.example.inventoryFragmentBD.ui.utils.AddEdit;
+
+import java.util.List;
 
 /**
  * Created by Miguel on 03/12/2017.
@@ -29,6 +34,7 @@ public class AddEditSectorFragment extends BaseFragment implements AddEditSector
     private AddEditSectorContract.Presenter presenter;
 
     private TextInputLayout tilName,tilSortName,tilDescription;
+    private Spinner spnDependencies;
     private FloatingActionButton fab;
 
     static AddEdit mode;
@@ -120,6 +126,8 @@ public class AddEditSectorFragment extends BaseFragment implements AddEditSector
             }
         });
 
+        spnDependencies = rootView.findViewById(R.id.spnDependencies);
+
         if (getArguments() != null){
             tilName.getEditText().setText(((Sector)getArguments().getParcelable(Sector.TAG)).getName().toString());
             tilName.setEnabled(false);
@@ -128,6 +136,12 @@ public class AddEditSectorFragment extends BaseFragment implements AddEditSector
             tilDescription.getEditText().setText(((Sector)getArguments().getParcelable(Sector.TAG)).getDescription().toString());
         }
         return rootView;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        presenter.loadDependencies();
     }
 
     @Override
@@ -160,6 +174,14 @@ public class AddEditSectorFragment extends BaseFragment implements AddEditSector
         showMessage("Guardado");
         FragmentManager fm = getFragmentManager();
         fm.popBackStack();
+    }
+
+    @Override
+    public void showDependencies(List<Dependency> list) {
+        ArrayAdapter<Dependency> dependencyArrayAdapter = new ArrayAdapter<Dependency>(
+                getActivity(),android.R.layout.simple_spinner_item,list);
+        spnDependencies.setAdapter(dependencyArrayAdapter);
+
     }
 
     @Override

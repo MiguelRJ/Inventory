@@ -1,7 +1,10 @@
 package com.example.inventoryFragmentBD.ui.sector.contract;
 
+import com.example.inventoryFragmentBD.data.db.model.Dependency;
 import com.example.inventoryFragmentBD.ui.base.BasePresenter;
 import com.example.inventoryFragmentBD.ui.base.BaseView;
+
+import java.util.List;
 
 /**
  * Created by Miguel on 03/12/2017.
@@ -14,8 +17,10 @@ public interface AddEditSectorContract {
         void showDescriptionEmptyError();
         void showDuplicatedSector();
         void showOnSucces();
+        void showDependencies(List<Dependency> list);
     }
     interface Presenter extends BasePresenter {
         void validateSector(String name,String shortName, String description);
+        void loadDependencies();
     }
 }

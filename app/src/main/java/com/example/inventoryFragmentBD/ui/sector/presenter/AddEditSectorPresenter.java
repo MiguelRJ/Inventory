@@ -1,21 +1,29 @@
 package com.example.inventoryFragmentBD.ui.sector.presenter;
 
+import com.example.inventoryFragmentBD.data.db.model.Dependency;
+import com.example.inventoryFragmentBD.ui.dependency.interactor.ListDependencyInteractor;
 import com.example.inventoryFragmentBD.ui.sector.contract.AddEditSectorContract;
 import com.example.inventoryFragmentBD.ui.sector.interactor.AddEditSectorInteractor;
 import com.example.inventoryFragmentBD.ui.sector.interactor.AddEditSectorInteractorInterface;
+
+import java.util.List;
 
 /**
  * Created by Miguel on 03/12/2017.
  */
 
-public class AddEditSectorPresenter implements AddEditSectorContract.Presenter,AddEditSectorInteractorInterface.OnAddSectorListener {
+public class AddEditSectorPresenter implements AddEditSectorContract.Presenter,
+        AddEditSectorInteractorInterface.OnAddSectorListener,
+        ListDependencyInteractor.OnLoadDependenciesInSector{
 
     private AddEditSectorContract.View view;
     private AddEditSectorInteractor interactor;
+    private ListDependencyInteractor listDependencyInteractor;
 
     public AddEditSectorPresenter (AddEditSectorContract.View view) {
         this.view = view;
         interactor = new AddEditSectorInteractor();
+        listDependencyInteractor = new ListDependencyInteractor(this);
     }
 
     @Override
@@ -56,5 +64,15 @@ public class AddEditSectorPresenter implements AddEditSectorContract.Presenter,A
     @Override
     public void options(int i, Object o) {
 
+    }
+
+    @Override
+    public void loadDependencies() {
+        listDependencyInteractor.loadDependencyForSectors();
+    }
+
+    @Override
+    public void loadDependency(List<Dependency> list) {
+        view.showDependencies(list);
     }
 }

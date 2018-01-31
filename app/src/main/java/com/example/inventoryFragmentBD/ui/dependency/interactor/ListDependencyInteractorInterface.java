@@ -2,6 +2,7 @@ package com.example.inventoryFragmentBD.ui.dependency.interactor;
 
 import com.example.inventoryFragmentBD.data.db.model.Dependency;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,6 +19,11 @@ public interface ListDependencyInteractorInterface {
         void deleteDependencyIterator(Dependency dependency);
     }
 
+    interface OnLoadDependenciesInSector {
+        void loadDependency(List<Dependency> list);
+    }
+
     void loadDependency();
-    //void deleteDependeny(int id);
+    void loadDependencyForSectors();
+    void deleteDependeny(Dependency dependency);
 }

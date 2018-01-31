@@ -14,9 +14,14 @@ import java.util.ArrayList;
 public class ListDependencyInteractor implements ListDependencyInteractorInterface {
 
     private ListDependencyInteractor.OnLoadFinishedListener listener;
+    private ListDependencyInteractor.OnLoadDependenciesInSector listenerSector;
 
     public ListDependencyInteractor(ListDependencyInteractorInterface.OnLoadFinishedListener listener) {
         this.listener = listener;
+    }
+
+    public ListDependencyInteractor(ListDependencyInteractor.OnLoadDependenciesInSector listener){
+        this.listenerSector = listener;
     }
 
     @Override
@@ -36,7 +41,7 @@ public class ListDependencyInteractor implements ListDependencyInteractorInterfa
                 @Override
                 protected ArrayList<Dependency> doInBackground(Void... params) {
                     try {
-                        Thread.sleep(5000);
+                        Thread.sleep(1);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -54,7 +59,36 @@ public class ListDependencyInteractor implements ListDependencyInteractorInterfa
 
     }
 
+    @Override
+    public void loadDependencyForSectors() {
+        try {
+            new AsyncTask<Void, Void, ArrayList<Dependency>>() {
+                @Override
+                protected void onPreExecute() {
+                    //show dialog
+                }
 
+                @Override
+                protected ArrayList<Dependency> doInBackground(Void... params) {
+                    try {
+                        Thread.sleep(1);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    return DependencyRepository.getInstance().getDependencies();
+                }
+
+                @Override
+                protected void onPostExecute(ArrayList<Dependency> dependencies) {
+                    listenerSector.loadDependency(dependencies);
+                }
+            }.execute();
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
     public void deleteDependeny(Dependency dependency) {
         DependencyRepository.getInstance().deleteDependencyIterator(dependency);
     }
