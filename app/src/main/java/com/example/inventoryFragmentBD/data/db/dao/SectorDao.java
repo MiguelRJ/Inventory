@@ -32,7 +32,7 @@ public class SectorDao {
                 null,
                 null,
                 null,
-                 InventoryContract.SectorEntry.DEFAULT_SORT,
+                 BaseColumns._ID,
                 null);
         sectors.clear();
         if (cursor.moveToFirst()){
@@ -68,9 +68,9 @@ public class SectorDao {
     public int update(Sector sector) {
         Log.e("dao",String.valueOf(sector.getDependencyID()));
         SQLiteDatabase sqLiteDatabase = InventoryOpenHelper.getInstance().openDateBase();
-        String where = BaseColumns._ID+"=?";
-        String[] whereArgs = new String[] {String.valueOf(sector.get_ID())};
-        int id = sqLiteDatabase.update(InventoryContract.SectorEntry.TABLE_NAME,CreateContent(sector), where, whereArgs);
+        String where = BaseColumns._ID + "=?";
+        String[] whereArgs = new String[]{String.valueOf(sector.get_ID())};
+        int id = sqLiteDatabase.update(InventoryContract.SectorEntry.TABLE_NAME, CreateContent(sector), where, whereArgs);
         InventoryOpenHelper.getInstance().closeDateBase();
         return id;
     }

@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -38,6 +39,7 @@ public class AddEditSectorFragment extends BaseFragment implements AddEditSector
     private TextInputLayout tilName,tilSortName,tilDescription;
     private Spinner spnDependencies;
     private FloatingActionButton fab;
+    private Sector sectorPrincipal;
 
     static AddEdit mode;
 
@@ -57,6 +59,7 @@ public class AddEditSectorFragment extends BaseFragment implements AddEditSector
         // al poner el presetner en el fragment se puede guardar con setretain
         presenter = new AddEditSectorPresenter(this);
         setRetainInstance(true);
+        sectorPrincipal = new Sector(0,null,null,null,0,false,false);
     }
 
     @Nullable
@@ -124,7 +127,7 @@ public class AddEditSectorFragment extends BaseFragment implements AddEditSector
             public void onClick(View view) {
                 Log.e("selected",String.valueOf(((Dependency)spnDependencies.getSelectedItem()).get_ID()));
                 presenter.validateSector(new Sector(
-                        0,
+                        sectorPrincipal.get_ID(),
                         tilName.getEditText().getText().toString(),
                         tilSortName.getEditText().getText().toString(),
                         tilDescription.getEditText().getText().toString(),
@@ -136,6 +139,18 @@ public class AddEditSectorFragment extends BaseFragment implements AddEditSector
 
         spnDependencies = rootView.findViewById(R.id.spnDependencies);
 
+        spnDependencies.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Log.e("selec",((Dependency)parent.getItemAtPosition(position)).getName() +" "+id);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
 
         return rootView;
     }
@@ -143,16 +158,17 @@ public class AddEditSectorFragment extends BaseFragment implements AddEditSector
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        presenter.loadDependencies();
+
         if (getArguments() != null){
+            sectorPrincipal = getArguments().getParcelable(Sector.TAG);
             tilName.getEditText().setText(((Sector)getArguments().getParcelable(Sector.TAG)).getName().toString());
             tilName.setEnabled(false);
             tilSortName.getEditText().setText(((Sector)getArguments().getParcelable(Sector.TAG)).getSortName().toString());
             tilSortName.setEnabled(false);
             tilDescription.getEditText().setText(((Sector)getArguments().getParcelable(Sector.TAG)).getDescription().toString());
-            spnDependencies.setSelection(1);
-            Log.e("id view", String.valueOf( ((Sector)getArguments().getParcelable(Sector.TAG)).getDependencyID()-1) );
+            Log.e("id view", String.valueOf( ((Sector)getArguments().getParcelable(Sector.TAG)).getDependencyID()) );
         }
+        presenter.loadDependencies();
     }
 
     @Override
@@ -192,6 +208,7 @@ public class AddEditSectorFragment extends BaseFragment implements AddEditSector
         ArrayAdapter<Dependency> dependencyArrayAdapter = new ArrayAdapter<Dependency>(
                 getActivity(),android.R.layout.simple_spinner_item,list);
         spnDependencies.setAdapter(dependencyArrayAdapter);
+        spnDependencies.setSelection(sectorPrincipal.getDependencyID()-1);
 
     }
 

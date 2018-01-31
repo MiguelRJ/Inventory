@@ -76,7 +76,8 @@ public class SectorRepository {
             }
         }*/
         Log.e("repo",String.valueOf(sector.getDependencyID()));
-        dao.update(sector);
+        int count = dao.update(sector);
+        Log.e("repo count upda",String.valueOf(count));
     }
 
     /**

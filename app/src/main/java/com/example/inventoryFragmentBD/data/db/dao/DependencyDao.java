@@ -36,7 +36,7 @@ public class DependencyDao {
                 null,
                 null,
                 null,
-                InventoryContract.DependencyEntry.DEFAULT_SORT,
+                BaseColumns._ID,
                 null);
         dependencies.clear();
         if (cursor.moveToFirst()) {
