@@ -20,6 +20,8 @@ import com.example.inventoryFragmentBD.data.db.model.Type;
  *      ERROR el insert de los datos predefinidos estaba incorrecto entonces no creaba la tabla con el foreign key
  * DATABASE_VERSION=8,9,10;
  *      Creadas tablas type categorie y product
+ * DATABASE_VERSION=11,12;
+ *      No puedo acceder a la base de datos desde adb shell en clase
  */
 
 public final class InventoryContract {
@@ -29,7 +31,7 @@ public final class InventoryContract {
 
     }
 
-    public static final int DATABASE_VERSION=11;
+    public static final int DATABASE_VERSION=12;
     public static final String DATABASE_NAME="Inventory.db";
 
     // Por cada tabla se crea una clase que implementa la interfaz BaseColumns
