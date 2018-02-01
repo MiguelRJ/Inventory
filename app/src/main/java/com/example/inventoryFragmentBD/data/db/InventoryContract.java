@@ -219,6 +219,7 @@ public final class InventoryContract {
         public static final String COLUMN_SERIAL = "serial";
         public static final String COLUMN_SELLER = "seller";
         public static final String COLUMN_MODEL = "model";
+        public static final String COLUMN_SECTOR = "sector";
         public static final String COLUMN_CATEGORIE = "categorie";
         public static final String COLUMN_TYPE = "type";
         public static final String COLUMN_DESCRIPTION = "description";
@@ -228,7 +229,7 @@ public final class InventoryContract {
         public static final String COLUMN_NOTES = "notes";
         public static final String[] ALL_COLUMN = new String[]{
                 BaseColumns._ID,
-                COLUMN_NAME,COLUMN_SERIAL,COLUMN_SELLER,COLUMN_MODEL,
+                COLUMN_NAME,COLUMN_SERIAL,COLUMN_SELLER,COLUMN_MODEL,COLUMN_SECTOR,
                 COLUMN_CATEGORIE,COLUMN_TYPE,COLUMN_DESCRIPTION,
                 COLUMN_PRICE,COLUMN_BUYDATE,COLUMN_URL,COLUMN_NOTES
         };
@@ -236,6 +237,7 @@ public final class InventoryContract {
 
         public static final String SQL_CREATE_ENTRIES = String.format(
                 "CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        "%s TEXT NOT NULL, " +
                         "%s TEXT NOT NULL, " +
                         "%s TEXT NOT NULL, " +
                         "%s TEXT NOT NULL, " +
@@ -255,6 +257,7 @@ public final class InventoryContract {
                 COLUMN_SERIAL,
                 COLUMN_SELLER,
                 COLUMN_MODEL,
+                COLUMN_SECTOR,
                 COLUMN_CATEGORIE,
                 COLUMN_TYPE,
                 COLUMN_DESCRIPTION,
@@ -268,12 +271,13 @@ public final class InventoryContract {
 
         public static final String SQL_DELETE_ENTRIES = String.format("DROP TABLE IF EXISTS %s",TABLE_NAME);
 
-        public static final String SQL_INSERT_ENTRIES = String.format("INSERT INTO %s (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s'),",
+        public static final String SQL_INSERT_ENTRIES = String.format("INSERT INTO %s (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s'),",
                 TABLE_NAME,
                 COLUMN_NAME,
                 COLUMN_SERIAL,
                 COLUMN_SELLER,
                 COLUMN_MODEL,
+                COLUMN_SECTOR,
                 COLUMN_CATEGORIE,
                 COLUMN_TYPE,
                 COLUMN_DESCRIPTION,
@@ -287,16 +291,18 @@ public final class InventoryContract {
                 "model 1",
                 "1",
                 "1",
+                "1",
                 "desc 1",
                 "price 1",
                 "date 1",
                 "url 1",
                 "note 1"
-        )+String.format(" ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
+        )+String.format(" ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
                 "p 2",
                 "serial 2",
                 "seller 2",
                 "model 2",
+                "2",
                 "2",
                 "2",
                 "desc 2",

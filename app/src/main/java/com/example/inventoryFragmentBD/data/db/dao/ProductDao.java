@@ -1,6 +1,7 @@
 package com.example.inventoryFragmentBD.data.db.dao;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
 
@@ -21,27 +22,35 @@ public class ProductDao {
         final ArrayList<Product> products = new ArrayList<>();
 
         SQLiteDatabase sqLiteDatabase = InventoryOpenHelper.getInstance().openDateBase();
-        /*Cursor cursor = sqLiteDatabase.query(InventoryContract.DependencyEntry.TABLE_NAME,
-                InventoryContract.DependencyEntry.ALL_COLUMN,
+        Cursor cursor = sqLiteDatabase.query(InventoryContract.ProducteEntry.TABLE_NAME,
+                InventoryContract.ProducteEntry.ALL_COLUMN,
                 null,
                 null,
                 null,
                 null,
                 BaseColumns._ID,
                 null);
-        dependencies.clear();
+        products.clear();
         if (cursor.moveToFirst()) {
             do {
-                Dependency dependency = new Dependency(
+                Product product = new Product(
                         cursor.getInt(0),
                         cursor.getString(1),
                         cursor.getString(2),
                         cursor.getString(3),
-                        cursor.getString(4)
+                        cursor.getString(4),
+                        cursor.getInt(5),
+                        cursor.getInt(6),
+                        cursor.getInt(7),
+                        cursor.getString(8),
+                        cursor.getFloat(9),
+                        cursor.getString(10),
+                        cursor.getString(11),
+                        cursor.getString(12)
                 );
-                dependencies.add(dependency);
+                products.add(product);
             } while (cursor.moveToNext());
-        }*/
+        }
         InventoryOpenHelper.getInstance().closeDateBase();
 
         // NO SE CIERRA EL CURSOR

@@ -17,20 +17,22 @@ public class Product implements Parcelable {
     private String serial;
     private String seller;
     private String model;
-    private Categorie categorie;
-    private Type type;
+    private int sector;
+    private int categorie;
+    private int type;
     private String description;
     private float price;
-    private Date buyDate;
+    private String buyDate;
     private String url;
     private String notes;
 
-    public Product(int _id, String name, String serial, String seller, String model, Categorie categorie, Type type, String description, float price, Date buyDate, String url, String notes) {
+    public Product(int _id, String name, String serial, String seller, String model,int sector, int categorie, int type, String description, float price, String buyDate, String url, String notes) {
         this._id = _id;
         this.name = name;
         this.serial = serial;
         this.seller = seller;
         this.model = model;
+        this.sector = sector;
         this.categorie = categorie;
         this.type = type;
         this.description = description;
@@ -80,19 +82,27 @@ public class Product implements Parcelable {
         this.model = model;
     }
 
-    public Categorie getCategorie() {
+    public int getSector() {
+        return sector;
+    }
+
+    public void setSector(int sector) {
+        this.sector = sector;
+    }
+
+    public int getCategorie() {
         return categorie;
     }
 
-    public void setCategorie(Categorie categorie) {
+    public void setCategorie(int categorie) {
         this.categorie = categorie;
     }
 
-    public Type getType() {
+    public int getType() {
         return type;
     }
 
-    public void setType(Type type) {
+    public void setType(int type) {
         this.type = type;
     }
 
@@ -112,11 +122,11 @@ public class Product implements Parcelable {
         this.price = price;
     }
 
-    public Date getBuyDate() {
+    public String getBuyDate() {
         return buyDate;
     }
 
-    public void setBuyDate(Date buyDate) {
+    public void setBuyDate(String buyDate) {
         this.buyDate = buyDate;
     }
 
