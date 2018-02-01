@@ -250,6 +250,7 @@ public final class InventoryContract {
                         "%s TEXT NOT NULL, " +
                         "%s TEXT NOT NULL, " +
                         "FOREIGN KEY (%s) REFERENCES %s (%s) on update cascade on delete restrict, "+
+                        "FOREIGN KEY (%s) REFERENCES %s (%s) on update cascade on delete restrict, "+
                         "FOREIGN KEY (%s) REFERENCES %s (%s) on update cascade on delete restrict )",
                 TABLE_NAME,
                 BaseColumns._ID,
@@ -265,8 +266,10 @@ public final class InventoryContract {
                 COLUMN_BUYDATE,
                 COLUMN_URL,
                 COLUMN_NOTES,
+                COLUMN_SECTOR, SectorEntry.TABLE_NAME, BaseColumns._ID,
                 COLUMN_CATEGORIE, CategorieEntry.TABLE_NAME, BaseColumns._ID,
                 COLUMN_TYPE, TypeEntry.TABLE_NAME, BaseColumns._ID
+
         );
 
         public static final String SQL_DELETE_ENTRIES = String.format("DROP TABLE IF EXISTS %s",TABLE_NAME);
