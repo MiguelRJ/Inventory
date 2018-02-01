@@ -1,12 +1,17 @@
 package com.example.inventoryFragmentBD.data.db.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.Date;
 
 /**
  * Created by Miguel on 30/01/2018.
  */
 
-public class Product {
+public class Product implements Parcelable {
+
+    public static String TAG = "product";
     private int _id;
     private String name;
     private String serial;
@@ -132,5 +137,45 @@ public class Product {
     }
 
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
 
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(_id);
+        parcel.writeString(name);
+        parcel.writeString(serial);
+        parcel.writeString(seller);
+        parcel.writeString(model);
+        parcel.writeString(description);
+        parcel.writeFloat(price);
+        parcel.writeString(url);
+        parcel.writeString(notes);
+    }
+
+    protected Product(Parcel in) {
+        _id = in.readInt();
+        name = in.readString();
+        serial = in.readString();
+        seller = in.readString();
+        model = in.readString();
+        description = in.readString();
+        price = in.readFloat();
+        url = in.readString();
+        notes = in.readString();
+    }
+
+    public static final Creator<Product> CREATOR = new Creator<Product>() {
+        @Override
+        public Product createFromParcel(Parcel in) {
+            return new Product(in);
+        }
+
+        @Override
+        public Product[] newArray(int size) {
+            return new Product[size];
+        }
+    };
 }

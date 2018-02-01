@@ -77,7 +77,7 @@ public class DependencyAdapter extends ArrayAdapter<Dependency> {
 
             //3. Inicializar las variables a los objetos ya creados de los widget del xml.¡¡ CUIDADO View.findViewById!!
             dependencyHolder.icon = (MaterialLetterIcon) view.findViewById(R.id.icon);
-            dependencyHolder.txvName = (TextView) view.findViewById(R.id.txvNameSector);
+            dependencyHolder.txvName = (TextView) view.findViewById(R.id.txvName);
             dependencyHolder.txvSortName = (TextView) view.findViewById(R.id.txvSortName);
             /*Typeface typeface = Typeface.createFromAsset(parent.getResources().getAssets(),"font/fontchristmas.ttf");
             dependencyHolder.txvName.setTypeface(typeface);

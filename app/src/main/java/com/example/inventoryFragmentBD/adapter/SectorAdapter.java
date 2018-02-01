@@ -96,7 +96,7 @@ public class SectorAdapter extends RecyclerView.Adapter<SectorAdapter.SectorView
         public SectorViewHolder(View view) {
             super(view);
             swEnabled = view.findViewById(R.id.swEnabled);
-            txvNameSector = view.findViewById(R.id.txvNameSector);
+            txvNameSector = view.findViewById(R.id.txvName);
             txvSectorDefault = view.findViewById(R.id.txvSectorDefault);
         }
 
