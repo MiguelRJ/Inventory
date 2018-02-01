@@ -22,8 +22,8 @@ public class ProductDao {
         final ArrayList<Product> products = new ArrayList<>();
 
         SQLiteDatabase sqLiteDatabase = InventoryOpenHelper.getInstance().openDateBase();
-        Cursor cursor = sqLiteDatabase.query(InventoryContract.ProducteEntry.TABLE_NAME,
-                InventoryContract.ProducteEntry.ALL_COLUMN,
+        Cursor cursor = sqLiteDatabase.query(InventoryContract.ProductEntry.TABLE_NAME,
+                InventoryContract.ProductEntry.ALL_COLUMN,
                 null,
                 null,
                 null,

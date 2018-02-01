@@ -4,6 +4,8 @@ import android.provider.BaseColumns;
 
 import com.example.inventoryFragmentBD.data.db.model.Type;
 
+import java.util.HashMap;
+
 /**
  * Created by usuario on 19/01/18.
  *
@@ -213,7 +215,7 @@ public final class InventoryContract {
         );
     }
 
-    public static class ProducteEntry implements BaseColumns {
+    public static class ProductEntry implements BaseColumns {
         public static final String TABLE_NAME = "product";
         public static final String COLUMN_NAME = "name";
         public static final String COLUMN_SERIAL = "serial";
@@ -314,6 +316,53 @@ public final class InventoryContract {
                 "url 2",
                 "note 2"
         );
+    }
+
+    public static class ProductInnerEntry implements BaseColumns {
+        public static final String TABLE_NAME = "product";
+        public static final String COLUMN_NAME = "name";
+        public static final String COLUMN_SERIAL = "serial";
+        public static final String COLUMN_SELLER = "seller";
+        public static final String COLUMN_MODEL = "model";
+        public static final String COLUMN_SECTOR_ID = "sectorId";
+        public static final String COLUMN_SECTOR_NAME = "sectorName";
+        public static final String COLUMN_CATEGORIE_ID = "categorieId";
+        public static final String COLUMN_CATEGORIE_NAME = "categorieName";
+        public static final String COLUMN_TYPE_ID = "typeId";
+        public static final String COLUMN_TYPE_NAME = "typeName";
+        public static final String COLUMN_DESCRIPTION = "description";
+        public static final String COLUMN_PRICE = "price";
+        public static final String COLUMN_BUYDATE = "buydate";
+        public static final String COLUMN_URL = "url";
+        public static final String COLUMN_NOTES = "notes";
+        public static final String[] ALL_COLUMN = new String[]{
+                BaseColumns._ID,
+                COLUMN_NAME,COLUMN_SERIAL,COLUMN_SELLER,COLUMN_MODEL,
+                COLUMN_SECTOR_ID,COLUMN_SECTOR_NAME,
+                COLUMN_CATEGORIE_ID,COLUMN_CATEGORIE_NAME,
+                COLUMN_TYPE_ID,COLUMN_TYPE_NAME,
+                COLUMN_DESCRIPTION,
+                COLUMN_PRICE,COLUMN_BUYDATE,COLUMN_URL,COLUMN_NOTES
+        };
+        public static final String DEFAULT_SORT = COLUMN_NAME;
+
+        /**
+         *
+         * select * from (
+         *      select * from (
+         *          select * from product INNER JOIN categorie on categorie=categorie._id
+         *      ) INNER JOIN type on type=type._id
+         * ) INNER JOIN sector on sector=sector._id;
+         *
+         */
+        public static final String PRODUCT_INNER = String.format("%s INNER JOIN %s ON %s=%s.%s AND %s=%s.%s AND %s=%s.%s");
+
+        public static HashMap<String,String> sProductInnerProjectionMap;
+        static {
+            sProductInnerProjectionMap = new HashMap<>();
+            sProductInnerProjectionMap.put(ProductEntry._ID,ProductEntry.TABLE_NAME+"."+ProductEntry._ID); // Redundante
+            sProductInnerProjectionMap.put(ProductInnerEntry.COLUMN_SECTOR_ID,SectorEntry.TABLE_NAME+"."+SectorEntry._ID);
+        }
     }
 
 }
