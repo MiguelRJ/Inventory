@@ -118,9 +118,10 @@ public class ListProductFragment extends ListFragment implements ListProductCont
         getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                //Bundle bundle = new Bundle();
-                //bundle.putParcelable(Product.TAG,(Product)adapterView.getItemAtPosition(position));
-                Toast.makeText(getActivity(), ((Product)adapterView.getItemAtPosition(position)).getName(),Toast.LENGTH_SHORT).show();
+                Bundle bundle = new Bundle();
+                bundle.putParcelable(Product.TAG,(Product)adapterView.getItemAtPosition(position));
+                callback.addNewProduct(bundle);
+                //Toast.makeText(getActivity(), ((Product)adapterView.getItemAtPosition(position)).getName(),Toast.LENGTH_SHORT).show();
             }
         });
         //activar el modo multichoice en la lista

@@ -6,7 +6,9 @@ import android.support.annotation.Nullable;
 import android.os.Bundle;
 import com.example.inventoryFragmentBD.R;
 import com.example.inventoryFragmentBD.ui.base.BaseActivity;
+import com.example.inventoryFragmentBD.ui.products.fragment.AddProductFragment;
 import com.example.inventoryFragmentBD.ui.products.fragment.ListProductFragment;
+import com.example.inventoryFragmentBD.ui.products.presenter.AddProductPresenter;
 import com.example.inventoryFragmentBD.ui.products.presenter.ListProductPresenter;
 
 /**
@@ -21,13 +23,13 @@ public class ProductsActivity extends BaseActivity implements ListProductFragmen
 
     private ListProductFragment listProduct;
     private ListProductPresenter listProductPresenter;
-    /*private AddEditProductFragment addeditProduct;
-    private AddEditProductPresenter addEditProductPresenter;*/
+    private AddProductFragment addProduct;
+    private AddProductPresenter addProductPresenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_add_product);
+        setContentView(R.layout.activity_product);
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         // 1- Se crea la vista
@@ -49,24 +51,24 @@ public class ProductsActivity extends BaseActivity implements ListProductFragmen
      */
     @Override
     public void addNewProduct(Bundle bundle) {
-        /*//Log.d("DA","addnewProduct()");
+        //Log.d("DA","addnewProduct()");
         FragmentManager fragmentManager = getFragmentManager();
         // 1- Se crea la vista
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        addeditProduct = (AddEditProductFragment) fragmentManager.findFragmentByTag(AddEditProductFragment.TAG);
-        if (addeditProduct == null) {
+        addProduct = (AddProductFragment) fragmentManager.findFragmentByTag(AddProductFragment.TAG);
+        if (addProduct == null) {
             if (bundle != null) {
-                addeditProduct = AddEditProductFragment.newInstace(bundle);
+                addProduct = AddProductFragment.newInstace(bundle);
             } else {
-                addeditProduct = AddEditProductFragment.newInstace(null);
+                addProduct = AddProductFragment.newInstace(null);
             }
-            fragmentTransaction.replace(android.R.id.content, addeditProduct, AddEditProductFragment.TAG);
+            fragmentTransaction.replace(android.R.id.content, addProduct, AddProductFragment.TAG);
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
         }
         // 2 se crea el presentador y se le pasa el constructo de la vista crrecpondiente
-        addEditProductPresenter = new AddEditProductPresenter(addeditProduct);
+        addProductPresenter = new AddProductPresenter(addProduct);
         // 3 asignas presentador
-        addeditProduct.setPresenter(addEditProductPresenter);*/
+        addProduct.setPresenter(addProductPresenter);
     }
 }
