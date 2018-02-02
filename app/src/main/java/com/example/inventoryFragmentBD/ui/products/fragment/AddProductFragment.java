@@ -5,9 +5,11 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.inventoryFragmentBD.R;
+import com.example.inventoryFragmentBD.data.db.model.Product;
 import com.example.inventoryFragmentBD.data.db.model.ProductInner;
 import com.example.inventoryFragmentBD.ui.base.BaseFragment;
 import com.example.inventoryFragmentBD.ui.base.BasePresenter;
@@ -22,6 +24,8 @@ public class AddProductFragment extends BaseFragment implements AddProductContra
 
     public static final String TAG = "AddProductFragment";
     private AddProductContract.Presenter presenter;
+
+    private EditText edtNombre;
 
     public static AddProductFragment newInstace(Bundle bundle) {
         AddProductFragment addProduct = new AddProductFragment();
@@ -43,6 +47,8 @@ public class AddProductFragment extends BaseFragment implements AddProductContra
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_add_product, container, false);
 
+        edtNombre = rootView.findViewById(R.id.edtNombre);
+
         return rootView;
     }
 
@@ -50,7 +56,7 @@ public class AddProductFragment extends BaseFragment implements AddProductContra
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         if (getArguments() != null){
-            // set values
+            edtNombre.setText( ((Product)getArguments().getParcelable(Product.TAG)).getName() );
         }
     }
 
