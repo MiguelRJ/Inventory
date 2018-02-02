@@ -2,6 +2,7 @@ package com.example.inventoryFragmentBD.data.db.repository;
 
 import com.example.inventoryFragmentBD.data.db.dao.ProductDao;
 import com.example.inventoryFragmentBD.data.db.model.Product;
+import com.example.inventoryFragmentBD.data.db.model.ProductInner;
 
 import java.util.ArrayList;
 
@@ -40,5 +41,9 @@ public class ProductRepository {
 
     public ArrayList<Product> getProducts(){
         return dao.loadAll();
+    }
+
+    public ProductInner getProductByInt(int id) {
+        return dao.search(id);
     }
 }

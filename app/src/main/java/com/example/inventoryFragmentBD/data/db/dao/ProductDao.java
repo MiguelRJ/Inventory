@@ -3,11 +3,14 @@ package com.example.inventoryFragmentBD.data.db.dao;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteQueryBuilder;
 import android.provider.BaseColumns;
+import android.util.Log;
 
 import com.example.inventoryFragmentBD.data.db.InventoryContract;
 import com.example.inventoryFragmentBD.data.db.InventoryOpenHelper;
 import com.example.inventoryFragmentBD.data.db.model.Product;
+import com.example.inventoryFragmentBD.data.db.model.ProductInner;
 
 import java.util.ArrayList;
 
@@ -83,6 +86,58 @@ public class ProductDao {
         int id = sqLiteDatabase.delete(InventoryContract.DependencyEntry.TABLE_NAME,where,whereArgs);
         InventoryOpenHelper.getInstance().closeDateBase();
         return id;
+    }
+
+    public ProductInner search(int id){
+        SQLiteDatabase sqLiteDatabase = InventoryOpenHelper.getInstance().openDateBase();
+        ProductInner productInner = null;
+        SQLiteQueryBuilder sqLiteQueryBuilder = new SQLiteQueryBuilder();
+        sqLiteQueryBuilder.setTables(InventoryContract.ProductInnerEntry.PRODUCT_INNER);
+        sqLiteQueryBuilder.setProjectionMap(InventoryContract.ProductInnerEntry.sProductInnerProjectionMap);
+
+        // 1. Vamos a mostrar si la consulta es correcta
+        String sql = sqLiteQueryBuilder.buildQuery(
+                InventoryContract.ProductInnerEntry.ALL_COLUMN,
+                null,
+                null,
+                null,
+                null,
+                null
+        );
+        Log.i("sql inner",sql);
+        Cursor cursor = sqLiteQueryBuilder.query(
+                sqLiteDatabase,
+                InventoryContract.ProductInnerEntry.ALL_COLUMN,
+                null,
+                null,
+                null,
+                null,
+                null
+        );
+
+        if (cursor.moveToFirst()) {
+            int i = 0;
+            productInner = new ProductInner(
+                    cursor.getInt(i++),
+                    cursor.getString(i++),
+                    cursor.getString(i++),
+                    cursor.getString(i++),
+                    cursor.getString(i++),
+                    cursor.getInt(i++),
+                    cursor.getInt(i++),
+                    cursor.getInt(i++),
+                    cursor.getString(i++),
+                    cursor.getFloat(i++),
+                    cursor.getString(i++),
+                    cursor.getString(i++),
+                    cursor.getString(i++),
+                    cursor.getString(i++),
+                    cursor.getString(i++),
+                    cursor.getString(i++)
+            );
+        }
+
+        return productInner;
     }
 
     public ContentValues CreateContent(Product product) {

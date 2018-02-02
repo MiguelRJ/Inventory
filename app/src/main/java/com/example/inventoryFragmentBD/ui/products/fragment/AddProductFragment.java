@@ -57,7 +57,10 @@ public class AddProductFragment extends BaseFragment implements AddProductContra
         super.onViewCreated(view, savedInstanceState);
         if (getArguments() != null){
             edtNombre.setText( ((Product)getArguments().getParcelable(Product.TAG)).getName() );
+            presenter.loadProduct(((Product)getArguments().getParcelable(Product.TAG)).get_id());
+            Toast.makeText(getActivity(), String.valueOf(((Product)getArguments().getParcelable(Product.TAG)).get_id()), Toast.LENGTH_SHORT).show();
         }
+
     }
 
     @Override
@@ -67,6 +70,6 @@ public class AddProductFragment extends BaseFragment implements AddProductContra
 
     @Override
     public void OnSuccess(ProductInner productInner) {
-        Toast.makeText(getActivity(), "cargado", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), productInner.getName(), Toast.LENGTH_SHORT).show();
     }
 }

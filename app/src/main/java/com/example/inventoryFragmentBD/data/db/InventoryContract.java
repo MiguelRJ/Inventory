@@ -325,11 +325,11 @@ public final class InventoryContract {
         public static final String COLUMN_SERIAL = "serial";
         public static final String COLUMN_SELLER = "seller";
         public static final String COLUMN_MODEL = "model";
-        public static final String COLUMN_SECTOR_ID = "sectorId";
+        public static final String COLUMN_SECTOR_ID = "sector";
         public static final String COLUMN_SECTOR_NAME = "sectorName";
-        public static final String COLUMN_CATEGORIE_ID = "categorieId";
+        public static final String COLUMN_CATEGORIE_ID = "categorie";
         public static final String COLUMN_CATEGORIE_NAME = "categorieName";
-        public static final String COLUMN_TYPE_ID = "typeId";
+        public static final String COLUMN_TYPE_ID = "type";
         public static final String COLUMN_TYPE_NAME = "typeName";
         public static final String COLUMN_DESCRIPTION = "description";
         public static final String COLUMN_PRICE = "price";
@@ -356,12 +356,22 @@ public final class InventoryContract {
          * ) INNER JOIN sector on sector=sector._id;
          *
          */
-        public static final String PRODUCT_INNER = String.format("%s INNER JOIN %s ON %s=%s.%s",
+        public static final String PRODUCT_INNER = String.format("%s INNER JOIN %s ON %s=%s.%s ",
                 ProductInnerEntry.TABLE_NAME,
                 CategorieEntry.TABLE_NAME,
                 ProductInnerEntry.COLUMN_CATEGORIE_ID,
                 CategorieEntry.TABLE_NAME,
-                CategorieEntry._ID);
+                CategorieEntry._ID)+
+                String.format(" INNER JOIN %s ON %s=%s.%s",
+                        TypeEntry.TABLE_NAME,
+                        ProductInnerEntry.COLUMN_TYPE_ID,
+                        TypeEntry.TABLE_NAME,
+                        TypeEntry._ID)+
+                String.format(" INNER JOIN %s ON %s=%s.%s",
+                        SectorEntry.TABLE_NAME,
+                        ProductInnerEntry.COLUMN_SECTOR_ID,
+                        SectorEntry.TABLE_NAME,
+                        SectorEntry._ID);
 
         public static HashMap<String,String> sProductInnerProjectionMap;
         static {
@@ -369,13 +379,22 @@ public final class InventoryContract {
             sProductInnerProjectionMap = new HashMap<>();
             sProductInnerProjectionMap.put(_ID,ProductInnerEntry.TABLE_NAME+"."+ProductInnerEntry._ID); // Redundante
             sProductInnerProjectionMap.put(COLUMN_NAME, ProductInnerEntry.TABLE_NAME+"."+ProductInnerEntry.COLUMN_NAME);
+            sProductInnerProjectionMap.put(COLUMN_SERIAL, ProductInnerEntry.TABLE_NAME+"."+ProductInnerEntry.COLUMN_SERIAL);
+            sProductInnerProjectionMap.put(COLUMN_SELLER, ProductInnerEntry.TABLE_NAME+"."+ProductInnerEntry.COLUMN_SELLER);
+            sProductInnerProjectionMap.put(COLUMN_MODEL, ProductInnerEntry.TABLE_NAME+"."+ProductInnerEntry.COLUMN_MODEL);
+            sProductInnerProjectionMap.put(COLUMN_SECTOR_ID,SectorEntry.TABLE_NAME+"."+SectorEntry._ID);
+            sProductInnerProjectionMap.put(COLUMN_SECTOR_NAME,SectorEntry.TABLE_NAME+"."+SectorEntry.COLUMN_NAME);
             sProductInnerProjectionMap.put(COLUMN_DESCRIPTION, ProductInnerEntry.TABLE_NAME+"."+ProductInnerEntry.COLUMN_DESCRIPTION);
             sProductInnerProjectionMap.put(COLUMN_CATEGORIE_ID,CategorieEntry.TABLE_NAME+"."+CategorieEntry._ID);
             sProductInnerProjectionMap.put(COLUMN_CATEGORIE_NAME,CategorieEntry.TABLE_NAME+"."+CategorieEntry.COLUMN_NAME);
             sProductInnerProjectionMap.put(COLUMN_TYPE_ID,TypeEntry.TABLE_NAME+"."+TypeEntry._ID);
             sProductInnerProjectionMap.put(COLUMN_TYPE_NAME,TypeEntry.TABLE_NAME+"."+TypeEntry.COLUMN_NAME);
-            sProductInnerProjectionMap.put(COLUMN_SECTOR_ID,SectorEntry.TABLE_NAME+"."+SectorEntry._ID);
-            sProductInnerProjectionMap.put(COLUMN_SECTOR_NAME,SectorEntry.TABLE_NAME+"."+SectorEntry.COLUMN_NAME);
+            sProductInnerProjectionMap.put(COLUMN_DESCRIPTION, ProductInnerEntry.TABLE_NAME+"."+ProductInnerEntry.COLUMN_DESCRIPTION);
+            sProductInnerProjectionMap.put(COLUMN_PRICE, ProductInnerEntry.TABLE_NAME+"."+ProductInnerEntry.COLUMN_PRICE);
+            sProductInnerProjectionMap.put(COLUMN_BUYDATE, ProductInnerEntry.TABLE_NAME+"."+ProductInnerEntry.COLUMN_BUYDATE);
+            sProductInnerProjectionMap.put(COLUMN_URL, ProductInnerEntry.TABLE_NAME+"."+ProductInnerEntry.COLUMN_URL);
+            sProductInnerProjectionMap.put(COLUMN_NOTES, ProductInnerEntry.TABLE_NAME+"."+ProductInnerEntry.COLUMN_NOTES);
+
 
         }
     }
