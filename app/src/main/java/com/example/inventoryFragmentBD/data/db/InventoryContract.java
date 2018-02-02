@@ -2,6 +2,7 @@ package com.example.inventoryFragmentBD.data.db;
 
 import android.provider.BaseColumns;
 
+import com.example.inventoryFragmentBD.data.db.model.Product;
 import com.example.inventoryFragmentBD.data.db.model.Type;
 
 import java.util.HashMap;
@@ -355,13 +356,27 @@ public final class InventoryContract {
          * ) INNER JOIN sector on sector=sector._id;
          *
          */
-        public static final String PRODUCT_INNER = String.format("%s INNER JOIN %s ON %s=%s.%s AND %s=%s.%s AND %s=%s.%s");
+        public static final String PRODUCT_INNER = String.format("%s INNER JOIN %s ON %s=%s.%s",
+                ProductInnerEntry.TABLE_NAME,
+                CategorieEntry.TABLE_NAME,
+                ProductInnerEntry.COLUMN_CATEGORIE_ID,
+                CategorieEntry.TABLE_NAME,
+                CategorieEntry._ID);
 
         public static HashMap<String,String> sProductInnerProjectionMap;
         static {
+
             sProductInnerProjectionMap = new HashMap<>();
-            sProductInnerProjectionMap.put(ProductEntry._ID,ProductEntry.TABLE_NAME+"."+ProductEntry._ID); // Redundante
-            sProductInnerProjectionMap.put(ProductInnerEntry.COLUMN_SECTOR_ID,SectorEntry.TABLE_NAME+"."+SectorEntry._ID);
+            sProductInnerProjectionMap.put(_ID,ProductInnerEntry.TABLE_NAME+"."+ProductInnerEntry._ID); // Redundante
+            sProductInnerProjectionMap.put(COLUMN_NAME, ProductInnerEntry.TABLE_NAME+"."+ProductInnerEntry.COLUMN_NAME);
+            sProductInnerProjectionMap.put(COLUMN_DESCRIPTION, ProductInnerEntry.TABLE_NAME+"."+ProductInnerEntry.COLUMN_DESCRIPTION);
+            sProductInnerProjectionMap.put(COLUMN_CATEGORIE_ID,CategorieEntry.TABLE_NAME+"."+CategorieEntry._ID);
+            sProductInnerProjectionMap.put(COLUMN_CATEGORIE_NAME,CategorieEntry.TABLE_NAME+"."+CategorieEntry.COLUMN_NAME);
+            sProductInnerProjectionMap.put(COLUMN_TYPE_ID,TypeEntry.TABLE_NAME+"."+TypeEntry._ID);
+            sProductInnerProjectionMap.put(COLUMN_TYPE_NAME,TypeEntry.TABLE_NAME+"."+TypeEntry.COLUMN_NAME);
+            sProductInnerProjectionMap.put(COLUMN_SECTOR_ID,SectorEntry.TABLE_NAME+"."+SectorEntry._ID);
+            sProductInnerProjectionMap.put(COLUMN_SECTOR_NAME,SectorEntry.TABLE_NAME+"."+SectorEntry.COLUMN_NAME);
+
         }
     }
 
