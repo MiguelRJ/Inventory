@@ -95,10 +95,13 @@ public class ProductDao {
         sqLiteQueryBuilder.setTables(InventoryContract.ProductInnerEntry.PRODUCT_INNER);
         sqLiteQueryBuilder.setProjectionMap(InventoryContract.ProductInnerEntry.sProductInnerProjectionMap);
 
+        String selection = InventoryContract.ProductInnerEntry.TABLE_NAME+"."+InventoryContract.ProductInnerEntry._ID+"=?";
+        String[] selectionArgs = {id+""};
         // 1. Vamos a mostrar si la consulta es correcta
         String sql = sqLiteQueryBuilder.buildQuery(
                 InventoryContract.ProductInnerEntry.ALL_COLUMN,
-                null,
+                selection,
+                selectionArgs,
                 null,
                 null,
                 null,
@@ -108,8 +111,8 @@ public class ProductDao {
         Cursor cursor = sqLiteQueryBuilder.query(
                 sqLiteDatabase,
                 InventoryContract.ProductInnerEntry.ALL_COLUMN,
-                null,
-                null,
+                selection,
+                selectionArgs,
                 null,
                 null,
                 null

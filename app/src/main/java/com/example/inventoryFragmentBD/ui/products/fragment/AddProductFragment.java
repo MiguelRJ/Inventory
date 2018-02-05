@@ -25,7 +25,7 @@ public class AddProductFragment extends BaseFragment implements AddProductContra
     public static final String TAG = "AddProductFragment";
     private AddProductContract.Presenter presenter;
 
-    private EditText edtNombre;
+    private EditText edtNombre, edtSerial, edtSeller, edtModel, edtDescription, edtPrice, edtUrl, edtNotes;
 
     public static AddProductFragment newInstace(Bundle bundle) {
         AddProductFragment addProduct = new AddProductFragment();
@@ -48,6 +48,13 @@ public class AddProductFragment extends BaseFragment implements AddProductContra
         View rootView = inflater.inflate(R.layout.fragment_add_product, container, false);
 
         edtNombre = rootView.findViewById(R.id.edtNombre);
+        edtSerial = rootView.findViewById(R.id.edtSerial);
+        edtSeller = rootView.findViewById(R.id.edtSeller);
+        edtModel = rootView.findViewById(R.id.edtModel);
+        edtDescription = rootView.findViewById(R.id.edtDescription);
+        edtPrice = rootView.findViewById(R.id.edtPrice);
+        edtUrl = rootView.findViewById(R.id.edtUrl);
+        edtNotes = rootView.findViewById(R.id.edtNotes);
 
         return rootView;
     }
@@ -58,7 +65,6 @@ public class AddProductFragment extends BaseFragment implements AddProductContra
         if (getArguments() != null){
             edtNombre.setText( ((Product)getArguments().getParcelable(Product.TAG)).getName() );
             presenter.loadProduct(((Product)getArguments().getParcelable(Product.TAG)).get_id());
-            Toast.makeText(getActivity(), String.valueOf(((Product)getArguments().getParcelable(Product.TAG)).get_id()), Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -70,6 +76,13 @@ public class AddProductFragment extends BaseFragment implements AddProductContra
 
     @Override
     public void OnSuccess(ProductInner productInner) {
-        Toast.makeText(getActivity(), productInner.getName(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), productInner.getDescription(), Toast.LENGTH_SHORT).show();
+        edtSerial.setText(productInner.getSerial().toString());
+        edtSeller.setText(productInner.getSeller().toString());
+        edtModel.setText(productInner.getModel().toString());
+        edtDescription.setText(productInner.getDescription().toString());
+        edtPrice.setText(String.valueOf(productInner.getPrice()));
+        edtUrl.setText(productInner.getUrl().toString());
+        edtNotes.setText(productInner.getNotes().toString());
     }
 }
