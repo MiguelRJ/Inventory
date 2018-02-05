@@ -50,6 +50,24 @@ public final class InventoryProviderContract {
                 DEPENDENCY
         };
     }
+
+    public static class Categorie implements BaseColumns {
+        public static final String CONTENT_PATH = "categorie";
+        public static final String NAME = "name";
+        public static final String[] PROJECTION = new String[]{
+                BaseColumns._ID,
+                NAME
+        };
+    }
+
+    public static class Type implements BaseColumns {
+        public static final String CONTENT_PATH = "type";
+        public static final String NAME = "name";
+        public static final String[] PROJECTION = new String[]{
+                BaseColumns._ID,
+                NAME
+        };
+    }
     
     public static class Product implements BaseColumns {
         public static final String CONTENT_PATH = "product";
@@ -90,10 +108,10 @@ public final class InventoryProviderContract {
             sProductInnerProjectionMap.put(SECTOR_ID,Sector.CONTENT_PATH+"."+Sector._ID);
             sProductInnerProjectionMap.put(SECTOR_NAME,Sector.CONTENT_PATH+"."+Sector.NAME);
             sProductInnerProjectionMap.put(DESCRIPTION, Product.CONTENT_PATH+"."+Product.DESCRIPTION);
-            //sProductInnerProjectionMap.put(CATEGORIE_ID,Categorie.CONTENT_PATH+"."+Categorie._ID);
-            //sProductInnerProjectionMap.put(CATEGORIE_NAME,Categorie.CONTENT_PATH+"."+Categorie.NAME);
-            //sProductInnerProjectionMap.put(TYPE_ID,Type.CONTENT_PATH+"."+Type._ID);
-            //sProductInnerProjectionMap.put(TYPE_NAME,Type.CONTENT_PATH+"."+Type.NAME);
+            sProductInnerProjectionMap.put(CATEGORIE_ID,Categorie.CONTENT_PATH+"."+Categorie._ID);
+            sProductInnerProjectionMap.put(CATEGORIE_NAME,Categorie.CONTENT_PATH+"."+Categorie.NAME);
+            sProductInnerProjectionMap.put(TYPE_ID,Type.CONTENT_PATH+"."+Type._ID);
+            sProductInnerProjectionMap.put(TYPE_NAME,Type.CONTENT_PATH+"."+Type.NAME);
             sProductInnerProjectionMap.put(DESCRIPTION, Product.CONTENT_PATH+"."+Product.DESCRIPTION);
             sProductInnerProjectionMap.put(PRICE, Product.CONTENT_PATH+"."+Product.PRICE);
             sProductInnerProjectionMap.put(BUYDATE, Product.CONTENT_PATH+"."+Product.BUYDATE);
