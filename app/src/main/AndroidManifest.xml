@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.inventoryFragmentBD">
+    package="com.example.inventory">
 
     <application
-        android:name="com.example.inventoryFragmentBD.ui.inventory.InventoryApplication"
+        android:name="com.example.inventory.ui.inventory.InventoryApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -13,7 +13,7 @@
 
         <!-- se crea esta instancia manualmente -->
         <activity
-            android:name="com.example.inventoryFragmentBD.ui.login.LoginViewImpl"
+            android:name="com.example.inventory.ui.login.LoginViewImpl"
             android:theme="@style/LoginTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,14 +21,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.inventoryFragmentBD.ui.inventory.InventoryActivity" />
-        <activity android:name="com.example.inventoryFragmentBD.DashBoardActivity" android:theme="@style/AppThemeDarkActionBar"/>
-        <activity android:name="com.example.inventoryFragmentBD.ui.products.ProductsActivity" />
-        <activity android:name="com.example.inventoryFragmentBD.ui.dependency.DependencyActivity"/>
-        <activity android:name="com.example.inventoryFragmentBD.ui.sector.SectorActivity"/>
-        <activity android:name="com.example.inventoryFragmentBD.ui.products.GeneralSettingActivity"/>
-        <activity android:name="com.example.inventoryFragmentBD.ui.prefs.AccountSettingActivity"/>
-        <activity android:name="com.example.inventoryFragmentBD.ui.about.AboutActivity"/>
+        <activity android:name="com.example.inventory.ui.inventory.InventoryActivity" />
+        <activity android:name="com.example.inventory.DashBoardActivity" android:theme="@style/AppThemeDarkActionBar"/>
+        <activity android:name="com.example.inventory.ui.products.ProductsActivity" />
+        <activity android:name="com.example.inventory.ui.dependency.DependencyActivity"/>
+        <activity android:name="com.example.inventory.ui.sector.SectorActivity"/>
+        <activity android:name="com.example.inventory.ui.products.GeneralSettingActivity"/>
+        <activity android:name="com.example.inventory.ui.prefs.AccountSettingActivity"/>
+        <activity android:name="com.example.inventory.ui.about.AboutActivity"/>
     </application>
 
 </manifest>
