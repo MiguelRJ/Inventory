@@ -1,9 +1,10 @@
 package com.example.inventory.data.db.repository;
 
-import com.example.inventory.data.db.dao.DependencyDao;
+import com.example.inventory.data.base.DependencyDao;
+import com.example.inventory.data.db.dao.DependencyDaoImpl;
 import com.example.inventory.data.db.model.Dependency;
+import com.example.inventory.data.provider.dao.DependencyProviderDaoImpl;
 import com.example.inventory.ui.dependency.interactor.AddEditDependencyInteractorInterface;
-
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -45,7 +46,7 @@ public class DependencyRepository {
      */
     private DependencyRepository() {
         this.dependencies = new ArrayList<>();
-        this.dao = new DependencyDao();
+        this.dao = new DependencyProviderDaoImpl();
         //initialize();
     }
 

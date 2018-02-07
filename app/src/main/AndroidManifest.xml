@@ -29,6 +29,9 @@
         <activity android:name="com.example.inventory.ui.products.GeneralSettingActivity"/>
         <activity android:name="com.example.inventory.ui.prefs.AccountSettingActivity"/>
         <activity android:name="com.example.inventory.ui.about.AboutActivity"/>
+        <provider
+            android:authorities="com.example.inventory"
+            android:name=".data.provider.InventoryProvider"/>
     </application>
 
 </manifest>
