@@ -136,8 +136,33 @@ public class InventoryProvider extends ContentProvider {
     }
 
     @Override
-    public int delete(@NonNull Uri uri, @Nullable String s, @Nullable String[] strings) {
-        return 0;
+    public int delete(@NonNull Uri uri, @Nullable String where, @Nullable String[] whereArgs) {
+        long result = 0;
+
+        switch (uriMatcher.match(uri)) {
+            case PRODUCT:
+                break;
+
+            case DEPENDENCY:
+                result = sqLiteDatabase.delete(
+                        InventoryContract.DependencyEntry.TABLE_NAME,
+                        where,
+                        whereArgs
+                );
+                break;
+
+            case SECTOR:
+                break;
+
+            case UriMatcher.NO_MATCH:
+                throw new IllegalArgumentException("Invalid Uri: "+ uri);
+
+        }
+
+        if (result==-1){
+            return -1;
+        }
+        return Integer.parseInt(String.valueOf(result));
     }
 
     @Override

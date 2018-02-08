@@ -92,7 +92,15 @@ public class DependencyProviderDaoImpl implements DependencyDao {
 
     @Override
     public int delete(Dependency dependency) {
-        return 0;
+        ContentResolver cr = InventoryApplication.getContext().getContentResolver();
+        String where = InventoryProviderContract.Dependency._ID + "=?";
+        String[] whereArgs = new String[]{String.valueOf(dependency.get_ID())};
+        int id = cr.delete(
+                InventoryProviderContract.Dependency.CONTENT_URI,
+                where,
+                whereArgs
+        );
+        return id;
     }
 
     @Override
