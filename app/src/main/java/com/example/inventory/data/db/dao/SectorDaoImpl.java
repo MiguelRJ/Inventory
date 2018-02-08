@@ -16,7 +16,7 @@ import java.util.ArrayList;
  * Created by usuario on 25/01/18.
  */
 
-public class SectorDao {
+public class SectorDaoImpl {
 
     /**
      * Metodo que devuelve un cursor con todas las dependencias de la base de datos
@@ -86,7 +86,6 @@ public class SectorDao {
 
     public ContentValues CreateContent(Sector sector){
         ContentValues contentValues = new ContentValues();
-        Log.e("values",String.valueOf(sector.getDependencyID()));
         contentValues.put(InventoryContract.SectorEntry.COLUMN_NAME,sector.getName());
         contentValues.put(InventoryContract.SectorEntry.COLUMN_SHORTNAME,sector.getSortName());
         contentValues.put(InventoryContract.SectorEntry.COLUMN_DESCRIPTION,sector.getDescription());

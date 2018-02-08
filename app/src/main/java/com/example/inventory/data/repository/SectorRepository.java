@@ -2,8 +2,11 @@ package com.example.inventory.data.repository;
 
 import android.util.Log;
 
-import com.example.inventory.data.db.dao.SectorDao;
+import com.example.inventory.data.base.SectorDao;
+import com.example.inventory.data.db.dao.SectorDaoImpl;
 import com.example.inventory.data.model.Sector;
+import com.example.inventory.data.provider.dao.SectorProviderDaoImpl;
+
 import java.util.ArrayList;
 
 /**
@@ -33,7 +36,7 @@ public class SectorRepository {
      */
     private SectorRepository() {
         this.sectors = new ArrayList<>();
-        dao = new SectorDao();
+        dao = new SectorProviderDaoImpl();
         //initialize();
     }
 

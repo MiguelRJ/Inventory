@@ -7,19 +7,20 @@ import android.database.sqlite.SQLiteQueryBuilder;
 import android.provider.BaseColumns;
 import android.util.Log;
 
+import com.example.inventory.data.base.ProductDao;
 import com.example.inventory.data.db.InventoryContract;
 import com.example.inventory.data.db.InventoryOpenHelper;
 import com.example.inventory.data.model.Product;
 import com.example.inventory.data.model.ProductInner;
-
 import java.util.ArrayList;
 
 /**
  * Created by usuario on 1/02/18.
  */
 
-public class ProductDao {
+public class ProductDaoImpl implements ProductDao {
 
+    @Override
     public ArrayList<Product> loadAll() {
 
         final ArrayList<Product> products = new ArrayList<>();
@@ -61,7 +62,12 @@ public class ProductDao {
         return products;
     }
 
+    @Override
+    public boolean exists(Product product) {
+        return false;
+    }
 
+    @Override
     public long add(Product product) {
         SQLiteDatabase sqLiteDatabase = InventoryOpenHelper.getInstance().openDateBase();
         long id = sqLiteDatabase.insert(InventoryContract.DependencyEntry.TABLE_NAME,
@@ -70,6 +76,7 @@ public class ProductDao {
         return id;
     }
 
+    @Override
     public int update(Product product) {
         SQLiteDatabase sqLiteDatabase = InventoryOpenHelper.getInstance().openDateBase();
         String where = BaseColumns._ID + "=?";
@@ -79,6 +86,7 @@ public class ProductDao {
         return 0;
     }
 
+    @Override
     public int delete(Product product) {
         SQLiteDatabase sqLiteDatabase = InventoryOpenHelper.getInstance().openDateBase();
         String where = BaseColumns._ID + "=?";
@@ -88,6 +96,7 @@ public class ProductDao {
         return id;
     }
 
+    @Override
     public ProductInner search(int id){
         SQLiteDatabase sqLiteDatabase = InventoryOpenHelper.getInstance().openDateBase();
         ProductInner productInner = null;
@@ -143,6 +152,7 @@ public class ProductDao {
         return productInner;
     }
 
+    @Override
     public ContentValues CreateContent(Product product) {
         ContentValues contentValues = new ContentValues();
         return contentValues;

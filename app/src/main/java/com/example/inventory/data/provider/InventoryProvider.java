@@ -85,6 +85,15 @@ public class InventoryProvider extends ContentProvider {
                 break;
 
             case SECTOR:
+                cursor = sqLiteDatabase.query(
+                        InventoryContract.SectorEntry.TABLE_NAME,
+                        projection,
+                        selection,
+                        selectionArgs,
+                        null,
+                        null,
+                        sortOrder
+                );
                 break;
 
             case SECTOR_ID:
@@ -174,6 +183,11 @@ public class InventoryProvider extends ContentProvider {
                 break;
 
             case SECTOR:
+                result = sqLiteDatabase.insert(
+                        InventoryContract.SectorEntry.TABLE_NAME,
+                        null,
+                        contentValues
+                );
                 break;
 
             case UriMatcher.NO_MATCH:
@@ -212,6 +226,19 @@ public class InventoryProvider extends ContentProvider {
                 break;
 
             case SECTOR:
+                result = sqLiteDatabase.delete(
+                        InventoryContract.SectorEntry.TABLE_NAME,
+                        where,
+                        whereArgs
+                );
+                break;
+
+            case SECTOR_ID:
+                result = sqLiteDatabase.delete(
+                        InventoryContract.SectorEntry.TABLE_NAME,
+                        InventoryProviderContract.Sector._ID+"=?",
+                        new String[]{uri.getLastPathSegment()}
+                );
                 break;
 
             case UriMatcher.NO_MATCH:
@@ -243,6 +270,12 @@ public class InventoryProvider extends ContentProvider {
                 break;
 
             case SECTOR:
+                result = sqLiteDatabase.update(
+                        InventoryContract.SectorEntry.TABLE_NAME,
+                        contentValues,
+                        where,
+                        whereArgs
+                );
                 break;
 
             case UriMatcher.NO_MATCH:

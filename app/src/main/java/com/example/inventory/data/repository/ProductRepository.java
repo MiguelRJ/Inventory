@@ -1,6 +1,6 @@
 package com.example.inventory.data.repository;
 
-import com.example.inventory.data.db.dao.ProductDao;
+import com.example.inventory.data.db.dao.ProductDaoImpl;
 import com.example.inventory.data.model.Product;
 import com.example.inventory.data.model.ProductInner;
 
@@ -14,7 +14,7 @@ public class ProductRepository {
 
     /* DECLARACION */
     private ArrayList<Product> products;
-    private ProductDao dao;
+    private ProductDaoImpl dao;
     private static ProductRepository productRepository;
 
     /* INICIALIZACION */
@@ -31,7 +31,7 @@ public class ProductRepository {
      */
     private ProductRepository() {
         this.products = new ArrayList<>();
-        this.dao = new ProductDao();
+        this.dao = new ProductDaoImpl();
         //initialize();
     }
 
