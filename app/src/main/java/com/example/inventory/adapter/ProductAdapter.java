@@ -10,7 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.inventory.R;
-import com.example.inventory.data.db.model.Product;
+import com.example.inventory.data.model.Product;
 
 import java.util.ArrayList;
 

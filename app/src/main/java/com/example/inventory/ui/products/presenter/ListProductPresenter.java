@@ -1,6 +1,6 @@
 package com.example.inventory.ui.products.presenter;
 
-import com.example.inventory.data.db.model.Product;
+import com.example.inventory.data.model.Product;
 import com.example.inventory.ui.products.contract.ListProductContract;
 import com.example.inventory.ui.products.interactor.ListProductInteractor;
 import com.example.inventory.ui.products.interactor.ListProductInteractorInterface;

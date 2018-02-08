@@ -1,6 +1,6 @@
-package com.example.inventory.data.db.repository;
+package com.example.inventory.data.repository;
 
-import com.example.inventory.data.db.model.User;
+import com.example.inventory.data.model.User;
 
 import java.util.ArrayList;
 

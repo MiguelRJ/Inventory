@@ -1,9 +1,9 @@
-package com.example.inventory.data.db.repository;
+package com.example.inventory.data.repository;
 
 import android.util.Log;
 
 import com.example.inventory.data.db.dao.SectorDao;
-import com.example.inventory.data.db.model.Sector;
+import com.example.inventory.data.model.Sector;
 import java.util.ArrayList;
 
 /**

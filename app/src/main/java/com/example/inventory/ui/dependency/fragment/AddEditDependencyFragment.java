@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.inventory.R;
-import com.example.inventory.data.db.model.Dependency;
+import com.example.inventory.data.model.Dependency;
 import com.example.inventory.ui.base.BaseFragment;
 import com.example.inventory.ui.base.BasePresenter;
 import com.example.inventory.ui.dependency.contract.AddEditDependencyContract;

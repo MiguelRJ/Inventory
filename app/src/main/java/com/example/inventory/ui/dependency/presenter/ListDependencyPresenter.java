@@ -2,7 +2,7 @@ package com.example.inventory.ui.dependency.presenter;
 
 import android.util.Log;
 
-import com.example.inventory.data.db.model.Dependency;
+import com.example.inventory.data.model.Dependency;
 import com.example.inventory.ui.dependency.contract.ListDependencyContract;
 import com.example.inventory.ui.dependency.interactor.ListDependencyInteractor;
 

@@ -9,8 +9,8 @@ import android.util.Log;
 
 import com.example.inventory.data.db.InventoryContract;
 import com.example.inventory.data.db.InventoryOpenHelper;
-import com.example.inventory.data.db.model.Product;
-import com.example.inventory.data.db.model.ProductInner;
+import com.example.inventory.data.model.Product;
+import com.example.inventory.data.model.ProductInner;
 
 import java.util.ArrayList;
 

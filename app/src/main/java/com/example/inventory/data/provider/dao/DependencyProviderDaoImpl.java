@@ -3,7 +3,7 @@ package com.example.inventory.data.provider.dao;
 import android.content.ContentValues;
 
 import com.example.inventory.data.base.DependencyDao;
-import com.example.inventory.data.db.model.Dependency;
+import com.example.inventory.data.model.Dependency;
 
 import java.util.ArrayList;
 

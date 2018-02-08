@@ -1,6 +1,6 @@
 package com.example.inventory.ui.sector.interactor;
 
-import com.example.inventory.data.db.model.Sector;
+import com.example.inventory.data.model.Sector;
 
 /**
  * Created by Miguel on 03/12/2017.

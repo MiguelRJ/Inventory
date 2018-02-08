@@ -23,7 +23,7 @@ import android.widget.ListView;
 
 import com.example.inventory.R;
 import com.example.inventory.adapter.DependencyAdapter;
-import com.example.inventory.data.db.model.Dependency;
+import com.example.inventory.data.model.Dependency;
 import com.example.inventory.ui.base.BasePresenter;
 import com.example.inventory.ui.dependency.contract.ListDependencyContract;
 import com.example.inventory.ui.dependency.presenter.ListDependencyPresenter;

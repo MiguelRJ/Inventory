@@ -18,7 +18,7 @@ import android.widget.ListView;
 
 import com.example.inventory.R;
 import com.example.inventory.adapter.ProductAdapter;
-import com.example.inventory.data.db.model.Product;
+import com.example.inventory.data.model.Product;
 import com.example.inventory.ui.base.BasePresenter;
 import com.example.inventory.ui.products.contract.ListProductContract;
 import com.example.inventory.ui.products.presenter.ListProductPresenter;

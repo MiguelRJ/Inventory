@@ -1,4 +1,4 @@
-package com.example.inventory.data.db.model;
+package com.example.inventory.data.model;
 
 /**
  * Created by usuario on 8/11/17.

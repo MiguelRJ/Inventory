@@ -1,7 +1,7 @@
 package com.example.inventory.ui.sector.interactor;
 
 
-import com.example.inventory.data.db.model.Sector;
+import com.example.inventory.data.model.Sector;
 import java.util.List;
 
 /**

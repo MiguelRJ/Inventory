@@ -2,8 +2,8 @@ package com.example.inventory.ui.dependency.interactor;
 
 import android.os.AsyncTask;
 
-import com.example.inventory.data.db.model.Dependency;
-import com.example.inventory.data.db.repository.DependencyRepository;
+import com.example.inventory.data.model.Dependency;
+import com.example.inventory.data.repository.DependencyRepository;
 
 import java.util.ArrayList;
 

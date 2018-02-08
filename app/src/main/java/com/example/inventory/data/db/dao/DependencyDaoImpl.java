@@ -8,7 +8,7 @@ import android.provider.BaseColumns;
 import com.example.inventory.data.base.DependencyDao;
 import com.example.inventory.data.db.InventoryContract;
 import com.example.inventory.data.db.InventoryOpenHelper;
-import com.example.inventory.data.db.model.Dependency;
+import com.example.inventory.data.model.Dependency;
 
 import java.util.ArrayList;
 

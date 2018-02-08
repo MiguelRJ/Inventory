@@ -1,7 +1,7 @@
 package com.example.inventory.ui.sector.presenter;
 
-import com.example.inventory.data.db.model.Dependency;
-import com.example.inventory.data.db.model.Sector;
+import com.example.inventory.data.model.Dependency;
+import com.example.inventory.data.model.Sector;
 import com.example.inventory.ui.dependency.interactor.ListDependencyInteractor;
 import com.example.inventory.ui.sector.contract.AddEditSectorContract;
 import com.example.inventory.ui.sector.interactor.AddEditSectorInteractor;

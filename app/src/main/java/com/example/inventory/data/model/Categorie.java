@@ -1,14 +1,14 @@
-package com.example.inventory.data.db.model;
+package com.example.inventory.data.model;
 
 /**
  * Created by Miguel on 30/01/2018.
  */
 
-public class Type {
+public class Categorie {
     private int _id;
     private String name;
 
-    public Type(int _id, String name) {
+    public Categorie(int _id, String name) {
         this._id = _id;
         this.name = name;
     }

@@ -2,7 +2,7 @@ package com.example.inventory.ui.dependency.contract;
 
 import android.app.Activity;
 
-import com.example.inventory.data.db.model.Dependency;
+import com.example.inventory.data.model.Dependency;
 import com.example.inventory.ui.base.BasePresenter;
 import com.example.inventory.ui.base.BaseView;
 

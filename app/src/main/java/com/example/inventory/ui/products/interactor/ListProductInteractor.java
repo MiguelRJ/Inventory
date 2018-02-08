@@ -1,6 +1,6 @@
 package com.example.inventory.ui.products.interactor;
 
-import com.example.inventory.data.db.repository.ProductRepository;
+import com.example.inventory.data.repository.ProductRepository;
 
 /**
  * Created by usuario on 1/02/18.

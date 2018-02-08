@@ -2,7 +2,7 @@ package com.example.inventory.data.base;
 
 import android.content.ContentValues;
 
-import com.example.inventory.data.db.model.Dependency;
+import com.example.inventory.data.model.Dependency;
 
 import java.util.ArrayList;
 

@@ -2,8 +2,8 @@ package com.example.inventory.ui.sector.interactor;
 
 import android.text.TextUtils;
 
-import com.example.inventory.data.db.model.Sector;
-import com.example.inventory.data.db.repository.SectorRepository;
+import com.example.inventory.data.model.Sector;
+import com.example.inventory.data.repository.SectorRepository;
 
 /**
  * Created by Miguel on 03/12/2017.

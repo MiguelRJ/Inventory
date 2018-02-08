@@ -1,7 +1,7 @@
 package com.example.inventory.ui.sector.contract;
 
-import com.example.inventory.data.db.model.Dependency;
-import com.example.inventory.data.db.model.Sector;
+import com.example.inventory.data.model.Dependency;
+import com.example.inventory.data.model.Sector;
 import com.example.inventory.ui.base.BasePresenter;
 import com.example.inventory.ui.base.BaseView;
 

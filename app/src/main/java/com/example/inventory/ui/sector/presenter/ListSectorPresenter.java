@@ -2,7 +2,7 @@ package com.example.inventory.ui.sector.presenter;
 
 import android.util.Log;
 
-import com.example.inventory.data.db.model.Sector;
+import com.example.inventory.data.model.Sector;
 import com.example.inventory.ui.sector.contract.ListSectorContract;
 import com.example.inventory.ui.sector.interactor.ListSectorInteractor;
 import com.example.inventory.ui.sector.interactor.ListSectorInteractorInterface;

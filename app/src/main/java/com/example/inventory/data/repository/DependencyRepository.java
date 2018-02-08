@@ -1,8 +1,7 @@
-package com.example.inventory.data.db.repository;
+package com.example.inventory.data.repository;
 
 import com.example.inventory.data.base.DependencyDao;
-import com.example.inventory.data.db.dao.DependencyDaoImpl;
-import com.example.inventory.data.db.model.Dependency;
+import com.example.inventory.data.model.Dependency;
 import com.example.inventory.data.provider.dao.DependencyProviderDaoImpl;
 import com.example.inventory.ui.dependency.interactor.AddEditDependencyInteractorInterface;
 import java.util.ArrayList;

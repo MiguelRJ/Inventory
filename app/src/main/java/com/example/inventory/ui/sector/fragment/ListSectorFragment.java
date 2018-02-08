@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 import com.example.inventory.R;
 import com.example.inventory.adapter.SectorAdapter;
-import com.example.inventory.data.db.model.Sector;
+import com.example.inventory.data.model.Sector;
 import com.example.inventory.ui.base.BasePresenter;
 import com.example.inventory.ui.sector.contract.ListSectorContract;
 import com.example.inventory.ui.sector.presenter.ListSectorPresenter;

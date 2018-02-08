@@ -1,6 +1,6 @@
 package com.example.inventory.ui.dependency.interactor;
 
-import com.example.inventory.data.db.model.Dependency;
+import com.example.inventory.data.model.Dependency;
 
 import java.util.List;
 

@@ -8,7 +8,7 @@ import android.util.Log;
 
 import com.example.inventory.data.db.InventoryContract;
 import com.example.inventory.data.db.InventoryOpenHelper;
-import com.example.inventory.data.db.model.Sector;
+import com.example.inventory.data.model.Sector;
 
 import java.util.ArrayList;
 

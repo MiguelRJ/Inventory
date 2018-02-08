@@ -1,7 +1,7 @@
 package com.example.inventory;
 
-import com.example.inventory.data.db.model.User;
-import com.example.inventory.data.db.repository.UserRepository;
+import com.example.inventory.data.model.User;
+import com.example.inventory.data.repository.UserRepository;
 
 import org.junit.Before;
 import org.junit.Test;

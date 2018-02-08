@@ -9,8 +9,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.inventory.R;
-import com.example.inventory.data.db.model.Product;
-import com.example.inventory.data.db.model.ProductInner;
+import com.example.inventory.data.model.Product;
+import com.example.inventory.data.model.ProductInner;
 import com.example.inventory.ui.base.BaseFragment;
 import com.example.inventory.ui.base.BasePresenter;
 import com.example.inventory.ui.products.contract.AddProductContract;
