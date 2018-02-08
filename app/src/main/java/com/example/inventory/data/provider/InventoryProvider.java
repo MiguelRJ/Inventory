@@ -94,7 +94,7 @@ public class InventoryProvider extends ContentProvider {
 
         }
 
-        return null;
+        return cursor;
     }
 
     @Nullable
@@ -106,7 +106,33 @@ public class InventoryProvider extends ContentProvider {
     @Nullable
     @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        return null;
+
+        Long result = null;
+
+        switch (uriMatcher.match(uri)) {
+            case PRODUCT:
+                break;
+
+            case DEPENDENCY:
+                result = sqLiteDatabase.insert(
+                        InventoryContract.DependencyEntry.TABLE_NAME,
+                        null,
+                        contentValues
+                );
+                break;
+
+            case SECTOR:
+                break;
+
+            case UriMatcher.NO_MATCH:
+                throw new IllegalArgumentException("Invalid Uri: "+ uri);
+
+        }
+
+        if (result==-1){
+            return null;
+        }
+        return Uri.parse(uri+"/"+result);
     }
 
     @Override
