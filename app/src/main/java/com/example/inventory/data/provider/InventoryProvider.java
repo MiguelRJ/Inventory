@@ -141,8 +141,34 @@ public class InventoryProvider extends ContentProvider {
     }
 
     @Override
-    public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String s, @Nullable String[] strings) {
-        return 0;
+    public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String where, @Nullable String[] whereArgs) {
+        long result = 0;
+
+        switch (uriMatcher.match(uri)) {
+            case PRODUCT:
+                break;
+
+            case DEPENDENCY:
+                result = sqLiteDatabase.update(
+                        InventoryContract.DependencyEntry.TABLE_NAME,
+                        contentValues,
+                        where,
+                        whereArgs
+                );
+                break;
+
+            case SECTOR:
+                break;
+
+            case UriMatcher.NO_MATCH:
+                throw new IllegalArgumentException("Invalid Uri: "+ uri);
+
+        }
+
+        if (result==-1){
+            return -1;
+        }
+        return Integer.parseInt(String.valueOf(result));
     }
 
 }

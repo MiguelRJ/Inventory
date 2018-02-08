@@ -4,6 +4,8 @@ import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.net.Uri;
+import android.provider.BaseColumns;
+
 import com.example.inventory.data.base.DependencyDao;
 import com.example.inventory.data.model.Dependency;
 import com.example.inventory.data.provider.InventoryProviderContract;
@@ -76,7 +78,16 @@ public class DependencyProviderDaoImpl implements DependencyDao {
 
     @Override
     public int update(Dependency dependency) {
-        return 0;
+        ContentResolver cr = InventoryApplication.getContext().getContentResolver();
+        String where = InventoryProviderContract.Dependency._ID + "=?";
+        String[] whereArgs = new String[]{String.valueOf(dependency.get_ID())};
+        int id = cr.update(
+                InventoryProviderContract.Dependency.CONTENT_URI,
+                CreateContent(dependency),
+                where,
+                whereArgs
+        );
+        return id;
     }
 
     @Override
