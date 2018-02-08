@@ -101,6 +101,57 @@ public class InventoryProvider extends ContentProvider {
     @Nullable
     @Override
     public String getType(@NonNull Uri uri) {
+        /* sto sirve para los intent par trabajar con tipos de datos,
+         * intent siempre ha sido de una activity a otra, (.class)
+         * intent explicito quiero algo, si quiero una foto, dame algo o haz una foto
+         * dame un tipo de dato de imagen MIME TYPE (image/png, image/jpe, imgae/gif)
+         * tenemos que establecer que tipo de datos son los que devolvemos
+         * vnd.android.cursor.dir - vas a devolver un conjunto de elementos
+         * vnd.anroid.cursor.item - vas a devolver un elemento
+         *
+         * Ejemplo para dir (cuando se obtienen muchas dependency)
+         *      vnd.android.cursor.dir/vnd.com.example.inventory/dependency
+         *
+         * Ejemplo para item (cuando se obtiene una dependency)
+         *      vnd.android.cursor.item/vnd.com.example.inventory/dependency
+         * */
+
+        String DIR = "vnd.android.cursor.dir/vnd.";
+        String ITEM = "vnd.android.cursor.item/vnd.";
+
+        switch (uriMatcher.match(uri)) {
+            case PRODUCT:
+                return (DIR+
+                        InventoryProviderContract.AUTHORITY+"/"+
+                        InventoryProviderContract.Product.CONTENT_PATH);
+            case PRODUCT_ID:
+                return (ITEM+
+                        InventoryProviderContract.AUTHORITY+"/"+
+                        InventoryProviderContract.Product.CONTENT_PATH);
+
+            case DEPENDENCY:
+                return (DIR+
+                        InventoryProviderContract.AUTHORITY+"/"+
+                        InventoryProviderContract.Dependency.CONTENT_PATH);
+            case DEPENDENCY_ID:
+                return (ITEM+
+                        InventoryProviderContract.AUTHORITY+"/"+
+                        InventoryProviderContract.Dependency.CONTENT_PATH);
+
+            case SECTOR:
+                return (DIR+
+                        InventoryProviderContract.AUTHORITY+"/"+
+                        InventoryProviderContract.Sector.CONTENT_PATH);
+            case SECTOR_ID:
+                return (ITEM+
+                        InventoryProviderContract.AUTHORITY+"/"+
+                        InventoryProviderContract.Sector.CONTENT_PATH);
+
+            case UriMatcher.NO_MATCH:
+                throw new IllegalArgumentException("Invalid Uri: "+ uri);
+
+        }
+
         return null;
     }
 
