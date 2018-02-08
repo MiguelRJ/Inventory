@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import com.example.inventory.data.db.InventoryContract;
 import com.example.inventory.data.db.InventoryOpenHelper;
@@ -148,6 +149,14 @@ public class InventoryProvider extends ContentProvider {
                         InventoryContract.DependencyEntry.TABLE_NAME,
                         where,
                         whereArgs
+                );
+                break;
+
+            case DEPENDENCY_ID:
+                result = sqLiteDatabase.delete(
+                        InventoryContract.DependencyEntry.TABLE_NAME,
+                        InventoryProviderContract.Dependency._ID+"=?",
+                        new String[]{uri.getLastPathSegment()}
                 );
                 break;
 
